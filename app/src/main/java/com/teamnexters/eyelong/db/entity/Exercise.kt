@@ -1,9 +1,6 @@
 package com.teamnexters.eyelong.db.entity
 
-
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
 
 @Entity(tableName = "exercise")
 data class Exercise (
@@ -24,15 +21,26 @@ data class Exercise (
     val effect_discription: String,
 
     //소요시간
-    @ColumnInfo(name = "time")
-    val time: String,
+    @ColumnInfo(name = "elaped_time")
+    val elaped_time: String,
 
     //##이 부분은 뷰가 나오면 추가할 부분 있는지 확인하기
     @ColumnInfo(name = "tip")
     val tip: String,
-    @ColumnInfo(name = "tip_image")
-    val tip_image : Int,
+    @ColumnInfo(name = "tip_image_path")
+    val tip_image_path : String,
     @ColumnInfo(name = "lottie_image_path")
     val lottie_image_path: String
 
+)
+
+//foreign key
+// exercise - exercise_history
+data class ExerciseExerciseLists(
+    @Embedded val exercise : Exercise,
+    @Relation(
+        parentColumn = "id",
+        entityColumn = "exercise_id"
+    )
+    val exerciselists : List<ExerciseHistory>
 )

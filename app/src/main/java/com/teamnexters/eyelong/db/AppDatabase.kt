@@ -4,22 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.db.dao.*
 import com.teamnexters.eyelong.db.entity.*
 
 @Database(
-    entities = arrayOf(
-        User::class,
-        Exercise::class,
-        ExerciseHistory::class,
-        Habit::class,
-        HabitHistory::class
-    ),
+    entities = [User::class, Exercise::class, ExerciseHistory::class, Habit::class, HabitHistory::class],
     version = 1,
     exportSchema = true
 )
-
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
@@ -45,7 +37,7 @@ abstract class AppDatabase : RoomDatabase() {
                 sAppDatabase = Room.databaseBuilder(
                     context,
                     AppDatabase::class.java,
-                    context.getString(R.string.app_db_name)
+                    "eyelong.sqlite"
                 ).build()
             }
 

@@ -33,14 +33,3 @@ data class Exercise (
     val lottie_image_path: String
 
 )
-
-//foreign key
-// exercise - exercise_history
-data class ExerciseExerciseLists(
-    @Embedded val exercise : Exercise,
-    @Relation(
-        parentColumn = "id",
-        entityColumn = "exercise_id"
-    )
-    val exerciselists : List<ExerciseHistory>
-)

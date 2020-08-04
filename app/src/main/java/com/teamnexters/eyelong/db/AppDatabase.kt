@@ -22,12 +22,13 @@ import com.teamnexters.eyelong.db.entity.*
 
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun userDao(): UserDao/*
+    abstract fun userDao(): UserDao
     abstract fun exerciseDao(): ExerciseDao
     abstract fun exerciseHistoryDao(): ExerciseHistoryDao
     abstract fun habitDao(): HabitDao
     abstract fun habitHistoryDao(): HabitHistoryDao
-*/
+
+
     companion object {
 //        https://woovictory.github.io/2019/01/25/Android-Room-Basic/
 //        val VERSION_1: Migration = object : Migration(0, 1) {

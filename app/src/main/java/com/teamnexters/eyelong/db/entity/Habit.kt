@@ -11,13 +11,3 @@ data class Habit (
     val description : String
 )
 
-//foreign key
-// habit - habit_history
-data class HabitHistoryLists(
-    @Embedded val habit : Habit,
-    @Relation(
-        parentColumn = "id",
-        entityColumn = "habit_id"
-    )
-    val habitLists : List<HabitHistory>
-)

@@ -5,18 +5,15 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.teamnexters.eyelong.db.entity.User
+import com.teamnexters.eyelong.db.entity.Habit
 
 @Dao
-interface UserDao {
+interface HabitDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertUser(user: User)
+    fun insertHabit(habit: Habit)
 
-    @Query("SELECT * FROM user ORDER BY id")
-    fun getAllUser() : LiveData<List<User>>
-
-
-
+    @Query("SELECT * FROM habit ORDER BY id")
+    fun getAllHabits() : LiveData<List<Habit>>
 
 }

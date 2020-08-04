@@ -5,16 +5,16 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.teamnexters.eyelong.db.entity.User
+import com.teamnexters.eyelong.db.entity.Exercise
 
 @Dao
-interface UserDao {
+interface ExerciseDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertUser(user: User)
+    fun insertExercise(exercise: Exercise)
 
-    @Query("SELECT * FROM user ORDER BY id")
-    fun getAllUser() : LiveData<List<User>>
+    @Query("SELECT * FROM exercise ORDER BY id")
+    fun getAllExercise() : LiveData<List<Exercise>>
 
 
 

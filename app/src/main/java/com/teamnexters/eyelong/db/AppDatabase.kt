@@ -20,28 +20,20 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun habitDao(): HabitDao
     abstract fun habitHistoryDao(): HabitHistoryDao
 
-
     companion object {
-//        https://woovictory.github.io/2019/01/25/Android-Room-Basic/
-//        val VERSION_1: Migration = object : Migration(0, 1) {
-//            override fun migrate(database: SupportSQLiteDatabase) {
-//                // database.execSQL("ALTER TABLE..");
-//            }
-//        }
 
-        private var sAppDatabase: AppDatabase? = null
+        private var appDatabase: AppDatabase? = null
 
         fun getAppDatabase(context: Context): AppDatabase? {
-            // Room
-            if (sAppDatabase == null) {
-                sAppDatabase = Room.databaseBuilder(
+            if (appDatabase == null) {
+                appDatabase = Room.databaseBuilder(
                     context,
                     AppDatabase::class.java,
-                    "eyelong.sqlite"
+                    "eyelong"
                 ).build()
             }
 
-            return sAppDatabase
+            return appDatabase
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.teamnexters.eyelong.db.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -13,10 +12,9 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertUser(user: User)
 
-    @Query("SELECT * FROM user ORDER BY id")
-    fun getAllUser() : LiveData<List<User>>
+    @Query("SELECT * FROM user")
+    fun getUserAll()
 
-
-
-
+    @Query("SELECT * FROM user WHERE user_name = :userName")
+    fun getUserByUserName(userName: String)
 }

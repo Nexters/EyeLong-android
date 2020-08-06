@@ -4,22 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.db.dao.*
 import com.teamnexters.eyelong.db.entity.*
 
 @Database(
-    entities = arrayOf(
-        User::class,
-        Exercise::class,
-        ExerciseHistory::class,
-        Habit::class,
-        HabitHistory::class
-    ),
+    entities = [User::class, Exercise::class, ExerciseHistory::class, Habit::class, HabitHistory::class],
     version = 1,
     exportSchema = true
 )
-
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
@@ -28,31 +20,20 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun habitDao(): HabitDao
     abstract fun habitHistoryDao(): HabitHistoryDao
 
-
     companion object {
-//        https://woovictory.github.io/2019/01/25/Android-Room-Basic/
-//        val VERSION_1: Migration = object : Migration(0, 1) {
-//            override fun migrate(database: SupportSQLiteDatabase) {
-//                // database.execSQL("ALTER TABLE..");
-//            }
-//        }
 
-        private var sAppDatabase: AppDatabase? = null
+        private var appDatabase: AppDatabase? = null
 
         fun getAppDatabase(context: Context): AppDatabase? {
-            // Room
-            if (sAppDatabase == null) {
-                sAppDatabase = Room.databaseBuilder(
+            if (appDatabase == null) {
+                appDatabase = Room.databaseBuilder(
                     context,
                     AppDatabase::class.java,
-                    context.getString(R.string.app_db_name)
+                    "eyelong"
                 ).build()
             }
 
-            return sAppDatabase
+            return appDatabase
         }
     }
-
-
-
 }

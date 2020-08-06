@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">EyeLong</string>
 
-    <string name="app_db_name">이건 삭제해주세요!</string>
+    <string name="app_db_name">app_database</string>
 </resources>

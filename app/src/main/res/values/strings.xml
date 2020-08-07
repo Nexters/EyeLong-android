@@ -1,4 +1,26 @@
 <resources>
     <string name="app_name">EyeLong</string>
     <string name="app_db_name">app_database</string>
+
+    <!--main-->
+    <string name="like_desert_main">사막같은</string>
+    <string name="for_eye_main">눈을 위해</string>
+    <string name="oasis_main">오아시스로 출발!</string>
+
+    <string name="start_eye_exercise_main">눈 운동을 시작해볼까요? </string>
+    <string name="setting_alarm_for_continuous_exercise_main">지속적인 운동을 위해 알람 맞추기 ></string>
+
+    <string name="today_eye_habit_main">오늘의 눈 습관</string>
+    <string name="today_eye_habit_detail_main">오아시스를 향한 당신의 여정에 도움을 줄 거예요.</string>
+
+    <string name="fighting_habit_main">습관 달성을 위해 힘내봐요!</string>
+    <string name="conplete_habit_main">개 달성 완료!</string>
+
+
+
+
+
+
+
+
 </resources>

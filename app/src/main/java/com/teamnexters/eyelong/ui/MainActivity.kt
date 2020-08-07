@@ -1,8 +1,9 @@
-package com.teamnexters.eyelong
+package com.teamnexters.eyelong.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.RoomDatabase
+import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.db.AppDatabase
 
 class MainActivity : AppCompatActivity() {

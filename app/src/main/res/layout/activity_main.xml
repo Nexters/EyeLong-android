@@ -101,10 +101,9 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toEndOf="@+id/tv_start_eye_exercise"
-                app:layout_constraintTop_toTopOf="parent"
                 android:src="@drawable/ic_chevron_right_white_24dp"
-                />
+                app:layout_constraintStart_toEndOf="@+id/tv_start_eye_exercise"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

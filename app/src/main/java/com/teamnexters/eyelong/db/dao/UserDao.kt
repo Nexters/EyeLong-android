@@ -1,5 +1,6 @@
 package com.teamnexters.eyelong.db.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -13,8 +14,8 @@ interface UserDao {
     fun insertUser(user: User)
 
     @Query("SELECT * FROM user")
-    fun getUserAll()
+    fun getUserAll() : LiveData<List<User>>
 
     @Query("SELECT * FROM user WHERE user_name = :userName")
-    fun getUserByUserName(userName: String)
+    fun getUserByUserName(userName: String) : LiveData<List<User>>
 }

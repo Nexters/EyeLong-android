@@ -6,6 +6,7 @@
 
     <!--black-->
     <color name="colorBlack">#000000</color>
+    <color name="colorBlack_400">#707070</color>
     <color name="colorBlack_500">#585858</color>
     <color name="colorBlack_600">#414141</color>
     <color name="colorBlack_700">#292929</color>
@@ -13,9 +14,13 @@
 
     <!--gray-->
     <color name="colorGray_700">#E8ECED</color>
+    <color name="colorGray_100">#F9F9F9</color>
+
 
 
     <color name="colorGreen_500">#3BEAA7</color>
+
+    <color name="colorGreen_">#00D282</color>
 
 
     <color name="colorWhite">#FFFFFF</color>

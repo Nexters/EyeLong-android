@@ -17,8 +17,18 @@
     <string name="conplete_habit_main">개 달성 완료!</string>
 
 
+    <!--exercise-->
+    <string name="exercise_title">8자 그리기 운동</string>
+    <string name="exercise_effect">눈 혈행 개선</string>
+    <string name="exercise_time">1분 30초</string>
+    <string name="text_effect">효과</string>
 
 
+    <string name="exercise_effect_simple">눈 혈행 개선을 통한 시력회복</string>
+    <string name="exercise_effect_detail">눈 혈행 개선으로 눈 근육이 좋아지면 시력에 좋은 영향을 줍니다. 특히 근시는 눈이 앞뒤로 길고,
+    원시는 눈이 위아래로 긴데, 눈 근육 운동을 하면 눈의 원래 모양인 구형으로 만드는데 도움을 줄 수 있습니다.</string>
+    <string name="exercise_reference">참고해주세요!</string>
+    <string name="exercise_reference_detail">눈이 아프면 운동을 멈춰주세요. 그리고 눈 운동의 효과는 사람마다 다를 수 있습니다.</string>
 
 
 

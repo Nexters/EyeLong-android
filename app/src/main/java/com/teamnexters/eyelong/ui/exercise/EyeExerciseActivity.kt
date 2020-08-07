@@ -3,21 +3,59 @@
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.teamnexters.eyelong.R
+import com.teamnexters.eyelong.db.entity.Exercise
+import com.teamnexters.eyelong.ui.exercise.adapter.EyeExerciseRecyclerViewAdapter
 import kotlinx.android.synthetic.main.activity_eye_exercise.*
 import kotlinx.android.synthetic.main.activity_main.*
 
- class EyeExerciseActivity : AppCompatActivity() {
+ class EyeExerciseActivity : AppCompatActivity(), View.OnClickListener {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+
+     lateinit var eyeExerciseRecyclerViewAdapter: EyeExerciseRecyclerViewAdapter
+
+     //click
+     override fun onClick(v: View?) {
+         when (v!!) {
+             img_btn_back -> {
+                 finish()
+             }
+         }
+     }
+
+
+     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_eye_exercise)
 
+        init()
+         configureRecyclerView()
 
-        //테스트용
-        cl_exercise_start_btn.setOnClickListener{
-            var intent = Intent(this, EyeExerciseDetailActivity::class.java)
-            startActivity(intent)
-        }
     }
-}
+
+
+     private fun init() {
+         cl_exercise_start_btn.setOnClickListener(this)
+         img_btn_back.setOnClickListener(this)
+     }
+
+     private fun configureRecyclerView() {
+         var dataList: ArrayList<Exercise> = ArrayList()
+
+         dataList.add(Exercise(0, "운동이름", "", "1분 30초", "효과효과", "효과의 상세설명",
+         "tip의 설명", ""))
+         dataList.add(Exercise(0, "운동이름", "", "1분 30초", "효과효과", "효과의 상세설명",
+             "tip의 설명", ""))
+         dataList.add(Exercise(0, "운동이름", "", "1분 30초", "효과효과", "효과의 상세설명",
+             "tip의 설명", ""))
+
+
+         eyeExerciseRecyclerViewAdapter = EyeExerciseRecyclerViewAdapter(this, dataList)
+         rv_exercise_list.adapter = eyeExerciseRecyclerViewAdapter
+         rv_exercise_list.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+     }
+
+ }

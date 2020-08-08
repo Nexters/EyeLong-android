@@ -17,9 +17,9 @@ data class Exercise(
     @ColumnInfo(name = "lottie_image_path")
     val lottieImagePath: String,
 
-    // 소요 시간
+    // 소요 시간 --> 초로!!
     @ColumnInfo(name = "elapsed_time")
-    val elapsedTime: String,
+    val elapsedTime: Int,
 
     @ColumnInfo(name = "effect_simple")
     val effectSimple: String,

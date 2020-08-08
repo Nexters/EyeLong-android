@@ -44,6 +44,11 @@ class EyeExerciseRecyclerViewAdapter(val ctx: Context, val dataList: ArrayList<E
         holder.exercise_effect.text = dataList[position].effectSimple
         holder.exercise_title.text = dataList[position].name
 
+        //+ 나타내는 뷰 찍기
+        if(itemCount < 3) {
+
+        }
+
         holder.container.setOnClickListener {
             var intent = Intent(ctx, EyeExerciseDetailActivity::class.java)
             intent.putExtra("id", dataList[position].id)

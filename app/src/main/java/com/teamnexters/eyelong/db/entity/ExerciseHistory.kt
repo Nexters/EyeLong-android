@@ -5,18 +5,19 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "exercise_history")
-data class ExerciseHistory (
+data class ExerciseHistory(
+
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    val id: Int=0,
-    @ColumnInfo(name = "exercise_id")
-    val exercise_id: Int=0,
+    val id: Int = 0,
+
     @ColumnInfo(name = "user_id")
-    val user_id: Int=0,
+    val userId: String,
 
+    @ColumnInfo(name = "exercise_id")
+    val exerciseId: Int,
 
-    //##create_date type
+    // TODO create_date type check
     @ColumnInfo(name = "create_date")
-    val create_date: String
-
+    val createDate: String
 )

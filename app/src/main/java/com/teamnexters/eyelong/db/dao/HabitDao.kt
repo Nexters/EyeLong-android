@@ -13,7 +13,6 @@ interface HabitDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertHabit(habit: Habit)
 
-    @Query("SELECT * FROM habit ORDER BY id")
-    fun getAllHabits() : LiveData<List<Habit>>
-
+    @Query("SELECT * FROM habit")
+    fun getHabitAll() : LiveData<List<Habit>>
 }

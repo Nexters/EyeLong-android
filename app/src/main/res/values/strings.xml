@@ -1,5 +1,47 @@
 <resources>
     <string name="app_name">EyeLong</string>
+    <string name="app_db_name">app_database</string>
 
-    <string name="app_db_name">이건 삭제해주세요!</string>
+    <!--main-->
+    <string name="like_desert_main">사막같은</string>
+    <string name="for_eye_main">눈을 위해</string>
+    <string name="oasis_main">오아시스로 출발!</string>
+
+    <string name="start_eye_exercise_main">눈 운동을 시작해볼까요? </string>
+    <string name="setting_alarm_for_continuous_exercise_main">지속적인 운동을 위해 알람 맞추기 ></string>
+
+    <string name="today_eye_habit_main">오늘의 눈 습관</string>
+    <string name="today_eye_habit_detail_main">오아시스를 향한 당신의 여정에 도움을 줄 거예요.</string>
+
+    <string name="fighting_habit_main">습관 달성을 위해 힘내봐요!</string>
+    <string name="conplete_habit_main">개 달성 완료!</string>
+
+
+    <!--exercise-->
+    <string name="exercise_for_oasis">오아시스를 향한</string>
+    <string name="today_exercise">오늘의 눈 운동</string>
+    <string name="exercise_list">눈 운동 리스트</string>
+
+    <string name="start_exercise">운동 시작</string>
+    <string name="exercise_total_time">총 소요시간</string>
+    <string name="exercise_total_time_num">7분 50초</string>
+
+    <!--exercise detail-->
+    <string name="exercise_title">8자 그리기 운동</string>
+    <string name="exercise_effect">눈 혈행 개선</string>
+    <string name="exercise_time">1분 30초</string>
+    <string name="text_effect">효과</string>
+
+
+    <!--눈 운동 추가하기-->
+    <string name="exercise_add">눈 운동 변경하기</string>
+    <string name="exercise_text_add">추가하기</string>
+
+    <string name="exercise_effect_simple">눈 혈행 개선을 통한 시력회복</string>
+    <string name="exercise_effect_detail">눈 혈행 개선으로 눈 근육이 좋아지면 시력에 좋은 영향을 줍니다. 특히 근시는 눈이 앞뒤로 길고,
+    원시는 눈이 위아래로 긴데, 눈 근육 운동을 하면 눈의 원래 모양인 구형으로 만드는데 도움을 줄 수 있습니다.</string>
+    <string name="exercise_reference">참고해주세요!</string>
+    <string name="exercise_reference_detail">눈이 아프면 운동을 멈춰주세요. 그리고 눈 운동의 효과는 사람마다 다를 수 있습니다.</string>
+
+
 </resources>

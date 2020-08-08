@@ -25,7 +25,6 @@ import kotlinx.android.synthetic.main.activity_eye_exercise.*
     }
 
      private fun init() {
-         cl_exercise_start_btn.setOnClickListener(this)
          img_btn_back.setOnClickListener(this)
      }
 }

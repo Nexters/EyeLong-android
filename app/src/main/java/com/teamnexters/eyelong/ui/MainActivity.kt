@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val userDao = AppDatabase.getAppDatabase(applicationContext)!!.userDao()
+        //val userDao = AppDatabase.getAppDatabase(applicationContext, )!!.userDao()
 
     }
 }

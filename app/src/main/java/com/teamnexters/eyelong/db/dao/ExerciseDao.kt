@@ -11,8 +11,11 @@ import com.teamnexters.eyelong.db.entity.Exercise
 interface ExerciseDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertExercise(exercise: Exercise)
+    suspend fun insertExercise(exercise: Exercise)
 
     @Query("SELECT * FROM exercise")
     fun getExerciseAll(): LiveData<List<Exercise>>
+
+    @Query("SELECT * FROM exercise WHERE id = :id")
+    fun getExerciseInfo(id : Int) : LiveData<Exercise>
 }

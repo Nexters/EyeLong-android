@@ -12,8 +12,10 @@ import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.db.entity.Exercise
 
 
-class AddEyeExerciseRecyclerViewAdapter(val ctx: Context, val dataList: ArrayList<Exercise>) :
+class AddEyeExerciseRecyclerViewAdapter(val ctx: Context) :
     RecyclerView.Adapter<AddEyeExerciseRecyclerViewAdapter.Holder>() {
+
+    private var dataList = emptyList<Exercise>()
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): Holder {
         val view: View =
@@ -61,5 +63,10 @@ class AddEyeExerciseRecyclerViewAdapter(val ctx: Context, val dataList: ArrayLis
 
         val exercise_img = itemView.findViewById(R.id.img_exercise) as ImageView
 
+    }
+
+    internal fun setWords(exercise: List<Exercise>) {
+        this.dataList = exercise
+        notifyDataSetChanged()
     }
 }

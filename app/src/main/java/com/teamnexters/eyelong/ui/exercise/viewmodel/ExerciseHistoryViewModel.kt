@@ -16,12 +16,12 @@ class ExerciseHistoryViewModel (application: Application) : AndroidViewModel(app
     val allExerciseHistory : LiveData<List<ExerciseHistory>>
 
     init {
-        val exerciseHistoryDao = AppDatabase.getAppDatabase(application, viewModelScope)!!.exerciseHistoryDao()
+        val exerciseHistoryDao = AppDatabase.getAppDatabase(application)!!.exerciseHistoryDao()
         repository = ExerciseHistoryRepository(exerciseHistoryDao)
         allExerciseHistory = repository.allExercise
     }
 
     fun getExerciseInfo(id : Int) = repository.getExerciseInfo(id)
 
-    fun getExerciseInfoBy(create_time : String) = repository.getExerciseInfoByCreateTime(create_time)
+    fun getExerciseInfoByCreateTime(create_time : String) = repository.getExerciseInfoByCreateTime(create_time)
 }

@@ -83,6 +83,8 @@ class EyeExerciseRecyclerViewAdapter(val ctx: Context, val dataList: ArrayList<E
 
         holder.delete_btn.setOnClickListener {
             //dataList 아이템 삭제
+            dataList.removeAt(position)
+            notifyDataSetChanged()
         }
     }
 

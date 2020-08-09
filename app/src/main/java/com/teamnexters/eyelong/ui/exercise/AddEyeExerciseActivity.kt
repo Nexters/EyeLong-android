@@ -3,6 +3,7 @@ package com.teamnexters.eyelong.ui.exercise
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,13 +13,32 @@ import com.teamnexters.eyelong.ui.exercise.adapter.AddEyeExerciseRecyclerViewAda
 import com.teamnexters.eyelong.ui.exercise.adapter.EyeExerciseRecyclerViewAdapter
 import com.teamnexters.eyelong.ui.exercise.viewmodel.ExerciseViewModel
 import kotlinx.android.synthetic.main.activity_add_eye_exercise.*
+import kotlinx.android.synthetic.main.activity_add_eye_exercise.img_btn_back
+import kotlinx.android.synthetic.main.activity_eye_exercise.*
 
-class AddEyeExerciseActivity : AppCompatActivity() {
+class AddEyeExerciseActivity : AppCompatActivity(), View.OnClickListener {
 
     lateinit var addEyeExerciseRecyclerViewAdapter: AddEyeExerciseRecyclerViewAdapter
     private lateinit var exerciseViewModel: ExerciseViewModel
 
     //var dataList: ArrayList<Exercise> = ArrayList()
+
+    //click
+    override fun onClick(v: View?) {
+        when (v!!) {
+            img_btn_back -> {
+                finish()
+            }
+
+            cl_exercise_add_btn -> {
+                //## 리사이클러뷰의 item 중 체크한 것을 가져와야함
+                //adapter
+
+                finish()
+            }
+        }
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +47,12 @@ class AddEyeExerciseActivity : AppCompatActivity() {
         exerciseViewModel = ViewModelProvider(this).get(ExerciseViewModel::class.java)
 
         configureRecyclerView()
+        init()
+    }
+
+    private fun init() {
+        cl_exercise_add_btn.setOnClickListener(this)
+        img_btn_back.setOnClickListener(this)
     }
 
     private fun configureRecyclerView() {
@@ -51,7 +77,6 @@ class AddEyeExerciseActivity : AppCompatActivity() {
                 addEyeExerciseRecyclerViewAdapter.setWords(it)
             }
         })
-
 
         addEyeExerciseRecyclerViewAdapter = AddEyeExerciseRecyclerViewAdapter(this)
         rv_add_exercise_list.adapter = addEyeExerciseRecyclerViewAdapter

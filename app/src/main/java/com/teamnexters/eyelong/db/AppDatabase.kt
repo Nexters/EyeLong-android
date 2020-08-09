@@ -33,6 +33,10 @@ abstract class AppDatabase : RoomDatabase() {
             INSTANCE?.let { database ->
                 scope.launch {
                     val exerciseDao = database.exerciseDao()
+                    val exerciseHistoryDao = database.exerciseHistoryDao()
+
+//                    exerciseHistoryDao.insertHistory(ExerciseHistory(0, 1, 1212, "20200809"))
+//                    exerciseDao.deleteAllExercise()
 
                     Log.v("TAGG", "여기 들어오지?")
 

@@ -12,7 +12,7 @@ data class ExerciseHistory(
     val id: Int = 0,
 
     @ColumnInfo(name = "user_id")
-    val userId: String,
+    val userId: Int,
 
     @ColumnInfo(name = "exercise_id")
     val exerciseId: Int,

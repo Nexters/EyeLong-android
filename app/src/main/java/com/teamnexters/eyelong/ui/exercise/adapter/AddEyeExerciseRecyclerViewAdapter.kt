@@ -11,7 +11,6 @@ import com.bumptech.glide.Glide
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.db.entity.Exercise
 
-
 class AddEyeExerciseRecyclerViewAdapter(val ctx: Context) :
     RecyclerView.Adapter<AddEyeExerciseRecyclerViewAdapter.Holder>() {
 
@@ -20,7 +19,6 @@ class AddEyeExerciseRecyclerViewAdapter(val ctx: Context) :
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): Holder {
         val view: View =
             LayoutInflater.from(ctx).inflate(R.layout.item_eye_exercise_list_edit, viewGroup, false)
-
 
         return Holder(view)
     }
@@ -48,7 +46,8 @@ class AddEyeExerciseRecyclerViewAdapter(val ctx: Context) :
             }
         }
 
-        holder.exercise_time.text = dataList[position].elapsedTime
+        var second_time = dataList[position].elapsedTime
+        holder.exercise_time.text = (second_time/60).toString() + "분 " + (second_time % 60).toString() + "초"
         holder.exercise_effect.text = dataList[position].effectSimple
         holder.exercise_title.text = dataList[position].name
     }

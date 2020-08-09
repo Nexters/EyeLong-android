@@ -40,16 +40,17 @@ class EyeExerciseRecyclerViewAdapter(val ctx: Context, val dataList: ArrayList<E
         if(dataList[position].tipImagePath == "")
             Glide.with(ctx).load(R.drawable.ic_launcher_background).into(holder.exercise_img)
         else
-        {
             Glide.with(ctx).load(dataList[position].tipImagePath).into(holder.exercise_img)
-        }
+
 
         var number = position + 1;
         holder.number.text = number.toString()
-        holder.exercise_time.text = dataList[position].elapsedTime
+
+        var second_time = dataList[position].elapsedTime
+        holder.exercise_time.text = (second_time/60).toString() + "분 " + (second_time % 60).toString() + "초"
+
         holder.exercise_effect.text = dataList[position].effectSimple
         holder.exercise_title.text = dataList[position].name
-
 
 
         if(dataList[position].id == -1) {
@@ -59,7 +60,12 @@ class EyeExerciseRecyclerViewAdapter(val ctx: Context, val dataList: ArrayList<E
 
         holder.container.setOnClickListener {
             var intent = Intent(ctx, EyeExerciseDetailActivity::class.java)
-            intent.putExtra("id", dataList[position].id)
+            intent.putExtra("name", dataList[position].name)
+            intent.putExtra("effect_simple", dataList[position].effectSimple)
+            intent.putExtra("effect_des", dataList[position].effectDescription)
+            intent.putExtra("time", dataList[position].elapsedTime)
+            intent.putExtra("image", dataList[position].tipImagePath)
+
             ctx.startActivity(intent)
         }
 
@@ -68,16 +74,16 @@ class EyeExerciseRecyclerViewAdapter(val ctx: Context, val dataList: ArrayList<E
             {
                 //toast custom
                 Snackbar.make(it, "눈 운동은 한 세트에 3개까지만 추가할 수 있습니다", Snackbar.LENGTH_LONG)
-
             }
             else {
                 var intent = Intent(ctx, AddEyeExerciseActivity::class.java)
                 ctx.startActivity(intent)
             }
-
         }
 
-
+        holder.delete_btn.setOnClickListener {
+            //dataList 아이템 삭제
+        }
     }
 
     inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -91,5 +97,6 @@ class EyeExerciseRecyclerViewAdapter(val ctx: Context, val dataList: ArrayList<E
         val exercise_img = itemView.findViewById(R.id.img_exercise) as ImageView
 
         val btn_more = itemView.findViewById(R.id.cl_container_plus_btn) as ConstraintLayout
+        val delete_btn = itemView.findViewById(R.id.img_delete_btn) as ImageView
     }
 }

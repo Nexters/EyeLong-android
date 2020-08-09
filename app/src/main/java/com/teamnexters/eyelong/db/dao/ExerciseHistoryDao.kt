@@ -17,5 +17,12 @@ interface ExerciseHistoryDao {
     fun getHistoryAll(): LiveData<List<ExerciseHistory>>
 
     @Query("SELECT * FROM exercise_history WHERE user_id = :userId")
-    fun getHistoryByUserId(userId: String): LiveData<List<ExerciseHistory>>
+    fun getHistoryByUserId(userId: Int): LiveData<List<ExerciseHistory>>
+
+    @Query("SELECT * FROM exercise_history WHERE create_date = :create_date")
+    fun getHistoryByCreateTime(create_date: String): List<ExerciseHistory>
+
+
+
+
 }

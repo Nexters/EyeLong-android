@@ -22,13 +22,14 @@
 
     <color name="colorGreen_500">#3BEAA7</color>
 
-    <color name="colorGreen_">#00D282</color>
+    <color name="colorGreen_501">#00D282</color>
 
 
     <color name="colorWhite">#FFFFFF</color>
 
 
     <color name="colorLemon">#FDF292</color>
+    <color name="colorLemon_500">#FFF383</color>
     <color name="colorYellow">#FFEB85</color>
 
 

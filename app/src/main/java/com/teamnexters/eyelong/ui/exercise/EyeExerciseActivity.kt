@@ -5,12 +5,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.db.entity.Exercise
 import com.teamnexters.eyelong.db.entity.ExerciseHistory
-import com.teamnexters.eyelong.ui.StartExerciseActivity
 import com.teamnexters.eyelong.ui.exercise.adapter.EyeExerciseRecyclerViewAdapter
 import com.teamnexters.eyelong.ui.exercise.viewmodel.ExerciseHistoryViewModel
 import com.teamnexters.eyelong.ui.exercise.viewmodel.ExerciseViewModel
@@ -36,7 +34,7 @@ import kotlin.collections.ArrayList
              }
              cl_exercise_start_btn -> {
 
-                 var intent = Intent(this, StartExerciseActivity::class.java)
+                 val intent = Intent(this, StartExerciseActivity::class.java)
                  startActivity(intent)
              }
          }

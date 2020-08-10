@@ -46,6 +46,7 @@ class GuideExerciseActivity : AppCompatActivity() {
                 //intent!!! --> StartExercise는 아님 응 아님
                 val intent = Intent(this@GuideExerciseActivity, LottieActivity::class.java)
                 startActivity(intent)
+                finish()
                 //멈추게 하는 방법 없나?
                 timer.cancel()
             }

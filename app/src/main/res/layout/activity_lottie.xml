@@ -11,6 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="exercise_make_eight2.json" />
+        app:lottie_fileName="exercise_make_eight_180_1.json" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

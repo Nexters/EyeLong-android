@@ -1,28 +1,34 @@
 package com.teamnexters.eyelong.ui.exercise
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
+import android.os.Handler
+import android.util.Log
 import android.view.View
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.util.KCustomToast
-import kotlinx.android.synthetic.main.activity_add_eye_exercise.*
-import kotlinx.android.synthetic.main.activity_eye_exercise.*
+import com.teamnexters.eyelong.util.KCustomToast.Companion.GRAVITY_BOTTOM
+import com.teamnexters.eyelong.util.OnThrottleClickListener
 import kotlinx.android.synthetic.main.activity_start_exercise.*
-import kotlinx.android.synthetic.main.activity_start_exercise.img_btn_back
 
 class StartExerciseActivity : AppCompatActivity(), View.OnClickListener {
 
+    var btnCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start_exercise)
 
 
-
         init()
+
+        onClick()
+    }
+
+    fun View.onThrottleClick(action: (v: View) -> Unit) {
+        val listener = View.OnClickListener { action(it) }
+        setOnClickListener(OnThrottleClickListener(listener))
     }
 
     override fun onClick(v: View?) {
@@ -32,25 +38,38 @@ class StartExerciseActivity : AppCompatActivity(), View.OnClickListener {
                     finish()
                 }
 
-                btn_next_blue_img -> {
-                    //Toast 띄우기
-                    showInfoToastWithTypeface(v)
-
-                    //1초 후에 intent하기
-                    val intent = Intent(this, GuideExerciseActivity::class.java)
-                    startActivity(intent)
-
-                }
+//                btn_next_blue_img -> {
+//                    //Toast 띄우기
+//                    showInfoToastWithTypeface(v)
+//                    postDelayIntent()
+//                }
             }
         }
     }
 
     private fun init() {
-        btn_next_blue_img.setOnClickListener(this)
+        //btn_next_blue_img.setOnClickListener(this)
         img_btn_back.setOnClickListener(this)
     }
 
+    private fun postDelayIntent() {
+        Handler().postDelayed({
+            //1초 후에 intent하기
+            val intent = Intent(this, GuideExerciseActivity::class.java)
+            startActivity(intent)
+        }, 2000)
+    }
+
     fun showInfoToastWithTypeface(view: View) {
-        KCustomToast.infoToast(this, getString(R.string.block_blue_light) , KCustomToast.GRAVITY_BOTTOM)
+        KCustomToast.infoToast(this, getString(R.string.block_blue_light) , GRAVITY_BOTTOM)
+    }
+
+    //중복방지
+    private fun onClick() {
+        btn_next_blue_img.onThrottleClick{
+            showInfoToastWithTypeface(it)
+            postDelayIntent()
+            Log.d("TAG", "button Clicked : ${++btnCount}")
+        }
     }
 }

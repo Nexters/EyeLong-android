@@ -11,14 +11,17 @@ import kotlin.concurrent.timer
 
 class GuideExerciseActivity : AppCompatActivity() {
     private lateinit var timer : Timer
-    var time = 3
+    var time = 4
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_guide_exercise)
 
         timerLogic()
+
     }
+
+
 
     private fun timerLogic() {
         //1초 지나면 --> 3
@@ -35,16 +38,16 @@ class GuideExerciseActivity : AppCompatActivity() {
 
             runOnUiThread {
                 tv_timer.text = "$time"
-
-
             }
             if(time == 1) {
                 cl_lets_start_toast.visibility = View.VISIBLE
             }
             else if(time == 0) {
                 //intent!!! --> StartExercise는 아님 응 아님
-                val intent = Intent(this@GuideExerciseActivity, StartExerciseActivity::class.java)
+                val intent = Intent(this@GuideExerciseActivity, LottieActivity::class.java)
                 startActivity(intent)
+                //멈추게 하는 방법 없나?
+                timer.cancel()
             }
         }
 

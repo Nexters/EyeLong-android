@@ -78,10 +78,10 @@ import kotlin.collections.ArrayList
 
 
          if(dataList.size == 0) {
-             var exerciseList : List<ExerciseHistory> = emptyList()
-             //exerciseList = exerciseHistoryViewModel.getExerciseInfoBy(date_txt)
-
-//             Log.v("TAGG", exerciseList.get(0).toString())
+             Thread{
+                 var exerciseList : List<ExerciseHistory> = emptyList()
+                 exerciseList = exerciseHistoryViewModel.getExerciseInfoBy(date_txt)
+             }.start()
          }
 
 

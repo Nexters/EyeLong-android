@@ -47,7 +47,8 @@ class AddEyeExerciseRecyclerViewAdapter(val ctx: Context) :
         }
 
         var second_time = dataList[position].elapsedTime
-        holder.exercise_time.text = (second_time/60).toString() + "분 " + (second_time % 60).toString() + "초"
+        holder.exercise_time.text =
+            (second_time / 60).toString() + "분 " + (second_time % 60).toString() + "초"
         holder.exercise_effect.text = dataList[position].effectSimple
         holder.exercise_title.text = dataList[position].name
     }

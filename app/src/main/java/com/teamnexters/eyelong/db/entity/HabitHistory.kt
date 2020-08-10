@@ -2,9 +2,24 @@ package com.teamnexters.eyelong.db.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "habit_history")
+@Entity(
+    tableName = "habit_history",
+    foreignKeys = [
+        ForeignKey(
+            entity = User::class,
+            parentColumns = ["id"],
+            childColumns = ["user_id"]
+        ),
+        ForeignKey(
+            entity = Habit::class,
+            parentColumns = ["id"],
+            childColumns = ["habit_id"]
+        )
+    ]
+)
 data class HabitHistory(
 
     @PrimaryKey(autoGenerate = true)
@@ -12,7 +27,7 @@ data class HabitHistory(
     val id: Int = 0,
 
     @ColumnInfo(name = "user_id")
-    val userId: String,
+    val userId: Int,
 
     @ColumnInfo(name = "habit_id")
     val habitId: Int,

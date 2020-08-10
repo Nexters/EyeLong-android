@@ -14,7 +14,7 @@ class ExerciseViewModel (application: Application) : AndroidViewModel(applicatio
     val allExercise: LiveData<List<Exercise>>
 
     init {
-        val exerciseDao = AppDatabase.getAppDatabase(application, viewModelScope)!!.exerciseDao()
+        val exerciseDao = AppDatabase.getAppDatabase(application)!!.exerciseDao()
         repository = ExerciseRepository(exerciseDao)
         allExercise = repository.allExercise
     }

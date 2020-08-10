@@ -25,5 +25,6 @@ class MainActivity : AppCompatActivity() {
         }
         //val userDao = AppDatabase.getAppDatabase(applicationContext, )!!.userDao()
 
+        AppDatabase.getAppDatabase(applicationContext)
     }
 }

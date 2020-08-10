@@ -2,14 +2,29 @@ package com.teamnexters.eyelong.db.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "exercise_history")
+@Entity(
+    tableName = "exercise_history",
+    foreignKeys = [
+        ForeignKey(
+            entity = User::class,
+            parentColumns = ["id"],
+            childColumns = ["user_id"]
+        ),
+        ForeignKey(
+            entity = Exercise::class,
+            parentColumns = ["id"],
+            childColumns = ["exercise_id"]
+        )
+    ]
+)
 data class ExerciseHistory(
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    val id: Int = 0,
+    val id: Int,
 
     @ColumnInfo(name = "user_id")
     val userId: Int,
@@ -17,7 +32,6 @@ data class ExerciseHistory(
     @ColumnInfo(name = "exercise_id")
     val exerciseId: Int,
 
-    // TODO create_date type check
     @ColumnInfo(name = "create_date")
     val createDate: String
 )

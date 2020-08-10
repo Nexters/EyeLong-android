@@ -1,6 +1,7 @@
 package com.teamnexters.eyelong.db
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -22,28 +23,31 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun habitHistoryDao(): HabitHistoryDao
 
     companion object {
-        @Volatile
         private var appDatabase: AppDatabase? = null
 
         fun getAppDatabase(context: Context): AppDatabase? {
-            assetsToDisk(context)
+            assetToDisk(context)
 
             appDatabase = Room.databaseBuilder(
-                context.applicationContext,
+                context,
                 AppDatabase::class.java,
-                "eyelong"
+                context.getString(R.string.app_db_name)
             ).build()
 
             return appDatabase
         }
 
-        private fun assetsToDisk(context: Context) {
-            context.getDatabasePath(context.getString(R.string.app_db_name))?.let { file ->
+        private fun assetToDisk(context: Context) {
+            val fileName = context.getString(R.string.app_db_name)
+
+            context.getDatabasePath(fileName).let { file ->
                 if (file.exists()) {
                     return
                 }
 
-                context.assets.open(context.getString(R.string.app_db_name)).use { stream ->
+                Log.i("RoomDatabase", "copy to database path..")
+
+                context.assets.open(fileName).use { stream ->
                     file.outputStream().use { stream.copyTo(it) }
                 }
             }

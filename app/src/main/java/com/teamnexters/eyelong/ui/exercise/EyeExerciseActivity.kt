@@ -88,7 +88,6 @@ import kotlin.collections.ArrayList
 
          var exercise_id = ArrayList<Int>()
 
-
          if(dataList.size == 0) {
              Thread {
                  var exerciseList: List<ExerciseHistory> = emptyList()

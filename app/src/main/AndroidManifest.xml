@@ -12,7 +12,7 @@
         <activity android:name=".ui.exercise.AddEyeExerciseActivity"></activity>
         <activity android:name=".ui.exercise.EyeExerciseDetailActivity" />
         <activity android:name=".ui.exercise.EyeExerciseActivity" />
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.main.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

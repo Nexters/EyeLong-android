@@ -1,13 +1,11 @@
  package com.teamnexters.eyelong.ui.exercise
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.lifecycle.ViewModelProvider
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.db.entity.Exercise
 import com.teamnexters.eyelong.db.entity.ExerciseHistory
@@ -15,7 +13,6 @@ import com.teamnexters.eyelong.ui.exercise.adapter.EyeExerciseRecyclerViewAdapte
 import com.teamnexters.eyelong.ui.exercise.viewmodel.ExerciseHistoryViewModel
 import com.teamnexters.eyelong.ui.exercise.viewmodel.ExerciseViewModel
 import kotlinx.android.synthetic.main.activity_eye_exercise.*
-import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -24,6 +21,8 @@ import kotlin.collections.ArrayList
 
      lateinit var eyeExerciseRecyclerViewAdapter: EyeExerciseRecyclerViewAdapter
      lateinit var exerciseHistoryViewModel: ExerciseHistoryViewModel
+     lateinit var exerciseViewModel: ExerciseViewModel
+
      var dataList: ArrayList<Exercise> = ArrayList()
      var sum_time : Int = 0
 
@@ -33,15 +32,24 @@ import kotlin.collections.ArrayList
              img_btn_back -> {
                  finish()
              }
+             cl_exercise_start_btn -> {
+
+                 val intent = Intent(this, StartExerciseActivity::class.java)
+                 startActivity(intent)
+             }
          }
      }
 
      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_eye_exercise)
+//         exerciseHistoryViewModel =
+//             ViewModelProvider(this).get(ExerciseHistoryViewModel::class.java)
+//
+//         exerciseViewModel =
+//             ViewModelProvider(this).get(ExerciseViewModel::class.java)
 
 
-         exerciseHistoryViewModel = ViewModelProvider(this).get(ExerciseHistoryViewModel::class.java)
 
          init()
          configureRecyclerView()
@@ -76,11 +84,34 @@ import kotlin.collections.ArrayList
 
          Log.v("TAGG 오늘의 연도월일 : ", date_txt)
 
+         var exercise_id = ArrayList<Int>()
 
          if(dataList.size == 0) {
-             Thread{
-                 var exerciseList : List<ExerciseHistory> = emptyList()
-                 exerciseList = exerciseHistoryViewModel.getExerciseInfoBy(date_txt)
+             Thread {
+                 var exerciseList: List<ExerciseHistory> = emptyList()
+                 // exerciseList = exerciseHistoryViewModel.getExerciseInfoByCreateTime(date_txt)
+                 //Log.v("TAGG", exerciseList.get(0).toString())
+
+                 //이미 존재하는 경우,
+//                 if (exerciseHistoryViewModel.getExerciseInfoByCreateTime(date_txt).size > 0) {
+//                     for (i in exerciseList) {
+//                         exercise_id.add(i.exerciseId)
+//                     }
+//                 }
+                 //존재하지 않는 경우, 랜덤
+                 /*else {
+                     var exercise_data: Exercise
+                     //랜덤으로 숫자 1~N 개 중 3개 뽑기
+                     for (i in 1..3) {
+                         Log.v("TAGG i 의 값 ", i.toString())
+                         exercise_data = exerciseViewModel.getExerciseInfo(i)
+                         Log.v("TAGG exercise_data : ", exercise_data.name)
+
+
+                         dataList.add(exercise_data)
+                         //Log.v("TAGG datalist", dataList.get(0).toString())
+                     }
+                 }*/
              }.start()
          }
 
@@ -89,16 +120,33 @@ import kotlin.collections.ArrayList
          "tip의 설명", ""))
          dataList.add(Exercise(0, "운동이름", "", 90, "효과효과", "효과의 상세설명",
              "tip의 설명", ""))
-         /*dataList.add(Exercise(0, "운동이름", "", "1분 30초", "효과효과", "효과의 상세설명",
-             "tip의 설명", ""))
-             */
+//         dataList.add(Exercise(0, "운동이름", "", "1분 30초", "효과효과", "효과의 상세설명",
+//             "tip의 설명", ""))
 
          //마지막은 + 버튼 보이게 할꺼야
-         dataList.add(Exercise(-1, "", "", 0, "", "", "", ""))
+          dataList.add(Exercise(-1, "", "", 0, "", "", "", ""))
 
          eyeExerciseRecyclerViewAdapter = EyeExerciseRecyclerViewAdapter(this, dataList)
          rv_exercise_list.adapter = eyeExerciseRecyclerViewAdapter
          rv_exercise_list.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
      }
+/*
+     fun rand(from: Int, to: Int, exerciseList: ArrayList<Int>) : ArrayList<Int> {
+         val random = Random()
+
+         var set : Set<Int> = setOf<Int>()
+
+         while (set.size == 0) {
+             set.plus(random.nextInt(to - from) + from)
+         }
+
+         for( i in set) {
+             exerciseList.add(i)
+         }
+
+         return exerciseList
+     }*/
+
+
  }

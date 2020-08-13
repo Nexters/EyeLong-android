@@ -23,5 +23,5 @@ class ExerciseHistoryViewModel (application: Application) : AndroidViewModel(app
 
     fun getExerciseInfo(id : Int) = repository.getExerciseInfo(id)
 
-    fun getExerciseInfoBy(create_time : String) = repository.getExerciseInfoByCreateTime(create_time)
+    fun getExerciseInfoByCreateTime(create_time : String) = repository.getExerciseInfoByCreateTime(create_time)
 }

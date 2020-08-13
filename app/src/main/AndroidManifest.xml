@@ -9,10 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".ui.exercise.AddEyeExerciseActivity"></activity>
-        <activity android:name=".ui.exercise.EyeExerciseDetailActivity" />
-        <activity android:name=".ui.exercise.EyeExerciseActivity" />
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.exercise.LottieActivity"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".ui.exercise.GuideExerciseActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.exercise.StartExerciseActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.exercise.AddEyeExerciseActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.exercise.EyeExerciseDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.exercise.EyeExerciseActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

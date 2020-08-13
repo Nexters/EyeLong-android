@@ -11,7 +11,7 @@ import com.teamnexters.eyelong.db.entity.ExerciseHistory
 interface ExerciseHistoryDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertHistory(exerciseHistory: ExerciseHistory)
+    suspend fun insertHistory(exerciseHistory: ExerciseHistory)
 
     @Query("SELECT * FROM exercise_history ORDER BY user_id")
     fun getHistoryAll(): LiveData<List<ExerciseHistory>>

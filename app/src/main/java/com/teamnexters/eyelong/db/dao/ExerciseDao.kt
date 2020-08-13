@@ -14,7 +14,7 @@ interface ExerciseDao {
     fun getExerciseAll(): LiveData<List<Exercise>>
 
     @Query("SELECT * FROM exercise WHERE id = :id")
-    fun getExerciseInfo(id : Int) : LiveData<Exercise>
+    fun getExerciseInfo(id : Int) : Exercise
 
     @Query("DELETE FROM exercise")
     suspend fun deleteAllExercise()

@@ -5,20 +5,36 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.teamnexters.eyelong.R
+import kotlinx.android.synthetic.main.activity_eye_exercise.*
 import kotlinx.android.synthetic.main.activity_guide_exercise.*
+import kotlinx.android.synthetic.main.activity_guide_exercise.img_btn_back
 import java.util.*
 import kotlin.concurrent.timer
 
-class GuideExerciseActivity : AppCompatActivity() {
+class GuideExerciseActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var timer : Timer
     var time = 4
+
+    //click
+    override fun onClick(v: View?) {
+        when (v!!) {
+            img_btn_back -> {
+                finish()
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_guide_exercise)
 
         timerLogic()
+        init()
 
+    }
+
+    private fun init() {
+        img_btn_back.setOnClickListener(this)
     }
 
 

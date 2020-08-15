@@ -30,14 +30,11 @@ class GuideExerciseActivity : AppCompatActivity(), View.OnClickListener {
 
         timerLogic()
         init()
-
     }
 
     private fun init() {
         img_btn_back.setOnClickListener(this)
     }
-
-
 
     private fun timerLogic() {
         //1초 지나면 --> 3
@@ -54,13 +51,14 @@ class GuideExerciseActivity : AppCompatActivity(), View.OnClickListener {
 
             runOnUiThread {
                 tv_timer.text = "$time"
+
+                if(time == 1){
+                    cl_lets_start_toast.visibility = View.VISIBLE
+                }
             }
-            if(time == 1) {
-                cl_lets_start_toast.visibility = View.VISIBLE
-            }
-            else if(time == 0) {
-                //intent!!! --> StartExercise는 아님 응 아님
+            if(time == 0) {
                 val intent = Intent(this@GuideExerciseActivity, LottieActivity::class.java)
+
                 startActivity(intent)
                 finish()
                 //멈추게 하는 방법 없나?

@@ -51,8 +51,11 @@
         android:id="@+id/pb_lottie"
         android:layout_width="match_parent"
         android:layout_height="16dp"
+        android:maxHeight="36dp"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:max="100"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:progressTint="@color/colorGreen_501"
         />

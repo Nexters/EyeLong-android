@@ -14,6 +14,7 @@ import kotlin.concurrent.timer
 class GuideExerciseActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var timer : Timer
     var time = 4
+    var exercise_num = 0
 
     //click
     override fun onClick(v: View?) {
@@ -28,8 +29,29 @@ class GuideExerciseActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_guide_exercise)
 
+
         timerLogic()
         init()
+        setExerciseOrder()
+    }
+
+    private fun setExerciseOrder() {
+
+        //해당 운동 정보 이미지나, text도 다시 setting 해주어야함
+
+        exercise_num = intent.getIntExtra("exercise_num", -1)
+
+        if(exercise_num == 1) {
+            img_green_icon.setImageResource(R.drawable.stepper2)
+            cl_background_color.setBackgroundColor(resources.getColor(R.color.colorLemon_500))
+            cl_lets_start_toast.setBackgroundColor(resources.getColor(R.color.colorLemon_200))
+        }
+        if(exercise_num == 2) {
+            img_green_icon.setImageResource(R.drawable.stepper3)
+            cl_background_color.setBackgroundColor(resources.getColor(R.color.colorBlue_500))
+            //cl_lets_start_toast.setBackgroundColor(resources.getColor(R.color.colorLemon_200))
+        }
+
     }
 
     private fun init() {
@@ -58,7 +80,7 @@ class GuideExerciseActivity : AppCompatActivity(), View.OnClickListener {
             }
             if(time == 0) {
                 val intent = Intent(this@GuideExerciseActivity, LottieActivity::class.java)
-
+                intent.putExtra("exercise_num", exercise_num)
                 startActivity(intent)
                 finish()
                 //멈추게 하는 방법 없나?

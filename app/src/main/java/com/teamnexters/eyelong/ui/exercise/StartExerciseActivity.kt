@@ -16,10 +16,13 @@ class StartExerciseActivity : AppCompatActivity(), View.OnClickListener {
 
     var btnCount = 0
     var exerciseList : ArrayList<Int> = ArrayList()
+    var exercisenum = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start_exercise)
+
+        exercisenum = intent.getIntExtra("exercise_num", 0);
 
         init()
         onClick()
@@ -59,8 +62,10 @@ class StartExerciseActivity : AppCompatActivity(), View.OnClickListener {
     private fun postDelayIntent() {
         Handler().postDelayed({
             //1초 후에 intent하기
+
             val intent = Intent(this, GuideExerciseActivity::class.java)
-            intent.putIntegerArrayListExtra("exercise_list", exerciseList);
+            intent.putIntegerArrayListExtra("exercise_list", exerciseList)
+            intent.putExtra("exercise_num", exercisenum)
             startActivity(intent)
         }, 2000)
     }

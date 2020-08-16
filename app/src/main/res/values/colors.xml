@@ -19,18 +19,22 @@
     <color name="colorGray_600">#F3F3F3</color>#F3F3F3
 
 
+    <!--blue-->
+    <color name="colorBlue_500">#3F97FF</color>
 
+    <!--green-->
     <color name="colorGreen_500">#3BEAA7</color>
-
     <color name="colorGreen_501">#00D282</color>
 
 
+    <!--white-->
     <color name="colorWhite">#FFFFFF</color>
 
-
+    <!--yellow-->
     <color name="colorLemon">#FDF292</color>
     <color name="colorLemon_500">#FFF383</color>
     <color name="colorYellow">#FFEB85</color>
+    <color name="colorLemon_200">#FFFBD7</color>
 
 
 </resources>

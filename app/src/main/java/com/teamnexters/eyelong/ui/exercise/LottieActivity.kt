@@ -18,6 +18,7 @@ class LottieActivity : AppCompatActivity() , View.OnClickListener {
     var cnt = 1;
     var lottieAssetNameArrayList : ArrayList<String> = ArrayList()
     val handler: Handler = Handler()
+    var exercisenum = 1
 
 
     //click
@@ -40,8 +41,11 @@ class LottieActivity : AppCompatActivity() , View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lottie)
 
-        lottie()
+        //exercisenum = intent.getIntExtra("exercise_num", -1);
+
+
         init()
+        lottie()
 
     }
     private fun init() {
@@ -51,16 +55,48 @@ class LottieActivity : AppCompatActivity() , View.OnClickListener {
 
     private fun lottie() {
 
-        lottieNum = 6
+        lottieAssetNameArrayList.clear()
 
-        progressNum = 100/lottieNum + 1
+        when(exercisenum) {
 
-        lottieAssetNameArrayList.add("exercise_make_eight_180_1.json")
-        lottieAssetNameArrayList.add("exercise_make_eight_180_2.json")
-        lottieAssetNameArrayList.add("exercise_make_eight_180_3.json")
-        lottieAssetNameArrayList.add("exercise_make_eight_180_4.json")
-        lottieAssetNameArrayList.add("exercise_make_eight_180_5.json")
-        lottieAssetNameArrayList.add("exercise_make_eight_180_6.json")
+            0 -> {
+                lottieNum = 6
+                progressNum = 100/lottieNum + 1
+
+                lottieAssetNameArrayList.add("exercise_make_eight_180_1.json")
+                lottieAssetNameArrayList.add("exercise_make_eight_180_2.json")
+                lottieAssetNameArrayList.add("exercise_make_eight_180_3.json")
+                lottieAssetNameArrayList.add("exercise_make_eight_180_4.json")
+                lottieAssetNameArrayList.add("exercise_make_eight_180_5.json")
+                lottieAssetNameArrayList.add("exercise_make_eight_180_6.json")
+
+            }
+
+            1 -> {
+                lottieNum = 9
+                progressNum = 100 / lottieNum + 1
+
+                lottieAssetNameArrayList.add("blink_eye_exercise_1_1.json")
+                lottieAssetNameArrayList.add("blink_eye_exercise_1_2.json")
+                lottieAssetNameArrayList.add("blink_eye_exercise_1_3.json")
+
+                lottieAssetNameArrayList.add("blink_eye_exercise_2_1.json")
+                lottieAssetNameArrayList.add("blink_eye_exercise_2_2.json")
+                lottieAssetNameArrayList.add("blink_eye_exercise_2_3.json")
+
+                lottieAssetNameArrayList.add("blink_eye_exercise_3_1.json")
+                lottieAssetNameArrayList.add("blink_eye_exercise_3_2.json")
+                lottieAssetNameArrayList.add("blink_eye_exercise_3_3.json")
+
+                //pb_lottie.progressDrawable(resources.getColor(R.color.colorLemon_500))
+
+            }
+
+            2 -> {
+
+            }
+        }
+
 
         lottie_animation.setAnimation(lottieAssetNameArrayList.get(0))
         pb_lottie.setProgress(progressNum)
@@ -87,8 +123,9 @@ class LottieActivity : AppCompatActivity() , View.OnClickListener {
                         else{
                             lottie_animation.cancelAnimation()
                             val intent = Intent(this@LottieActivity, StartExerciseActivity::class.java)
+                            intent.putExtra("exercise_num", exercisenum+1)
                             startActivity(intent)
-                            Toast.makeText(this@LottieActivity, "첫번째 운동 끝", Toast.LENGTH_SHORT ).show()
+                            Toast.makeText(this@LottieActivity, exercisenum.toString() + "번째 운동 끝", Toast.LENGTH_SHORT ).show()
                             finish()
                         }
                     }
@@ -98,10 +135,7 @@ class LottieActivity : AppCompatActivity() , View.OnClickListener {
             override fun onAnimationEnd(animation: Animator?) {
 
 
-
-
                 //Intent해야함.
-
 
                 /*handler.postDelayed({ // do something after 1.5s
                     lottie_animation.playAnimation()
@@ -116,11 +150,4 @@ class LottieActivity : AppCompatActivity() , View.OnClickListener {
             }
         })
     }
-
-    private fun progressBar() {
-
-
-    }
-
-
 }

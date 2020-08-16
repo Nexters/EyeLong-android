@@ -65,7 +65,7 @@
                 android:id="@+id/cl_exercise_time"
                 android:layout_width="61dp"
                 android:layout_height="26dp"
-                android:background="@drawable/exercise_time_round_yellow_box"
+                android:background="@drawable/bg_exercise_time_round_yellow_box"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
 
@@ -102,7 +102,7 @@
             android:layout_height="36dp"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="24dp"
-            android:background="@drawable/exercise_green_round_box"
+            android:background="@drawable/bg_exercise_green_round_box"
             app:layout_constraintTop_toBottomOf="@+id/img_exercise">
 
             <TextView

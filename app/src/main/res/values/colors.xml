@@ -4,7 +4,6 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
 
-    <!--black-->
     <color name="colorBlack">#000000</color>
     <color name="colorBlack_300">#888888</color>
     <color name="colorBlack_400">#707070</color>
@@ -13,23 +12,15 @@
     <color name="colorBlack_700">#292929</color>
     <color name="colorBlack_800">#111111</color>
 
-    <!--gray-->
     <color name="colorGray_700">#E8ECED</color>
     <color name="colorGray_100">#F9F9F9</color>
-    <color name="colorGray_600">#F3F3F3</color>#F3F3F3
-
-
-
-    <color name="colorGreen_500">#3BEAA7</color>
+    <color name="colorGray_600">#F3F3F3</color>
 
     <color name="colorGreen_">#00D282</color>
-
+    <color name="colorGreen_500">#3BEAA7</color>
 
     <color name="colorWhite">#FFFFFF</color>
-
-
     <color name="colorLemon">#FDF292</color>
     <color name="colorYellow">#FFEB85</color>
-
-
+    <color name="colorBeige">#FFFDEE</color>
 </resources>

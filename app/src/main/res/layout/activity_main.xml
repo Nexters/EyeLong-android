@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.main.activity.MainActivity">
 
@@ -10,9 +11,143 @@
             type="com.teamnexters.eyelong.ui.main.viewmodel.MainViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/bg_home_day1" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_main_ci"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="48dp"
+                android:fontFamily="@font/notosanskrregular"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="2sp"
+                android:text="@string/main_ci"
+                android:textColor="@color/colorBlack"
+                android:textSize="32sp"
+                android:translationY="-0.83sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_main_start_exercise"
+                android:layout_width="230dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_main_btn_start_exercise"
+                android:drawableStart="@drawable/ic_main_btn_start_exercise_eye"
+                android:drawableEnd="@drawable/ic_main_btn_start_exercise_arrow"
+                android:fontFamily="@font/notosanskrmedium"
+                android:paddingStart="16dp"
+                android:paddingEnd="12dp"
+                android:text="@string/main_start_exercise"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_main_ci"
+                app:layout_constraintTop_toBottomOf="@+id/tv_main_ci" />
+
+            <TextView
+                android:id="@+id/tv_main_setting_alarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="16dp"
+                android:drawableEnd="@drawable/ic_main_setting_alarm_arrow"
+                android:fontFamily="@font/notosanskrmedium"
+                android:includeFontPadding="false"
+                android:text="@string/main_setting_alarm"
+                android:textColor="@color/colorBlack"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/btn_main_start_exercise"
+                app:layout_constraintTop_toBottomOf="@+id/btn_main_start_exercise" />
+
+            <TextView
+                android:id="@+id/tv_main_habit_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/notosanskrbold"
+                android:includeFontPadding="false"
+                android:text="@string/main_habit_title"
+                android:textColor="@color/colorBlack_700"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_main_habit_description"
+                app:layout_constraintStart_toStartOf="@+id/tv_main_habit_description" />
+
+            <TextView
+                android:id="@+id/tv_main_habit_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="19dp"
+                android:fontFamily="@font/notosanskrregular"
+                android:includeFontPadding="false"
+                android:text="@string/main_habit_description"
+                android:textColor="@color/colorBlack_700"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toTopOf="@+id/btn_main_habit"
+                app:layout_constraintStart_toStartOf="@+id/btn_main_habit" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btn_main_habit"
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="36dp"
+                android:background="@drawable/bg_main_btn_habit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_main_habit_cheer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/notosanskrmedium"
+                    android:includeFontPadding="false"
+                    android:text="@string/main_habit_cheer"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_main_habit_today"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="@font/notosanskrregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/main_habit_today"
+                    android:textColor="@color/colorBlack_600"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_main_habit_cheer"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_main_habit_cheer" />
+
+                <ImageView
+                    android:id="@+id/img_main_habit"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_main_habit_arrow" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 </layout>

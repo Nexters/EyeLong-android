@@ -19,7 +19,7 @@
             android:layout_height="24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/exercise_check_btn"
+            android:src="@drawable/selector_exercise_check_btn"
             />
 
         <ImageView
@@ -63,7 +63,7 @@
             android:id="@+id/cl_exercise_time"
             android:layout_width="61dp"
             android:layout_height="26dp"
-            android:background="@drawable/exercise_time_round_yellow_box"
+            android:background="@drawable/bg_exercise_time_round_yellow_box"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 

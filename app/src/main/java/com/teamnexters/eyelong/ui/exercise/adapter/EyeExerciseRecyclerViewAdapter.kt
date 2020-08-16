@@ -2,9 +2,12 @@ package com.teamnexters.eyelong.ui.exercise.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.provider.Settings.Global.getString
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -15,10 +18,21 @@ import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.db.entity.Exercise
 import com.teamnexters.eyelong.ui.exercise.AddEyeExerciseActivity
 import com.teamnexters.eyelong.ui.exercise.EyeExerciseDetailActivity
+import com.teamnexters.eyelong.util.KCustomToast
 
 
 class EyeExerciseRecyclerViewAdapter(val ctx: Context, val dataList: ArrayList<Exercise>) :
     RecyclerView.Adapter<EyeExerciseRecyclerViewAdapter.Holder>() {
+
+    private var listener: OnItemClickListener? = null
+
+    interface OnItemClickListener  {
+        fun onItemClicked()
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        this.listener = listener
+    }
 
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): Holder {
@@ -68,9 +82,11 @@ class EyeExerciseRecyclerViewAdapter(val ctx: Context, val dataList: ArrayList<E
         }
 
         holder.btn_more.setOnClickListener {
+
+            Log.v("TAGG", itemCount.toString())
+
             if (itemCount == 4) {
-                //toast custom
-                Snackbar.make(it, "눈 운동은 한 세트에 3개까지만 추가할 수 있습니다", Snackbar.LENGTH_LONG)
+                listener?.onItemClicked()
             } else {
                 var intent = Intent(ctx, AddEyeExerciseActivity::class.java)
                 ctx.startActivity(intent)

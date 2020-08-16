@@ -47,5 +47,7 @@
 
 
     <string name="block_blue_light">잠깐! 블루라이트 차단 모드를 켜주세요!</string>
+    <string name="exercise_maximum_three">눈 운동은 한 세트에 3개까지만 추가할 수 있습니다</string>
+
 
 </resources>

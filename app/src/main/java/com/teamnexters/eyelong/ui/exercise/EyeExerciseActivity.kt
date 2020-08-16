@@ -12,18 +12,20 @@ import com.teamnexters.eyelong.db.entity.ExerciseHistory
 import com.teamnexters.eyelong.ui.exercise.adapter.EyeExerciseRecyclerViewAdapter
 import com.teamnexters.eyelong.ui.exercise.viewmodel.ExerciseHistoryViewModel
 import com.teamnexters.eyelong.ui.exercise.viewmodel.ExerciseViewModel
+import com.teamnexters.eyelong.util.KCustomToast
 import kotlinx.android.synthetic.main.activity_eye_exercise.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
- class EyeExerciseActivity : AppCompatActivity(), View.OnClickListener {
+ class EyeExerciseActivity : AppCompatActivity(), View.OnClickListener, EyeExerciseRecyclerViewAdapter.OnItemClickListener {
 
      lateinit var eyeExerciseRecyclerViewAdapter: EyeExerciseRecyclerViewAdapter
      lateinit var exerciseHistoryViewModel: ExerciseHistoryViewModel
      lateinit var exerciseViewModel: ExerciseViewModel
 
      var dataList: ArrayList<Exercise> = ArrayList()
+     var exerciseList : ArrayList<Int> = ArrayList()
      var sum_time : Int = 0
 
      //click
@@ -33,8 +35,12 @@ import kotlin.collections.ArrayList
                  finish()
              }
              cl_exercise_start_btn -> {
-
+                 //test용 arraylist
+                 exerciseList.add(1)
+                 exerciseList.add(2)
+                 exerciseList.add(3)
                  val intent = Intent(this, StartExerciseActivity::class.java)
+                 intent.putIntegerArrayListExtra("exercise_list", exerciseList)
                  startActivity(intent)
              }
          }
@@ -61,6 +67,11 @@ import kotlin.collections.ArrayList
 
     }
 
+
+     override fun onItemClicked() {
+         //##왜 안나오지??
+         showInfoToastWithTypeface(cl_exercise_start_btn)
+     }
 
      private fun init() {
          cl_exercise_start_btn.setOnClickListener(this)
@@ -120,6 +131,10 @@ import kotlin.collections.ArrayList
          "tip의 설명", ""))
          dataList.add(Exercise(0, "운동이름", "", 90, "효과효과", "효과의 상세설명",
              "tip의 설명", ""))
+         dataList.add(Exercise(0, "운동이름", "", 90, "효과효과", "효과의 상세설명",
+             "tip의 설명", ""))
+
+
 //         dataList.add(Exercise(0, "운동이름", "", "1분 30초", "효과효과", "효과의 상세설명",
 //             "tip의 설명", ""))
 
@@ -149,4 +164,7 @@ import kotlin.collections.ArrayList
      }*/
 
 
+     fun showInfoToastWithTypeface(view: View) {
+         KCustomToast.infoToast(this, getString(R.string.exercise_maximum_three) , KCustomToast.GRAVITY_BOTTOM)
+     }
  }

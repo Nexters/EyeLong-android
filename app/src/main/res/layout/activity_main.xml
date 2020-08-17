@@ -1,226 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FBE1F7"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.main.activity.MainActivity">
 
-    <!--main text-->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_main_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+    <data>
 
-        <TextView
-            android:id="@+id/tv_like_desert"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="2dp"
-            android:textSize="32sp"
-            android:text="@string/like_desert_main"
-            android:textColor="@color/colorBlack"
-            />
+        <variable
+            name="viewModel"
+            type="com.teamnexters.eyelong.ui.main.viewmodel.MainViewModel" />
+    </data>
 
-        <View
-            android:layout_width="136dp"
-            android:layout_height="16dp"
-            android:background="@color/colorLemon"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_for_eyes"
-            app:layout_constraintStart_toStartOf="parent" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_for_eyes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_like_desert"
-            android:layout_marginTop="24dp"
-            android:layout_marginStart="2dp"
-            android:textSize="32sp"
-            android:text="@string/for_eye_main"
-            android:textColor="@color/colorBlack"
-            android:textStyle="bold"
-            />
-
-
-        <TextView
-            android:id="@+id/tv_goto_oasis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_for_eyes"
-            android:layout_marginTop="24dp"
-            android:layout_marginStart="2dp"
-            android:textSize="32sp"
-            android:text="@string/oasis_main"
-            android:textColor="@color/colorBlack"
-            />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!--눈 운동 start btn-->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@id/cl_eye_exercise_start_btn"
-        android:layout_width="240dp"
-        android:layout_height="58dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cl_main_text"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/main_black_round_box"
-        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/bg_home_day1" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            >
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tv_start_eye_exercise"
+                android:id="@+id/tv_main_ci"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/start_eye_exercise_main"
-                android:textColor="@color/colorWhite"
-                android:textSize="18sp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="48dp"
+                android:fontFamily="@font/notosanskrregular"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="2sp"
+                android:text="@string/main_ci"
+                android:textColor="@color/colorBlack"
+                android:textSize="32sp"
+                android:translationY="-0.83sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_chevron_right_white_24dp"
-                app:layout_constraintStart_toEndOf="@+id/tv_start_eye_exercise"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/tv_setting_alarm_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cl_eye_exercise_start_btn"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/setting_alarm_for_continuous_exercise_main"
-        android:textSize="13sp"
-        android:textColor="@color/colorBlack_800"
-        />
-
-    <!--진행률 -->
-
-
-    <!--오늘의 눈 습관-->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_todays_eye_habit_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/cl_habit_start_btn"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="18dp"
-        >
-
-        <TextView
-            android:id="@+id/tv_today_eye_habit_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/today_eye_habit_main"
-            android:textSize="20sp"
-            android:textColor="@color/colorWhite"
-            android:textStyle="bold"
-            />
-
-        <TextView
-            android:id="@+id/today_eye_habit_detail_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_today_eye_habit_main"
-            android:layout_marginTop="4dp"
-            android:text="@string/today_eye_habit_detail_main"
-            android:textSize="13sp"
-            android:textColor="@color/colorWhite"
-            />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <!-- 습관 달성을 위해 힘! btn-->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_habit_start_btn"
-        android:layout_width="match_parent"
-        android:layout_height="88dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="52dp"
-        android:layout_marginHorizontal="24dp"
-        android:paddingHorizontal="24dp"
-        android:background="@drawable/main_white_round_box"
-        >
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_habit_text_box"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            >
+            <Button
+                android:id="@+id/btn_main_start_exercise"
+                android:layout_width="230dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_main_btn_start_exercise"
+                android:drawableStart="@drawable/ic_main_btn_start_exercise_eye"
+                android:drawableEnd="@drawable/ic_main_btn_start_exercise_arrow"
+                android:fontFamily="@font/notosanskrmedium"
+                android:paddingStart="16dp"
+                android:paddingEnd="12dp"
+                android:text="@string/main_start_exercise"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_main_ci"
+                app:layout_constraintTop_toBottomOf="@+id/tv_main_ci" />
 
             <TextView
-                android:id="@+id/tv_fighting_habit"
+                android:id="@+id/tv_main_setting_alarm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/fighting_habit_main"
-                android:textColor="@color/colorBlack_800"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="16dp"
+                android:drawableEnd="@drawable/ic_main_setting_alarm_arrow"
+                android:fontFamily="@font/notosanskrmedium"
+                android:includeFontPadding="false"
+                android:text="@string/main_setting_alarm"
+                android:textColor="@color/colorBlack"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/btn_main_start_exercise"
+                app:layout_constraintTop_toBottomOf="@+id/btn_main_start_exercise" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:scrollbars="none"
+                app:layout_constraintBottom_toTopOf="@+id/tv_main_habit_title">
+
+                <include
+                    layout="@layout/layout_main_exercise"
+                    app:viewModel="@{viewModel}" />
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/tv_main_habit_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/notosanskrbold"
+                android:includeFontPadding="false"
+                android:text="@string/main_habit_title"
+                android:textColor="@color/colorBlack_700"
                 android:textSize="20sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBottom_toTopOf="@+id/tv_main_habit_description"
+                app:layout_constraintStart_toStartOf="@+id/tv_main_habit_description" />
 
             <TextView
-                android:id="@+id/tv_complete_habit_main"
+                android:id="@+id/tv_main_habit_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/tv_fighting_habit"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginTop="2dp"
-                android:text="@string/conplete_habit_main"
-                android:textColor="@color/colorBlack_600"
-                android:textSize="12sp"
-                />
+                android:layout_marginBottom="19dp"
+                android:fontFamily="@font/notosanskrregular"
+                android:includeFontPadding="false"
+                android:text="@string/main_habit_description"
+                android:textColor="@color/colorBlack_700"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toTopOf="@+id/btn_main_habit"
+                app:layout_constraintStart_toStartOf="@+id/btn_main_habit" />
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btn_main_habit"
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="36dp"
+                android:background="@drawable/bg_main_btn_habit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_main_habit_cheer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/notosanskrmedium"
+                    android:includeFontPadding="false"
+                    android:text="@string/main_habit_cheer"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_main_habit_today"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="@font/notosanskrregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/main_habit_today"
+                    android:textColor="@color/colorBlack_600"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_main_habit_cheer"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_main_habit_cheer" />
+
+                <ImageView
+                    android:id="@+id/img_main_habit"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_main_habit_arrow" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@drawable/ic_chevron_right_black_24dp"
-            />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

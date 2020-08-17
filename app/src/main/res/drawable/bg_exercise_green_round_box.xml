@@ -2,6 +2,13 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
 
+<<<<<<< HEAD:app/src/main/res/drawable/bg_exercise_green_round_box.xml
     <solid android:color="@color/colorGreen_500" />
     <corners android:radius="4dp" />
+=======
+    <solid android:color="@color/colorGreen_501"/>
+
+    <corners
+        android:radius="8dp" />
+>>>>>>> d40ec487bf6c3a7e9dc61af36e35b3d6181f5a57:app/src/main/res/drawable/exercise_start_btn_green_round_box.xml
 </shape>

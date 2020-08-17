@@ -51,6 +51,7 @@ class AddEyeExerciseRecyclerViewAdapter(val ctx: Context) :
             (second_time / 60).toString() + "분 " + (second_time % 60).toString() + "초"
         holder.exercise_effect.text = dataList[position].effectSimple
         holder.exercise_title.text = dataList[position].name
+
     }
 
     inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -69,4 +70,6 @@ class AddEyeExerciseRecyclerViewAdapter(val ctx: Context) :
         this.dataList = exercise
         notifyDataSetChanged()
     }
+
+
 }

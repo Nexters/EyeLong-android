@@ -14,13 +14,39 @@
 
     <color name="colorGray_700">#E8ECED</color>
     <color name="colorGray_100">#F9F9F9</color>
+<<<<<<< HEAD
     <color name="colorGray_600">#F3F3F3</color>
 
     <color name="colorGreen_">#00D282</color>
     <color name="colorGreen_500">#3BEAA7</color>
+=======
+    <color name="colorGray_600">#F3F3F3</color>#F3F3F3
 
+
+    <!--blue-->
+    <color name="colorBlue_500">#3F97FF</color>
+
+    <!--green-->
+    <color name="colorGreen_500">#3BEAA7</color>
+    <color name="colorGreen_501">#00D282</color>
+
+>>>>>>> d40ec487bf6c3a7e9dc61af36e35b3d6181f5a57
+
+    <!--white-->
     <color name="colorWhite">#FFFFFF</color>
+<<<<<<< HEAD
+=======
+
+    <!--yellow-->
+>>>>>>> d40ec487bf6c3a7e9dc61af36e35b3d6181f5a57
     <color name="colorLemon">#FDF292</color>
+    <color name="colorLemon_500">#FFF383</color>
     <color name="colorYellow">#FFEB85</color>
+<<<<<<< HEAD
     <color name="colorBeige">#FFFDEE</color>
+=======
+    <color name="colorLemon_200">#FFFBD7</color>
+
+
+>>>>>>> d40ec487bf6c3a7e9dc61af36e35b3d6181f5a57
 </resources>

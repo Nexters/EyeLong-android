@@ -48,4 +48,14 @@
     <string name="exercise_effect_detail">눈 혈행 개선으로 눈 근육이 좋아지면 시력에 좋은 영향을 줍니다. 특히 근시는 눈이 앞뒤로 길고, 원시는 눈이 위아래로 긴데, 눈 근육 운동을 하면 눈의 원래 모양인 구형으로 만드는데 도움을 줄 수 있습니다.</string>
     <string name="exercise_reference">참고해주세요!</string>
     <string name="exercise_reference_detail">눈이 아프면 운동을 멈춰주세요. 그리고 눈 운동의 효과는 사람마다 다를 수 있습니다.</string>
+<<<<<<< HEAD
 </resources>
+=======
+
+
+    <string name="block_blue_light">잠깐! 블루라이트 차단 모드를 켜주세요!</string>
+    <string name="exercise_maximum_three">눈 운동은 한 세트에 3개까지만 추가할 수 있습니다</string>
+
+
+</resources>
+>>>>>>> d40ec487bf6c3a7e9dc61af36e35b3d6181f5a57

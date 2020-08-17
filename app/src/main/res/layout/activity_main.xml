@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res/com.teamnexters.eyelong"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.main.activity.MainActivity">
+    tools:context=".ui.main.activity.MainActivity"
+    tools:ignore="ResAuto">
 
     <data>
 
@@ -80,9 +82,11 @@
                 android:scrollbars="none"
                 app:layout_constraintBottom_toTopOf="@+id/tv_main_habit_title">
 
-                <include
-                    layout="@layout/layout_main_exercise"
-                    app:viewModel="@{viewModel}" />
+                <com.teamnexters.eyelong.ui.main.custom.ExerciseProgressView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    custom:max="7"
+                    custom:progress="5" />
             </HorizontalScrollView>
 
             <TextView

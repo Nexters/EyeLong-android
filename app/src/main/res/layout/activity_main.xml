@@ -73,6 +73,18 @@
                 app:layout_constraintStart_toStartOf="@+id/btn_main_start_exercise"
                 app:layout_constraintTop_toBottomOf="@+id/btn_main_start_exercise" />
 
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:scrollbars="none"
+                app:layout_constraintBottom_toTopOf="@+id/tv_main_habit_title">
+
+                <include
+                    layout="@layout/layout_main_exercise"
+                    app:viewModel="@{viewModel}" />
+            </HorizontalScrollView>
+
             <TextView
                 android:id="@+id/tv_main_habit_title"
                 android:layout_width="wrap_content"

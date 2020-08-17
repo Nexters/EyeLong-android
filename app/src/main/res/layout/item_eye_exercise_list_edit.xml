@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_exercise_title"
@@ -17,21 +17,18 @@
             android:id="@+id/img_check_btn_rv_item"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:src="@drawable/selector_exercise_check_btn"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/img_exercise"
             android:layout_width="56dp"
             android:layout_height="56dp"
+            android:layout_marginStart="8dp"
             android:background="@color/colorBlack_300"
             app:layout_constraintStart_toEndOf="@+id/img_check_btn_rv_item"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="8dp"
-            />
-
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
@@ -50,8 +47,8 @@
             android:id="@+id/tv_exercise_effect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
             android:text="@string/exercise_effect"
             android:textColor="@color/colorBlack_500"
             android:textSize="15sp"
@@ -64,8 +61,8 @@
             android:layout_width="61dp"
             android:layout_height="26dp"
             android:background="@drawable/bg_exercise_time_round_yellow_box"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/tv_start_eye_exercise"
@@ -87,10 +84,9 @@
         android:id="@+id/rectangle_1"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:background="@color/colorGray_600"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

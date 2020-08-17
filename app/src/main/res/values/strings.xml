@@ -12,7 +12,8 @@
     <string name="main_habit_description">오아시스를 향한 당신의 여정에 도움을 줄 거에요.</string>
     <string name="main_habit_cheer">습관 달성을 위해 힘내봐요!</string>
     <string name="main_habit_today">0개 달성 완료!</string>
-    <!-- week -->
+
+    <!-- day of week -->
     <string name="day_mon">월</string>
     <string name="day_tue">화</string>
     <string name="day_wed">수</string>
@@ -20,7 +21,7 @@
     <string name="day_fri">금</string>
     <string name="day_sat">토</string>
     <string name="day_sun">일</string>
-    <string name="day_finish">도착</string>
+    <string name="day_end">도착</string>
 
     <!--exercise-->
     <string name="exercise_for_oasis">오아시스를 향한</string>

@@ -105,7 +105,7 @@ class LottieActivity : AppCompatActivity() , View.OnClickListener {
             }
 
             3 -> {
-                
+
             }
         }
 

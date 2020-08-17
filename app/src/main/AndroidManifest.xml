@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.teamnexters.eyelong">
 
     <application
@@ -9,27 +10,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-<<<<<<< HEAD
-        <activity android:name=".ui.exercise.AddEyeExerciseActivity"></activity>
-        <activity android:name=".ui.exercise.EyeExerciseDetailActivity" />
-        <activity android:name=".ui.exercise.EyeExerciseActivity" />
-        <activity android:name=".ui.main.activity.MainActivity">
-=======
-        <activity android:name=".ui.exercise.LottieActivity"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".ui.exercise.GuideExerciseActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.exercise.StartExerciseActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.exercise.AddEyeExerciseActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.exercise.EyeExerciseDetailActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.exercise.EyeExerciseActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.MainActivity"
-            android:screenOrientation="portrait">
->>>>>>> d40ec487bf6c3a7e9dc61af36e35b3d6181f5a57
+
+        <activity
+            android:name=".ui.exercise.LottieActivity"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ui.exercise.GuideExerciseActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ui.exercise.StartExerciseActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ui.exercise.AddEyeExerciseActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ui.exercise.EyeExerciseDetailActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ui.exercise.EyeExerciseActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ui.main.activity.MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
 
+    <!--black-->
     <color name="colorBlack">#000000</color>
     <color name="colorBlack_300">#888888</color>
     <color name="colorBlack_400">#707070</color>
@@ -12,41 +13,30 @@
     <color name="colorBlack_700">#292929</color>
     <color name="colorBlack_800">#111111</color>
 
-    <color name="colorGray_700">#E8ECED</color>
+    <!--gray-->
     <color name="colorGray_100">#F9F9F9</color>
-<<<<<<< HEAD
     <color name="colorGray_600">#F3F3F3</color>
-
-    <color name="colorGreen_">#00D282</color>
-    <color name="colorGreen_500">#3BEAA7</color>
-=======
-    <color name="colorGray_600">#F3F3F3</color>#F3F3F3
-
+    <color name="colorGray_700">#E8ECED</color>
 
     <!--blue-->
     <color name="colorBlue_500">#3F97FF</color>
 
     <!--green-->
+    <color name="colorGreen_">#00D282</color>
     <color name="colorGreen_500">#3BEAA7</color>
     <color name="colorGreen_501">#00D282</color>
 
->>>>>>> d40ec487bf6c3a7e9dc61af36e35b3d6181f5a57
-
     <!--white-->
     <color name="colorWhite">#FFFFFF</color>
-<<<<<<< HEAD
-=======
+
+    <!--beige-->
+    <color name="colorBeige">#FFFDEE</color>
 
     <!--yellow-->
->>>>>>> d40ec487bf6c3a7e9dc61af36e35b3d6181f5a57
-    <color name="colorLemon">#FDF292</color>
-    <color name="colorLemon_500">#FFF383</color>
     <color name="colorYellow">#FFEB85</color>
-<<<<<<< HEAD
-    <color name="colorBeige">#FFFDEE</color>
-=======
+
+    <!--lemon-->
+    <color name="colorLemon">#FDF292</color>
     <color name="colorLemon_200">#FFFBD7</color>
-
-
->>>>>>> d40ec487bf6c3a7e9dc61af36e35b3d6181f5a57
+    <color name="colorLemon_500">#FFF383</color>
 </resources>

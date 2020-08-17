@@ -18,7 +18,7 @@ class LottieActivity : AppCompatActivity() , View.OnClickListener {
     var cnt = 1;
     var lottieAssetNameArrayList : ArrayList<String> = ArrayList()
     val handler: Handler = Handler()
-    var exercisenum = 1
+    var exercisenum = 0
 
 
     //click
@@ -41,7 +41,7 @@ class LottieActivity : AppCompatActivity() , View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lottie)
 
-        //exercisenum = intent.getIntExtra("exercise_num", -1);
+        exercisenum = intent.getIntExtra("exercise_num", -1);
 
 
         init()
@@ -59,6 +59,7 @@ class LottieActivity : AppCompatActivity() , View.OnClickListener {
 
         when(exercisenum) {
 
+            //사실 1번부터 해야 안헷갈릴듯
             0 -> {
                 lottieNum = 6
                 progressNum = 100/lottieNum + 1
@@ -94,6 +95,17 @@ class LottieActivity : AppCompatActivity() , View.OnClickListener {
 
             2 -> {
 
+                lottieNum = 3
+                progressNum = 100 / lottieNum + 1
+
+                lottieAssetNameArrayList.add("eye_nose_massage_1.json")
+                lottieAssetNameArrayList.add("eye_nose_massage_2.json")
+                lottieAssetNameArrayList.add("eye_nose_massage_3.json")
+
+            }
+
+            3 -> {
+                
             }
         }
 
@@ -115,6 +127,7 @@ class LottieActivity : AppCompatActivity() , View.OnClickListener {
                             Log.v("TAGG_arrayList", lottieAssetNameArrayList.get(cnt))
                             lottie_animation.setAnimation(lottieAssetNameArrayList.get(cnt))
                             lottie_animation.playAnimation()
+                            lottie_animation.speed = 5f
                             cnt++;
                             img_character.visibility = View.INVISIBLE
                             //progress bar

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:custom="http://schemas.android.com/apk/res/com.teamnexters.eyelong"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.main.activity.MainActivity"
     tools:ignore="ResAuto">
@@ -85,8 +84,7 @@
                 <com.teamnexters.eyelong.ui.main.custom.ExerciseProgressView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    custom:max="7"
-                    custom:progress="5" />
+                    app:progress="@{viewModel.exerciseHistoryCount}" />
             </HorizontalScrollView>
 
             <TextView

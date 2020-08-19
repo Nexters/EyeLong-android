@@ -66,21 +66,23 @@
             app:divider="@{@drawable/divider_habit_recycler}"
             app:items="@{viewModel.items}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toTopOf="@+id/btn_habit_check_save"
+            app:layout_constraintBottom_toTopOf="@+id/btn_habit_check_checkout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_habit_check_title" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_habit_check_title"
+            app:observer="@{viewModel.observer}" />
 
         <Button
-            android:id="@+id/btn_habit_check_save"
+            android:id="@+id/btn_habit_check_checkout"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="50dp"
-            android:background="@drawable/bg_habit_check_btn_save"
+            android:background="@drawable/bg_habit_check_btn_checkout"
             android:fontFamily="@font/notosanskrbold"
-            android:text="@string/habit_check_save"
+            android:onClick="@{()->viewModel.onCheckoutButtonClick()}"
+            android:text="@{viewModel.selectedItems.size()+@string/habit_check_save}"
             android:textColor="@color/colorWhite"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"

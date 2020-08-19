@@ -18,6 +18,13 @@ fun bindItems(view: RecyclerView, items: List<Habit>) {
     adapter.notifyDataSetChanged()
 }
 
+@BindingAdapter("observer")
+fun bindObserver(view: RecyclerView, observer: HabitRecyclerViewAdapter.Observer) {
+    val adapter = view.adapter as? HabitRecyclerViewAdapter
+        ?: HabitRecyclerViewAdapter().apply { view.adapter = this }
+    adapter.observer = observer
+}
+
 @BindingAdapter("divider")
 fun bindDivider(view: RecyclerView, drawable: Drawable) {
     DividerItemDecoration(view.context, LinearLayoutManager.VERTICAL).apply {

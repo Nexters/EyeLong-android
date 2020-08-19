@@ -10,6 +10,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_habit_item"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:background="@drawable/bg_habit_recycler_item">

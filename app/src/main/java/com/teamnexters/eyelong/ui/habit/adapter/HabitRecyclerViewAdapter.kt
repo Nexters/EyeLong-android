@@ -4,11 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.teamnexters.eyelong.BR
+import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.databinding.ItemHabitRecyclerBinding
 import com.teamnexters.eyelong.db.entity.Habit
 
 class HabitRecyclerViewAdapter : RecyclerView.Adapter<HabitRecyclerViewAdapter.ViewHolder>() {
     var items = emptyList<Habit>()
+    var observer: Observer? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
@@ -25,8 +27,36 @@ class HabitRecyclerViewAdapter : RecyclerView.Adapter<HabitRecyclerViewAdapter.V
 
     inner class ViewHolder(private val binding: ItemHabitRecyclerBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
         fun bind(habit: Habit) {
-            binding.setVariable(BR.habit, habit)
+            binding.apply {
+                setVariable(BR.habit, habit)
+
+                cbHabit.setOnCheckedChangeListener { _, isChecked ->
+                    var itemBackground: Int
+                    var iconBackground: Int
+
+                    if (isChecked) {
+                        observer?.onItemChecked(habit)
+
+                        itemBackground = R.drawable.bg_habit_recycler_item_selected
+                        iconBackground = R.drawable.bg_habit_icon_selected
+                    } else {
+                        observer?.onItemRemoved(habit)
+
+                        itemBackground = R.drawable.bg_habit_recycler_item
+                        iconBackground = R.drawable.bg_habit_icon
+                    }
+
+                    layoutHabitItem.apply { background = context.getDrawable(itemBackground) }
+                    imgHabitIcon.apply { background = context.getDrawable(iconBackground) }
+                }
+            }
         }
+    }
+
+    interface Observer {
+        fun onItemChecked(habit: Habit)
+        fun onItemRemoved(habit: Habit)
     }
 }

@@ -47,7 +47,7 @@
             android:layout_width="344dp"
             android:layout_height="236dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/bg_habit_btn_habit_check"
+            android:background="@drawable/bg_habit_btn_check"
             android:onClick="@{()->viewModel.onCheckHabitButtonClick()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="84dp"
                 android:layout_gravity="bottom"
-                android:background="@drawable/bg_habit_btn_habit_bt">
+                android:background="@drawable/bg_habit_btn_bt">
 
                 <TextView
                     android:id="@+id/tv_habit_check"
@@ -93,6 +93,16 @@
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_habit_check"
                     app:layout_constraintTop_toBottomOf="@+id/tv_habit_check" />
+
+                <ImageView
+                    android:id="@+id/img_habit_check"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_habit_btn_check_arrow" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </FrameLayout>
 
@@ -101,7 +111,7 @@
             android:layout_width="344dp"
             android:layout_height="236dp"
             android:layout_marginTop="24dp"
-            android:background="@drawable/bg_habit_btn_habit_analytics"
+            android:background="@drawable/bg_habit_btn_analytics"
             android:onClick="@{()->viewModel.onAnalyticHabitButtonClick()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -118,7 +128,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="84dp"
                 android:layout_gravity="bottom"
-                android:background="@drawable/bg_habit_btn_habit_bt">
+                android:background="@drawable/bg_habit_btn_bt">
 
                 <TextView
                     android:id="@+id/tv_habit_analytics"
@@ -147,6 +157,16 @@
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_habit_analytics"
                     app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics" />
+
+                <ImageView
+                    android:id="@+id/img_habit_analytics"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_habit_btn_analytics_arrow" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

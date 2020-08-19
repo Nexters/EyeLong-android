@@ -15,5 +15,8 @@ data class Habit(
     val description: String,
 
     @ColumnInfo(name = "image_path")
-    val imagePath: String?
+    val imagePath: String?,
+
+    @ColumnInfo(name = "favorite")
+    val favorite: String
 )

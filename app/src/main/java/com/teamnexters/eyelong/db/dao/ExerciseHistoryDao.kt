@@ -23,6 +23,4 @@ interface ExerciseHistoryDao {
     fun getHistoryByCreateTime(create_date: String): List<ExerciseHistory>
 
 
-
-
 }

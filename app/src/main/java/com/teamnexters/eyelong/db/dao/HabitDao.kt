@@ -14,5 +14,5 @@ interface HabitDao {
     fun insertHabit(habit: Habit)
 
     @Query("SELECT * FROM habit")
-    fun getHabitAll() : LiveData<List<Habit>>
+    fun getHabitAll(): LiveData<List<Habit>>
 }

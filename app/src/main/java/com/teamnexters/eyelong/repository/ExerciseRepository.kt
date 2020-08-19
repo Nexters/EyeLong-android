@@ -6,9 +6,9 @@ import com.teamnexters.eyelong.db.entity.Exercise
 
 class ExerciseRepository(private val exerciseDao: ExerciseDao) {
 
-    val allExercise : LiveData<List<Exercise>> = exerciseDao.getExerciseAll()
+    val allExercise: LiveData<List<Exercise>> = exerciseDao.getExerciseAll()
 
-    fun getExerciseInfo(id : Int) : Exercise {
+    fun getExerciseInfo(id: Int): Exercise {
         return exerciseDao.getExerciseInfo(id)
     }
 

@@ -16,9 +16,12 @@
     <!-- habit ui -->
     <string name="habit_ci">오늘의 눈 건강습관을\n체크해봐요</string>
     <string name="habit_check">하루 습관 체크</string>
+    <string name="habit_check_title">눈 건강 습관 체크</string>
+    <string name="habit_check_save">0개 습관 체크 완료</string>
     <string name="habit_check_description">오늘 습관 몇개를 달성하셨나요?</string>
     <string name="habit_analytics">하루 습관 분석</string>
     <string name="habit_analytics_description">일주일의 습관 분석을 확인해볼까요?</string>
+
     <!-- day of week -->
     <string name="day_mon">월</string>
     <string name="day_tue">화</string>
@@ -41,7 +44,6 @@
     <string name="exercise_title">8자 그리기 운동</string>
     <string name="exercise_effect">눈 혈행 개선</string>
     <string name="exercise_time">1분 30초</string>
-    <string name="text_effect">효과</string>
 
     <!--눈 운동 추가하기-->
     <string name="exercise_add">눈 운동 변경하기</string>
@@ -52,5 +54,10 @@
     <string name="exercise_reference_detail">눈이 아프면 운동을 멈춰주세요. 그리고 눈 운동의 효과는 사람마다 다를 수 있습니다.</string>
     <string name="exercise_maximum_three">눈 운동은 한 세트에 3개까지만 추가할 수 있습니다</string>
 
+    <!--text-->
+    <string name="text_edit">편집</string>
+    <string name="text_effect">효과</string>
+
+    <!--blue light-->
     <string name="block_blue_light">잠깐! 블루라이트 차단 모드를 켜주세요!</string>
 </resources>

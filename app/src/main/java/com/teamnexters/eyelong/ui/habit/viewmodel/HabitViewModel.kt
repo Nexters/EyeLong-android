@@ -9,7 +9,7 @@ class HabitViewModel(private val activityUseCase: ActivityUseCase) {
     }
 
     fun onCheckHabitButtonClick() {
-        Log.i(HabitViewModel::class.qualifiedName, "onCheckHabitButtonClick")
+        activityUseCase.startHabitCheckActivity()
     }
 
     fun onAnalyticHabitButtonClick() {

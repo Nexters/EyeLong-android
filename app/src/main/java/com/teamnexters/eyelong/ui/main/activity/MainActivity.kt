@@ -8,12 +8,16 @@ import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.databinding.ActivityMainBinding
 import com.teamnexters.eyelong.db.AppDatabase
+<<<<<<< HEAD
 import com.teamnexters.eyelong.ui.exercise.EyeExerciseActivity
+=======
+import com.teamnexters.eyelong.ui.main.usecase.StartActivityUseCase
+>>>>>>> feature-#4/main
 import com.teamnexters.eyelong.ui.main.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    private val mainViewModel = MainViewModel()
+    private val mainViewModel = MainViewModel(StartActivityUseCase(this@MainActivity))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

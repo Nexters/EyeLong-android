@@ -16,5 +16,7 @@ class MainViewModel(private val startActivityUseCase: StartActivityUseCase) {
         startActivityUseCase.startEyeExerciseActivity()
     }
 
-    fun onHabitButtonClick() {}
+    fun onHabitButtonClick() {
+        startActivityUseCase.startHabitActivity()
+    }
 }

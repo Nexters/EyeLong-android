@@ -8,13 +8,19 @@ import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.databinding.ActivityHabitCheckBinding
 import com.teamnexters.eyelong.ui.habit.viewmodel.HabitCheckViewModel
 import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
+import com.teamnexters.eyelong.ui.usecase.RoomDatabaseUseCase
 
 class HabitCheckActivity : AppCompatActivity() {
-    private val habitCheckViewModel = HabitCheckViewModel(ActivityUseCase(this@HabitCheckActivity))
+    private lateinit var habitCheckViewModel: HabitCheckViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_habit_check)
+
+        habitCheckViewModel = HabitCheckViewModel(
+            ActivityUseCase(this@HabitCheckActivity),
+            RoomDatabaseUseCase(applicationContext)
+        )
 
         val binding: ActivityHabitCheckBinding =
             DataBindingUtil.setContentView(this@HabitCheckActivity, R.layout.activity_habit_check)

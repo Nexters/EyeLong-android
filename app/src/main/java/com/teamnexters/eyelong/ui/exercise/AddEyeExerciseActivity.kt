@@ -1,20 +1,15 @@
 package com.teamnexters.eyelong.ui.exercise
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.teamnexters.eyelong.R
-import com.teamnexters.eyelong.db.entity.Exercise
 import com.teamnexters.eyelong.ui.exercise.adapter.AddEyeExerciseRecyclerViewAdapter
-import com.teamnexters.eyelong.ui.exercise.adapter.EyeExerciseRecyclerViewAdapter
 import com.teamnexters.eyelong.ui.exercise.viewmodel.ExerciseViewModel
 import kotlinx.android.synthetic.main.activity_add_eye_exercise.*
-import kotlinx.android.synthetic.main.activity_add_eye_exercise.img_btn_back
-import kotlinx.android.synthetic.main.activity_eye_exercise.*
 
 class AddEyeExerciseActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -80,7 +75,8 @@ class AddEyeExerciseActivity : AppCompatActivity(), View.OnClickListener {
 
         addEyeExerciseRecyclerViewAdapter = AddEyeExerciseRecyclerViewAdapter(this)
         rv_add_exercise_list.adapter = addEyeExerciseRecyclerViewAdapter
-        rv_add_exercise_list.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        rv_add_exercise_list.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
     }
 }

@@ -53,17 +53,16 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_like_desert" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    
+
     <ImageView
         android:id="@+id/img_green_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/cl_main_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="72dp"
         android:src="@drawable/exercise_img_8"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_main_text" />
 
 
     <TextView
@@ -71,14 +70,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
+        android:layout_marginTop="42dp"
         android:text="화면을 보다가 \n주변의 먼 곳을 응시하면서 \n진행하면 더 좋아요!"
         android:textAlignment="center"
         android:textColor="@color/colorBlack_700"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_green_icon"
-        android:layout_marginTop="42dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_green_icon" />
 
     <ImageView
         android:id="@+id/btn_next_blue_img"
@@ -86,8 +85,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/enabled"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

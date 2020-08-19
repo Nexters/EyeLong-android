@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_start_exercise.*
 class StartExerciseActivity : AppCompatActivity(), View.OnClickListener {
 
     var btnCount = 0
-    var exerciseList : ArrayList<Int> = ArrayList()
+    var exerciseList: ArrayList<Int> = ArrayList()
     var exercisenum = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,12 +72,12 @@ class StartExerciseActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     fun showInfoToastWithTypeface(view: View) {
-        KCustomToast.infoToast(this, getString(R.string.block_blue_light) , GRAVITY_BOTTOM)
+        KCustomToast.infoToast(this, getString(R.string.block_blue_light), GRAVITY_BOTTOM)
     }
 
     //중복방지
     private fun onClick() {
-        btn_next_blue_img.onThrottleClick{
+        btn_next_blue_img.onThrottleClick {
             showInfoToastWithTypeface(it)
             postDelayIntent()
             Log.d("TAG", "button Clicked : ${++btnCount}")

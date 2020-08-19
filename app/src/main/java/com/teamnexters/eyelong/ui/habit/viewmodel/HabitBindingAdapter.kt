@@ -6,7 +6,6 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.teamnexters.eyelong.db.entity.Habit
 import com.teamnexters.eyelong.ui.habit.adapter.HabitRecyclerViewAdapter
 
@@ -37,7 +36,7 @@ fun bindDivider(view: RecyclerView, drawable: Drawable) {
 @BindingAdapter("icon")
 fun bindIcon(view: ImageView, imagePath: String?) {
     view.context.run {
-        val resId = resources.getIdentifier(imagePath, "drawable", packageName)
-        Glide.with(this).load(resId).into(view)
+        val drawable = getDrawable(resources.getIdentifier(imagePath, "drawable", packageName))
+        view.setImageDrawable(drawable)
     }
 }

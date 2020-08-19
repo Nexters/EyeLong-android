@@ -1,13 +1,18 @@
 package com.teamnexters.eyelong.ui.habit.viewmodel
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.databinding.ObservableArrayList
 import com.teamnexters.eyelong.db.entity.Habit
+import com.teamnexters.eyelong.db.entity.HabitHistory
 import com.teamnexters.eyelong.ui.habit.adapter.HabitRecyclerViewAdapter
 import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
 import com.teamnexters.eyelong.ui.usecase.RoomDatabaseUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class HabitCheckViewModel(
     private val activityUseCase: ActivityUseCase,
@@ -37,5 +42,25 @@ class HabitCheckViewModel(
         activityUseCase.finishActivity()
     }
 
-    fun onCheckoutButtonClick() {}
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun onCheckoutButtonClick() {
+        if (selectedItems.size > 0) {
+            roomDatabaseUseCase.getAppDatabase()?.run {
+                GlobalScope.launch(Dispatchers.IO) {
+                    selectedItems
+                        .map {
+                            HabitHistory(
+                                userId = userDao().getUserByUserName("master")[0].id,
+                                habitId = it.id,
+                                createDate = LocalDateTime.now()
+                                    .format(DateTimeFormatter.ofPattern("yyyyMMdd hh:mm:ss"))
+                            )
+                        }
+                        .forEach {
+                            habitHistoryDao().insertHistory(it)
+                        }
+                }
+            }
+        }
+    }
 }

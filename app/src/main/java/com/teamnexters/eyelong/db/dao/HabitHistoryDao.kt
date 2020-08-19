@@ -14,8 +14,8 @@ interface HabitHistoryDao {
     fun insertHistory(habitHistory: HabitHistory)
 
     @Query("SELECT * FROM habit_history ORDER BY user_id")
-    fun getHistoryAll(): LiveData<List<HabitHistory>>
+    fun getHistoryAll(): List<HabitHistory>
 
     @Query("SELECT * FROM habit_history WHERE user_id = :userId")
-    fun getHistoryByUserId(userId: String): LiveData<List<HabitHistory>>
+    fun getHistoryByUserId(userId: String): List<HabitHistory>
 }

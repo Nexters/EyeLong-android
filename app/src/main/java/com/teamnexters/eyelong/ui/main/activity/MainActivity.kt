@@ -7,10 +7,11 @@ import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.databinding.ActivityMainBinding
 import com.teamnexters.eyelong.db.AppDatabase
+import com.teamnexters.eyelong.ui.main.usecase.StartActivityUseCase
 import com.teamnexters.eyelong.ui.main.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
-    private val mainViewModel = MainViewModel()
+    private val mainViewModel = MainViewModel(StartActivityUseCase(this@MainActivity))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -7,10 +7,10 @@ import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.databinding.ActivityHabitBinding
 import com.teamnexters.eyelong.ui.habit.viewmodel.HabitViewModel
-import com.teamnexters.eyelong.ui.usecase.StartActivityUseCase
+import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
 
 class HabitActivity : AppCompatActivity() {
-    private val habitViewModel = HabitViewModel(StartActivityUseCase(this@HabitActivity))
+    private val habitViewModel = HabitViewModel(ActivityUseCase(this@HabitActivity))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

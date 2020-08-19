@@ -25,7 +25,7 @@ class HabitCheckViewModel(
             selectedItems.add(habit)
         }
 
-        override fun onItemRemoved(habit: Habit) {
+        override fun onItemDeleted(habit: Habit) {
             selectedItems.remove(habit)
         }
     }
@@ -33,13 +33,17 @@ class HabitCheckViewModel(
     init {
         GlobalScope.launch(Dispatchers.IO) {
             roomDatabaseUseCase.getAppDatabase()?.run {
-                items.addAll(habitDao().getHabitAll())
+                items.addAll(habitDao().getHabitByRegistered())
             }
         }
     }
 
     fun onBackButtonClick() {
         activityUseCase.finishActivity()
+    }
+
+    fun onEditHabitClick() {
+        activityUseCase.startHabitEditActivity()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

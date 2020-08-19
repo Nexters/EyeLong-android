@@ -16,7 +16,7 @@
         android:layout_height="match_parent">
 
         <ImageButton
-            android:id="@+id/btn_habit_check_back"
+            android:id="@+id/btn_habit_edit_back"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="16dp"
@@ -28,7 +28,7 @@
             app:srcCompat="@drawable/ic_back_btn_black" />
 
         <TextView
-            android:id="@+id/tv_habit_check_title"
+            android:id="@+id/tv_habit_edit_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -42,18 +42,19 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_habit_check_edit"
+            android:id="@+id/tv_habit_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="23dp"
             android:fontFamily="@font/notosanskrmedium"
             android:includeFontPadding="false"
+            android:onClick="@{()->viewModel.onEditHabitClick()}"
             android:text="@string/text_edit"
             android:textColor="@color/colorBlack_500"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_habit_check_title" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_habit_edit_title" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_habit"
@@ -69,7 +70,7 @@
             app:layout_constraintBottom_toTopOf="@+id/btn_habit_check_checkout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_habit_check_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_habit_edit_title"
             app:observer="@{viewModel.observer}" />
 
         <Button

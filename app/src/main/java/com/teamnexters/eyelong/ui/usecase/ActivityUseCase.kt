@@ -5,6 +5,7 @@ import android.content.Intent
 import com.teamnexters.eyelong.ui.exercise.EyeExerciseActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitCheckActivity
+import com.teamnexters.eyelong.ui.habit.activity.HabitEditActivity
 
 class ActivityUseCase(private val activity: Activity) {
     fun startEyeExerciseActivity() {
@@ -17,6 +18,10 @@ class ActivityUseCase(private val activity: Activity) {
 
     fun startHabitCheckActivity() {
         activity.startActivity(Intent(activity.applicationContext, HabitCheckActivity::class.java))
+    }
+
+    fun startHabitEditActivity() {
+        activity.startActivity(Intent(activity.applicationContext, HabitEditActivity::class.java))
     }
 
     fun finishActivity() {

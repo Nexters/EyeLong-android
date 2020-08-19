@@ -1,6 +1,5 @@
 package com.teamnexters.eyelong.db.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -15,4 +14,7 @@ interface HabitDao {
 
     @Query("SELECT * FROM habit")
     fun getHabitAll(): List<Habit>
+
+    @Query("SELECT * FROM habit WHERE registered='Y'")
+    fun getHabitByRegistered(): List<Habit>
 }

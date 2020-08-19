@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
-import com.teamnexters.eyelong.databinding.ItemHabitRecyclerBinding
+import com.teamnexters.eyelong.databinding.ItemHabitCheckRecyclerBinding
 import com.teamnexters.eyelong.db.entity.Habit
 
 class HabitRecyclerViewAdapter : RecyclerView.Adapter<HabitRecyclerViewAdapter.ViewHolder>() {
@@ -14,7 +14,11 @@ class HabitRecyclerViewAdapter : RecyclerView.Adapter<HabitRecyclerViewAdapter.V
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
-            ItemHabitRecyclerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemHabitCheckRecyclerBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
 
         return ViewHolder(binding)
     }
@@ -25,7 +29,7 @@ class HabitRecyclerViewAdapter : RecyclerView.Adapter<HabitRecyclerViewAdapter.V
         holder.bind(items[position])
     }
 
-    inner class ViewHolder(private val binding: ItemHabitRecyclerBinding) :
+    inner class ViewHolder(private val binding: ItemHabitCheckRecyclerBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(habit: Habit) {
@@ -42,7 +46,7 @@ class HabitRecyclerViewAdapter : RecyclerView.Adapter<HabitRecyclerViewAdapter.V
                         itemBackground = R.drawable.bg_habit_recycler_item_selected
                         iconBackground = R.drawable.bg_habit_icon_selected
                     } else {
-                        observer?.onItemRemoved(habit)
+                        observer?.onItemDeleted(habit)
 
                         itemBackground = R.drawable.bg_habit_recycler_item
                         iconBackground = R.drawable.bg_habit_icon
@@ -57,6 +61,6 @@ class HabitRecyclerViewAdapter : RecyclerView.Adapter<HabitRecyclerViewAdapter.V
 
     interface Observer {
         fun onItemChecked(habit: Habit)
-        fun onItemRemoved(habit: Habit)
+        fun onItemDeleted(habit: Habit)
     }
 }

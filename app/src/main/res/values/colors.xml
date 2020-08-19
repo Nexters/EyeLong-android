@@ -19,10 +19,11 @@
     <color name="colorGray_700">#E8ECED</color>
 
     <!--blue-->
+    <color name="colorBlue">#0079FF</color>
     <color name="colorBlue_500">#3F97FF</color>
 
     <!--green-->
-    <color name="colorGreen_">#00D282</color>
+    <color name="colorGreen">#00D282</color>
     <color name="colorGreen_500">#3BEAA7</color>
     <color name="colorGreen_501">#00D282</color>
 

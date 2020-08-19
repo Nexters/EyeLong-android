@@ -1,4 +1,4 @@
-package com.teamnexters.eyelong.ui.main.usecase
+package com.teamnexters.eyelong.ui.usecase
 
 import android.content.Context
 import android.content.Intent

@@ -1,7 +1,7 @@
 package com.teamnexters.eyelong.ui.main.viewmodel
 
 import androidx.databinding.ObservableField
-import com.teamnexters.eyelong.ui.main.usecase.StartActivityUseCase
+import com.teamnexters.eyelong.ui.usecase.StartActivityUseCase
 
 class MainViewModel(private val startActivityUseCase: StartActivityUseCase) {
     val exerciseHistoryCount = ObservableField<Int>()

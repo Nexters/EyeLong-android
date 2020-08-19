@@ -13,6 +13,12 @@
     <string name="main_habit_cheer">습관 달성을 위해 힘내봐요!</string>
     <string name="main_habit_today">0개 달성 완료!</string>
 
+    <!-- habit ui -->
+    <string name="habit_ci">오늘의 눈 건강습관을\n체크해봐요</string>
+    <string name="habit_check">하루 습관 체크</string>
+    <string name="habit_check_description">오늘 습관 몇개를 달성하셨나요?</string>
+    <string name="habit_analytics">하루 습관 분석</string>
+    <string name="habit_analytics_description">일주일의 습관 분석을 확인해볼까요?</string>
     <!-- day of week -->
     <string name="day_mon">월</string>
     <string name="day_tue">화</string>

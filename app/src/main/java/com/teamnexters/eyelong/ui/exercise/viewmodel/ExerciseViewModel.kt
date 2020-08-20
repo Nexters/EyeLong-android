@@ -37,7 +37,7 @@ class ExerciseViewModel(
                 //마지막은 + 버튼 보이게 할꺼야
                 items.add(Exercise(-1, "", "", 0, "", "", "", ""))
 
-                for(i in 0..items.size) {
+                for(i in 0..items.size-1) {
                     Log.v("TAGG", items.get(i).tipImagePath.toString())
                 }
             }

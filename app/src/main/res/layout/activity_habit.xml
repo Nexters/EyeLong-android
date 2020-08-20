@@ -48,7 +48,7 @@
             android:layout_width="344dp"
             android:layout_height="236dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/bg_habit_btn_check"
+            android:background="@drawable/bg_habit_btn_checkout"
             android:onClick="@{()->viewModel.onCheckHabitButtonClick()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="104.83dp"
                 android:layout_marginTop="13.7dp"
-                app:srcCompat="@drawable/ic_habit_check" />
+                app:srcCompat="@drawable/ic_habit_checkout" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -76,7 +76,7 @@
                     android:fontFamily="@font/notosanskrbold"
                     android:includeFontPadding="false"
                     android:lineSpacingExtra="0sp"
-                    android:text="@string/habit_check"
+                    android:text="@string/habit_checkout"
                     android:textColor="@color/colorBlack_800"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +89,7 @@
                     android:fontFamily="@font/notosanskrbold"
                     android:includeFontPadding="false"
                     android:lineSpacingExtra="0sp"
-                    android:text="@string/habit_check_description"
+                    android:text="@string/habit_checkout_description"
                     android:textColor="@color/colorBlack_500"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_habit_check"
@@ -103,7 +103,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_habit_btn_check_arrow" />
+                    app:srcCompat="@drawable/ic_habit_btn_checkout_arrow" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </FrameLayout>
 

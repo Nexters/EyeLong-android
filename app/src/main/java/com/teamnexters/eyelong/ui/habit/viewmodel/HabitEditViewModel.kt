@@ -2,33 +2,26 @@ package com.teamnexters.eyelong.ui.habit.viewmodel
 
 import androidx.databinding.ObservableArrayList
 import com.teamnexters.eyelong.db.entity.Habit
-import com.teamnexters.eyelong.ui.habit.adapter.HabitRecyclerViewAdapter
 import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
 import com.teamnexters.eyelong.ui.usecase.RoomDatabaseUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class HabitCheckViewModel(
+class HabitEditViewModel(
     private val activityUseCase: ActivityUseCase,
     private val roomDatabaseUseCase: RoomDatabaseUseCase
 ) {
-    val items = ObservableArrayList<Habit>()
-    val selectedItems = ObservableArrayList<Habit>()
-    val observer = object : HabitRecyclerViewAdapter.Observer {
-        override fun onItemChecked(habit: Habit) {
-            selectedItems.add(habit)
-        }
-
-        override fun onItemRemoved(habit: Habit) {
-            selectedItems.remove(habit)
-        }
-    }
+    val registeredItems = ObservableArrayList<Habit>()
+    val unregisteredItems = ObservableArrayList<Habit>()
 
     init {
         GlobalScope.launch(Dispatchers.IO) {
             roomDatabaseUseCase.getAppDatabase()?.run {
-                items.addAll(habitDao().getHabitAll())
+                habitDao().getHabitAll().groupBy { it.registered }.run {
+                    get("Y")?.let { registeredItems.addAll(it) }
+                    get("N")?.let { unregisteredItems.addAll(it) }
+                }
             }
         }
     }
@@ -36,6 +29,4 @@ class HabitCheckViewModel(
     fun onBackButtonClick() {
         activityUseCase.finishActivity()
     }
-
-    fun onCheckoutButtonClick() {}
 }

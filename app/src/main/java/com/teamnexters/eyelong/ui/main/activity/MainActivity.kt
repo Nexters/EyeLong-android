@@ -6,17 +6,20 @@ import androidx.databinding.DataBindingUtil
 import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.databinding.ActivityMainBinding
-import com.teamnexters.eyelong.db.AppDatabase
-import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
 import com.teamnexters.eyelong.ui.main.viewmodel.MainViewModel
+import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
+import com.teamnexters.eyelong.ui.usecase.RoomDatabaseUseCase
 
 class MainActivity : AppCompatActivity() {
-    private val mainViewModel = MainViewModel(ActivityUseCase(this@MainActivity))
+    private lateinit var mainViewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // TODO Room database init..
-        AppDatabase.getAppDatabase(applicationContext)
+
+        mainViewModel = MainViewModel(
+            ActivityUseCase(this@MainActivity),
+            RoomDatabaseUseCase(applicationContext)
+        )
 
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this@MainActivity, R.layout.activity_main)

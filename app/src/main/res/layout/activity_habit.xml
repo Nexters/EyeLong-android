@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.habit.activity.HabitActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.teamnexters.eyelong.ui.habit.viewmodel.HabitViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBlack_800">
+
+        <ImageButton
+            android:id="@+id/btn_habit_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:background="@android:color/transparent"
+            android:onClick="@{()->viewModel.onBackButtonClick()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_btn_white" />
+
+        <TextView
+            android:id="@+id/tv_habit_ci"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="64dp"
+            android:fontFamily="@font/notosanskrregular"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="0sp"
+            android:text="@string/habit_ci"
+            android:textColor="@color/colorGray_100"
+            android:textSize="28sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/btn_habit_check"
+            android:layout_width="344dp"
+            android:layout_height="236dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/bg_habit_btn_check"
+            android:onClick="@{()->viewModel.onCheckHabitButtonClick()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_habit_ci">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="104.83dp"
+                android:layout_marginTop="13.7dp"
+                app:srcCompat="@drawable/ic_habit_check" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="84dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/bg_habit_btn_bt">
+
+                <TextView
+                    android:id="@+id/tv_habit_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/notosanskrbold"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="0sp"
+                    android:text="@string/habit_check"
+                    android:textColor="@color/colorBlack_800"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_habit_check_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskrbold"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="0sp"
+                    android:text="@string/habit_check_description"
+                    android:textColor="@color/colorBlack_500"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_habit_check"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_habit_check" />
+
+                <ImageView
+                    android:id="@+id/img_habit_check"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_habit_btn_check_arrow" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btn_habit_analytics"
+            android:layout_width="344dp"
+            android:layout_height="236dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_habit_btn_analytics"
+            android:onClick="@{()->viewModel.onAnalyticHabitButtonClick()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_habit_check">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="115.96dp"
+                android:layout_marginTop="15.12dp"
+                app:srcCompat="@drawable/ic_habit_analytics" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="84dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/bg_habit_btn_bt">
+
+                <TextView
+                    android:id="@+id/tv_habit_analytics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/notosanskrbold"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="0sp"
+                    android:text="@string/habit_analytics"
+                    android:textColor="@color/colorBlack_800"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_habit_analytics_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskrbold"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="0sp"
+                    android:text="@string/habit_analytics_description"
+                    android:textColor="@color/colorBlack_500"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_habit_analytics"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics" />
+
+                <ImageView
+                    android:id="@+id/img_habit_analytics"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_habit_btn_analytics_arrow" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

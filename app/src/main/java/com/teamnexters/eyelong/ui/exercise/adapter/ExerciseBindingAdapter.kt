@@ -11,3 +11,10 @@ fun bindItems(view: RecyclerView, items: List<Exercise>) {
     adapter.items = items
     adapter.notifyDataSetChanged()
 }
+
+@BindingAdapter("observer")
+fun bindObserver(view: RecyclerView, observer: EyeExerciseTest.Observer) {
+    val adapter = view.adapter as? EyeExerciseTest
+        ?: EyeExerciseTest().apply { view.adapter = this }
+    adapter.observer = observer
+}

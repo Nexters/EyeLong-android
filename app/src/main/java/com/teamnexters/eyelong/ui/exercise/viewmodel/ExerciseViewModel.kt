@@ -1,23 +1,49 @@
 package com.teamnexters.eyelong.ui.exercise.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.viewModelScope
-import com.teamnexters.eyelong.db.AppDatabase
+import androidx.databinding.ObservableArrayList
 import com.teamnexters.eyelong.db.entity.Exercise
-import com.teamnexters.eyelong.repository.ExerciseRepository
+import com.teamnexters.eyelong.ui.exercise.adapter.EyeExerciseTest
+import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
+import com.teamnexters.eyelong.ui.usecase.RoomDatabaseUseCase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
-class ExerciseViewModel (application: Application) : AndroidViewModel(application) {
+class ExerciseViewModel(
+    private val activityUseCase: ActivityUseCase,
+    private val roomDatabaseUseCase: RoomDatabaseUseCase
+) {
 
-    private val repository: ExerciseRepository
-    val allExercise: LiveData<List<Exercise>>
+    val items = ObservableArrayList<Exercise>()
 
-    init {
-        val exerciseDao = AppDatabase.getAppDatabase(application)!!.exerciseDao()
-        repository = ExerciseRepository(exerciseDao)
-        allExercise = repository.allExercise
+    //사실 이 부분은..
+    val selectedItems = ObservableArrayList<Exercise>()
+    val observer = object : EyeExerciseTest.Observer {
+        override fun onItemChecked(exercise: Exercise) {
+            selectedItems.add(exercise)
+        }
+
+        override fun onItemRemoved(exercise: Exercise) {
+            selectedItems.remove(exercise)
+        }
     }
 
-    fun getExerciseInfo(id : Int) = repository.getExerciseInfo(id)
+    init {
+        GlobalScope.launch(Dispatchers.IO) {
+            roomDatabaseUseCase.getAppDatabase()?.run {
+                items.addAll(exerciseDao().getExerciseAll())
+                //item의 맨 마지막에는 하나의 배열이 들어가긴 해야함.
+                //마지막은 + 버튼 보이게 할꺼야
+                items.add(Exercise(-1, "", "", 0, "", "", "", ""))
+            }
+        }
+    }
+
+    fun onBackButtonClick() {
+        activityUseCase.finishActivity()
+    }
+
+    fun onStartExerciseButtonClick() {
+        activityUseCase.intentStartEyeExerciseActivity()
+    }
 }

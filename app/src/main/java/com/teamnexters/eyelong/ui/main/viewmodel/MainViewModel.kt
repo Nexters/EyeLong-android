@@ -1,9 +1,9 @@
 package com.teamnexters.eyelong.ui.main.viewmodel
 
 import androidx.databinding.ObservableField
-import com.teamnexters.eyelong.ui.main.usecase.StartActivityUseCase
+import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
 
-class MainViewModel(private val startActivityUseCase: StartActivityUseCase) {
+class MainViewModel(private val activityUseCase: ActivityUseCase) {
     val exerciseHistoryCount = ObservableField<Int>()
     val habitHistoryCount = ObservableField<Int>()
 
@@ -13,8 +13,10 @@ class MainViewModel(private val startActivityUseCase: StartActivityUseCase) {
     }
 
     fun onStartExerciseButtonClick() {
-        startActivityUseCase.startEyeExerciseActivity()
+        activityUseCase.startEyeExerciseActivity()
     }
 
-    fun onHabitButtonClick() {}
+    fun onHabitButtonClick() {
+        activityUseCase.startHabitActivity()
+    }
 }

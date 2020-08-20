@@ -17,7 +17,7 @@
             android:id="@+id/img_check_btn_rv_item"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/selector_exercise_check_btn"
+            android:src="@drawable/selector_exercise_checkbox"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -39,7 +39,7 @@ class AddEyeExerciseActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_eye_exercise)
 
-        exerciseViewModel = ViewModelProvider(this).get(ExerciseViewModel::class.java)
+        //exerciseViewModel = ViewModelProvider(this).get(ExerciseViewModel::class.java)
 
         configureRecyclerView()
         init()
@@ -65,13 +65,13 @@ class AddEyeExerciseActivity : AppCompatActivity(), View.OnClickListener {
         dataList.add(Exercise(0, "운동이름", "", "1분 30초", "효과효과", "효과의 상세설명",
             "tip의 설명", ""))*/
 
-        exerciseViewModel.allExercise.observe(this, Observer { exercise ->
+/*        exerciseViewModel.allExercise.observe(this, Observer { exercise ->
             // Update the cached copy of the words in the adapter.
             exercise?.let {
                 //Log.v("TAGG", it.get(0).name)
                 addEyeExerciseRecyclerViewAdapter.setWords(it)
             }
-        })
+        })*/
 
         addEyeExerciseRecyclerViewAdapter = AddEyeExerciseRecyclerViewAdapter(this)
         rv_add_exercise_list.adapter = addEyeExerciseRecyclerViewAdapter

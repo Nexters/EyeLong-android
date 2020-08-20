@@ -3,6 +3,7 @@ package com.teamnexters.eyelong.ui.usecase
 import android.app.Activity
 import android.content.Intent
 import com.teamnexters.eyelong.ui.exercise.EyeExerciseActivity
+import com.teamnexters.eyelong.ui.exercise.StartExerciseActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitCheckoutActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitEditActivity
@@ -26,5 +27,11 @@ class ActivityUseCase(private val activity: Activity) {
 
     fun finishActivity() {
         activity.finish()
+    }
+
+    //eyeExercise -> start_activity
+    fun intentStartEyeExerciseActivity() {
+        //
+        activity.startActivity(Intent(activity.applicationContext, StartExerciseActivity::class.java))
     }
 }

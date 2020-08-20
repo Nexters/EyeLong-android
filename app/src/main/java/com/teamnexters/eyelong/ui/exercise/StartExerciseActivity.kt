@@ -67,6 +67,7 @@ class StartExerciseActivity : AppCompatActivity(), View.OnClickListener {
             intent.putIntegerArrayListExtra("exercise_list", exerciseList)
             intent.putExtra("exercise_num", exercisenum)
             startActivity(intent)
+            finish()
         }, 2000)
     }
 

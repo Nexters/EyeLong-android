@@ -9,19 +9,12 @@ import com.teamnexters.eyelong.db.entity.Exercise
 import com.teamnexters.eyelong.db.entity.ExerciseHistory
 import com.teamnexters.eyelong.repository.ExerciseHistoryRepository
 import com.teamnexters.eyelong.repository.ExerciseRepository
+import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
 
-class ExerciseHistoryViewModel (application: Application) : AndroidViewModel(application) {
+class ExerciseHistoryViewModel ( private val activityUseCase: ActivityUseCase) {
 
-    private val repository: ExerciseHistoryRepository
-    val allExerciseHistory : LiveData<List<ExerciseHistory>>
 
     init {
-        val exerciseHistoryDao = AppDatabase.getAppDatabase(application)!!.exerciseHistoryDao()
-        repository = ExerciseHistoryRepository(exerciseHistoryDao)
-        allExerciseHistory = repository.allExercise
     }
 
-    fun getExerciseInfo(id : Int) = repository.getExerciseInfo(id)
-
-    fun getExerciseInfoByCreateTime(create_time : String) = repository.getExerciseInfoByCreateTime(create_time)
 }

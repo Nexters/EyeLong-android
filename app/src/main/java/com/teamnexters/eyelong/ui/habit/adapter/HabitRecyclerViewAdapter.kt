@@ -76,7 +76,9 @@ class HabitRecyclerViewAdapter(val itemType: ItemType) :
                     ItemType.EDIT -> {
                         cbHabitCheckout.visibility = View.GONE
                         btnHabitEdit.visibility = View.VISIBLE
-                        btnHabitEdit.setOnClickListener {}
+                        btnHabitEdit.setOnClickListener {
+                            
+                        }
                     }
                 }
             }

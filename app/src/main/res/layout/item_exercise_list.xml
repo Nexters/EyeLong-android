@@ -118,12 +118,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <!--android:text='@{exercise.elapsedTime}'-->
-                <!---->
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
             <ImageView
                 android:id="@+id/img_exercise"
@@ -131,11 +126,12 @@
                 android:layout_height="64dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
-
-
-            <!--android:src="@{exercise.lottieImagePath}"-->
+            <!--
+                android:src="@{exercise.tipImagePath}"-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_container_plus_btn"

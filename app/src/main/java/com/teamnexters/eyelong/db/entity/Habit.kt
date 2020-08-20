@@ -16,4 +16,5 @@ data class Habit(
 
     @ColumnInfo(name = "image_path")
     val imagePath: String?
+
 )

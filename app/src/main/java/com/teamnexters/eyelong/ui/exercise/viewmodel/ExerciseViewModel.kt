@@ -1,5 +1,6 @@
 package com.teamnexters.eyelong.ui.exercise.viewmodel
 
+import android.util.Log
 import androidx.databinding.ObservableArrayList
 import com.teamnexters.eyelong.db.entity.Exercise
 import com.teamnexters.eyelong.ui.exercise.adapter.EyeExerciseTest
@@ -35,6 +36,10 @@ class ExerciseViewModel(
                 //item의 맨 마지막에는 하나의 배열이 들어가긴 해야함.
                 //마지막은 + 버튼 보이게 할꺼야
                 items.add(Exercise(-1, "", "", 0, "", "", "", ""))
+
+                for(i in 0..items.size) {
+                    Log.v("TAGG", items.get(i).tipImagePath.toString())
+                }
             }
         }
     }

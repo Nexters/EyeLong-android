@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class HabitCheckViewModel(
+class HabitCheckoutViewModel(
     private val activityUseCase: ActivityUseCase,
     private val roomDatabaseUseCase: RoomDatabaseUseCase
 ) {

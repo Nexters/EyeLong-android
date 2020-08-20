@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
-import com.teamnexters.eyelong.databinding.ActivityHabitCheckBinding
 import com.teamnexters.eyelong.databinding.ActivityHabitEditBinding
 import com.teamnexters.eyelong.ui.habit.viewmodel.HabitEditViewModel
 import com.teamnexters.eyelong.ui.usecase.ActivityUseCase

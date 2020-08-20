@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".ui.habit.activity.HabitEditActivity"></activity>
-        <activity android:name=".ui.habit.activity.HabitCheckActivity" />
+        <activity android:name=".ui.habit.activity.HabitCheckoutActivity" />
         <activity android:name=".ui.habit.activity.HabitActivity" />
         <activity
             android:name=".ui.exercise.LottieActivity"

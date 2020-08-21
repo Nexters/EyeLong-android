@@ -10,8 +10,8 @@ import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.db.entity.Habit
 import com.teamnexters.eyelong.ui.habit.adapter.HabitRecyclerViewAdapter
 
-@BindingAdapter("items")
-fun bindItems(view: RecyclerView, items: List<Habit>) {
+@BindingAdapter(value = ["items", "observer"], requireAll = false)
+fun bindItems(view: RecyclerView, items: List<Habit>, observer: HabitRecyclerViewAdapter.Observer) {
     val itemType = when (view.id) {
         R.id.recycler_habit_checkout -> HabitRecyclerViewAdapter.ItemType.CHECKOUT
         else -> HabitRecyclerViewAdapter.ItemType.EDIT
@@ -21,15 +21,8 @@ fun bindItems(view: RecyclerView, items: List<Habit>) {
         ?: HabitRecyclerViewAdapter(itemType).apply { view.adapter = this }
 
     adapter.items = items
+    adapter.observer = observer
     adapter.notifyDataSetChanged()
-}
-
-@BindingAdapter("observer")
-fun bindObserver(view: RecyclerView, observer: HabitRecyclerViewAdapter.Observer) {
-    val adapter = view.adapter as? HabitRecyclerViewAdapter
-    adapter?.apply {
-        this.observer = observer
-    }
 }
 
 @BindingAdapter("divider")

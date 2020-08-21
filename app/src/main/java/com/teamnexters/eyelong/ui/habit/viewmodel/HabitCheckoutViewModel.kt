@@ -25,6 +25,9 @@ class HabitCheckoutViewModel(
             selectedItems.add(habit)
         }
 
+        override fun onItemRegistered(habit: Habit) {
+        }
+
         override fun onItemDeleted(habit: Habit) {
             selectedItems.remove(habit)
         }

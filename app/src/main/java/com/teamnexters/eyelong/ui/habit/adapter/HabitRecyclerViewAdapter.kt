@@ -8,6 +8,7 @@ import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.databinding.ItemHabitRecyclerBinding
 import com.teamnexters.eyelong.db.entity.Habit
+import com.teamnexters.eyelong.ui.habit.viewmodel.getRegistered
 
 class HabitRecyclerViewAdapter(val itemType: ItemType) :
     RecyclerView.Adapter<HabitRecyclerViewAdapter.ViewHolder>() {
@@ -48,27 +49,14 @@ class HabitRecyclerViewAdapter(val itemType: ItemType) :
                         btnHabitEdit.visibility = View.GONE
                         cbHabitCheckout.visibility = View.VISIBLE
                         cbHabitCheckout.setOnCheckedChangeListener { _, isChecked ->
-                            var itemBackground: Int
-                            var iconBackground: Int
+                            observer?.run {
+                                if (isChecked) {
+                                    onItemChecked(habit)
+                                } else {
+                                    onItemDeleted(habit)
+                                }
 
-                            if (isChecked) {
-                                observer?.onItemChecked(habit)
-
-                                itemBackground = R.drawable.bg_habit_recycler_item_selected
-                                iconBackground = R.drawable.bg_habit_icon_selected
-                            } else {
-                                observer?.onItemDeleted(habit)
-
-                                itemBackground = R.drawable.bg_habit_recycler_item
-                                iconBackground = R.drawable.bg_habit_icon
-                            }
-
-                            layoutHabitItem.apply {
-                                background = context.getDrawable(itemBackground)
-                            }
-
-                            imgHabitIcon.apply {
-                                background = context.getDrawable(iconBackground)
+                                setItemViewDrawable(isChecked)
                             }
                         }
                     }
@@ -76,8 +64,43 @@ class HabitRecyclerViewAdapter(val itemType: ItemType) :
                     ItemType.EDIT -> {
                         cbHabitCheckout.visibility = View.GONE
                         btnHabitEdit.visibility = View.VISIBLE
-                        btnHabitEdit.setOnClickListener {}
+                        btnHabitEdit.setOnClickListener {
+                            observer?.run {
+                                if (habit.getRegistered()) {
+                                    onItemDeleted(habit)
+                                } else {
+                                    onItemRegistered(habit)
+                                }
+                            }
+                        }
+
+                        setItemViewDrawable(habit.getRegistered())
                     }
+                }
+            }
+        }
+
+        private fun setItemViewDrawable(selected: Boolean) {
+            var itemBackground: Int
+            var iconBackground: Int
+            var btnBackground: Int
+
+            if (selected) {
+                itemBackground = R.drawable.bg_habit_recycler_item_selected
+                iconBackground = R.drawable.bg_habit_icon_selected
+                btnBackground = R.drawable.ic_habit_delete
+            } else {
+                itemBackground = R.drawable.bg_habit_recycler_item
+                iconBackground = R.drawable.bg_habit_icon
+                btnBackground = R.drawable.ic_habit_add
+            }
+
+            with(binding) {
+                layoutHabitItem.background = root.context.getDrawable(itemBackground)
+                imgHabitIcon.background = root.context.getDrawable(iconBackground)
+
+                if (btnHabitEdit.visibility == View.VISIBLE) {
+                    btnHabitEdit.background = root.context.getDrawable(btnBackground)
                 }
             }
         }
@@ -85,6 +108,7 @@ class HabitRecyclerViewAdapter(val itemType: ItemType) :
 
     interface Observer {
         fun onItemChecked(habit: Habit)
+        fun onItemRegistered(habit: Habit)
         fun onItemDeleted(habit: Habit)
     }
 }

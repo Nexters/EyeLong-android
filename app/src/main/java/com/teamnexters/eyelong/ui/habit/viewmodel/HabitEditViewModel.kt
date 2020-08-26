@@ -2,7 +2,7 @@ package com.teamnexters.eyelong.ui.habit.viewmodel
 
 import androidx.databinding.ObservableArrayList
 import com.teamnexters.eyelong.db.entity.Habit
-import com.teamnexters.eyelong.ui.habit.adapter.HabitRecyclerViewAdapter
+import com.teamnexters.eyelong.ui.habit.adapter.HabitListAdapter
 import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
 import com.teamnexters.eyelong.ui.usecase.RoomDatabaseUseCase
 import kotlinx.coroutines.Dispatchers
@@ -18,16 +18,13 @@ class HabitEditViewModel(
 ) {
     val registeredItems = ObservableArrayList<Habit>()
     val unregisteredItems = ObservableArrayList<Habit>()
-    val observer = object : HabitRecyclerViewAdapter.Observer {
-        override fun onItemChecked(habit: Habit) {
-        }
-
-        override fun onItemRegistered(habit: Habit) {
-            unregisteredItems.remove(habit)
+    val observer = object : HabitListAdapter.Observer {
+        override fun onItemAdded(habit: Habit) {
+            TODO("Not yet implemented")
         }
 
         override fun onItemDeleted(habit: Habit) {
-            registeredItems.remove(habit)
+            TODO("Not yet implemented")
         }
     }
 

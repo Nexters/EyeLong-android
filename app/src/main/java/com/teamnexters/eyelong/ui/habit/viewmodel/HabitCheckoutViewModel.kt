@@ -5,7 +5,7 @@ import androidx.annotation.RequiresApi
 import androidx.databinding.ObservableArrayList
 import com.teamnexters.eyelong.db.entity.Habit
 import com.teamnexters.eyelong.db.entity.HabitHistory
-import com.teamnexters.eyelong.ui.habit.adapter.HabitRecyclerViewAdapter
+import com.teamnexters.eyelong.ui.habit.adapter.HabitListAdapter
 import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
 import com.teamnexters.eyelong.ui.usecase.RoomDatabaseUseCase
 import kotlinx.coroutines.Dispatchers
@@ -20,12 +20,9 @@ class HabitCheckoutViewModel(
 ) {
     val items = ObservableArrayList<Habit>()
     val selectedItems = ObservableArrayList<Habit>()
-    val observer = object : HabitRecyclerViewAdapter.Observer {
-        override fun onItemChecked(habit: Habit) {
+    val observer = object : HabitListAdapter.Observer {
+        override fun onItemAdded(habit: Habit) {
             selectedItems.add(habit)
-        }
-
-        override fun onItemRegistered(habit: Habit) {
         }
 
         override fun onItemDeleted(habit: Habit) {

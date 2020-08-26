@@ -10,7 +10,9 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 fun Habit.getRegistered() = registered == "Y"
-fun Habit.setRegistered(value: Boolean) = if (value) registered == "Y" else registered == "N"
+fun Habit.setRegistered(value: Boolean) {
+    registered = if (value) "Y" else "N"
+}
 
 class HabitEditViewModel(
     private val activityUseCase: ActivityUseCase,
@@ -20,11 +22,13 @@ class HabitEditViewModel(
     val unregisteredItems = ObservableArrayList<Habit>()
     val observer = object : HabitListAdapter.Observer {
         override fun onItemAdded(habit: Habit) {
-            TODO("Not yet implemented")
+            unregisteredItems.remove(habit)
+            registeredItems.add(habit.apply { setRegistered(true) })
         }
 
         override fun onItemDeleted(habit: Habit) {
-            TODO("Not yet implemented")
+            registeredItems.remove(habit)
+            unregisteredItems.add(habit.apply { setRegistered(false) })
         }
     }
 

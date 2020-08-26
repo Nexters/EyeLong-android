@@ -58,7 +58,17 @@ class HabitListAdapter(val itemType: ItemType) :
                     ItemType.EDIT -> {
                         cbHabitCheckout.visibility = View.GONE
                         btnHabitEdit.visibility = View.VISIBLE
-                        btnHabitEdit.setOnClickListener { }
+                        btnHabitEdit.setOnClickListener {
+                            observer?.run {
+                                getItem(adapterPosition).let {
+                                    if (!it.getRegistered()) {
+                                        onItemAdded(it)
+                                    } else {
+                                        onItemDeleted(it)
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

@@ -1,6 +1,7 @@
 package com.teamnexters.eyelong.ui.habit.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -8,8 +9,12 @@ import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.databinding.ItemHabitRecyclerBinding
 import com.teamnexters.eyelong.db.entity.Habit
+import com.teamnexters.eyelong.ui.habit.viewmodel.getRegistered
 
-class HabitListAdapter : ListAdapter<Habit, HabitListAdapter.ViewHolder>(DiffCallback) {
+class HabitListAdapter(val itemType: ItemType) :
+    ListAdapter<Habit, HabitListAdapter.ViewHolder>(DiffCallback) {
+    enum class ItemType { CHECKOUT, EDIT }
+
     var observer: Observer? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,26 +37,39 @@ class HabitListAdapter : ListAdapter<Habit, HabitListAdapter.ViewHolder>(DiffCal
 
         init {
             binding.apply {
-                cbHabitCheckout.setOnCheckedChangeListener { _, isChecked ->
-                    observer?.run {
-                        getItem(adapterPosition).let {
-                            if (isChecked) {
-                                onItemAdded(it)
-                            } else {
-                                onItemDeleted(it)
+                when (itemType) {
+                    ItemType.CHECKOUT -> {
+                        btnHabitEdit.visibility = View.GONE
+                        cbHabitCheckout.visibility = View.VISIBLE
+                        cbHabitCheckout.setOnCheckedChangeListener { _, isChecked ->
+                            observer?.run {
+                                getItem(adapterPosition).let {
+                                    if (isChecked) {
+                                        onItemAdded(it)
+                                    } else {
+                                        onItemDeleted(it)
+                                    }
+                                }
                             }
+
+                            setItemViewDrawable(isChecked)
                         }
                     }
-
-                    setItemViewDrawable(isChecked)
+                    ItemType.EDIT -> {
+                        cbHabitCheckout.visibility = View.GONE
+                        btnHabitEdit.visibility = View.VISIBLE
+                        btnHabitEdit.setOnClickListener { }
+                    }
                 }
-
-                btnHabitEdit.setOnClickListener { }
             }
         }
 
         fun bind(habit: Habit) {
             binding.apply {
+                if (itemType == ItemType.EDIT) {
+                    setItemViewDrawable(habit.getRegistered())
+                }
+
                 setVariable(BR.habit, habit)
             }
         }

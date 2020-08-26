@@ -7,6 +7,7 @@ import androidx.databinding.ObservableArrayList
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.db.entity.Habit
 import com.teamnexters.eyelong.ui.habit.adapter.HabitListAdapter
 
@@ -16,8 +17,13 @@ fun bindItems(
     items: ObservableArrayList<Habit>,
     observer: HabitListAdapter.Observer
 ) {
+    val itemType = when (view.id) {
+        R.id.recycler_habit_checkout -> HabitListAdapter.ItemType.CHECKOUT
+        else -> HabitListAdapter.ItemType.EDIT
+    }
+
     val adapter = view.adapter as? HabitListAdapter
-        ?: HabitListAdapter().apply { view.adapter = this }
+        ?: HabitListAdapter(itemType).apply { view.adapter = this }
 
     adapter.submitList(items)
     adapter.observer = observer

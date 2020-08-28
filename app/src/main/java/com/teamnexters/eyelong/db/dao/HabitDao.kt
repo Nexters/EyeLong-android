@@ -1,9 +1,6 @@
 package com.teamnexters.eyelong.db.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.teamnexters.eyelong.db.entity.Habit
 
 @Dao
@@ -11,6 +8,9 @@ interface HabitDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertHabit(habit: Habit)
+
+    @Update
+    fun updateHabit(habit: Habit)
 
     @Query("SELECT * FROM habit")
     fun getHabitAll(): List<Habit>

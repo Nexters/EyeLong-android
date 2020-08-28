@@ -28,6 +28,10 @@ class HabitEditViewModel(
             if (registeredItems.size < 5) {
                 unregisteredItems.remove(habit)
                 registeredItems.add(habit.apply { setRegistered(true) })
+
+                GlobalScope.launch(Dispatchers.IO) {
+                    roomDatabaseUseCase.getAppDatabase()?.run { habitDao().updateHabit(habit) }
+                }
             } else {
                 resourceProvider.getString(R.string.habit_edit_limit).let {
                     activityUseCase.showToast(it.toString())
@@ -38,6 +42,10 @@ class HabitEditViewModel(
         override fun onItemDeleted(habit: Habit) {
             registeredItems.remove(habit)
             unregisteredItems.add(habit.apply { setRegistered(false) })
+
+            GlobalScope.launch(Dispatchers.IO) {
+                roomDatabaseUseCase.getAppDatabase()?.run { habitDao().updateHabit(habit) }
+            }
         }
     }
 

@@ -23,6 +23,7 @@
     <!--blue-->
     <color name="colorBlue">#0079FF</color>
     <color name="colorBlue_500">#3F97FF</color>
+    <color name="colorBlue_700">#0078FD</color>
 
     <!--green-->
     <color name="colorGreen">#00D282</color>

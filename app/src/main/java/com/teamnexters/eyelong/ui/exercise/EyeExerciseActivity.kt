@@ -67,7 +67,6 @@ class EyeExerciseActivity : AppCompatActivity(), View.OnClickListener,
 
         //로직
         //총 소요시간 -> dataList의 elapsedTime들을
-
     }
 
     private fun init() {
@@ -150,10 +149,6 @@ class EyeExerciseActivity : AppCompatActivity(), View.OnClickListener,
 
 
     fun showInfoToastWithTypeface(view: View) {
-        KCustomToast.infoToast(
-            this,
-            getString(R.string.exercise_maximum_three),
-            KCustomToast.GRAVITY_BOTTOM
-        )
+        KCustomToast.show(this, getString(R.string.exercise_maximum_three))
     }
 }

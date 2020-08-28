@@ -1,37 +1,29 @@
 package com.teamnexters.eyelong.util
 
-import android.app.Activity
+import android.content.Context
 import android.graphics.Color
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.Toast
 import com.teamnexters.eyelong.R
-import kotlinx.android.synthetic.main.custom_toast_layout.view.*
+import kotlinx.android.synthetic.main.layout_custom_toast.view.*
 
 class KCustomToast {
+
     companion object {
-        val GRAVITY_TOP = 48
-        val GRAVITY_CENTER = 17
-        val GRAVITY_BOTTOM = 80
-        private lateinit var layoutInflater: LayoutInflater
+        fun show(context: Context, message: String) {
+            LayoutInflater.from(context).inflate(R.layout.layout_custom_toast, null)
+                .apply {
+                    tv_custom_toast.text = message
+                    tv_custom_toast.setTextColor(Color.WHITE)
+                }.let {
+                    Toast(context).apply {
+                        view = it
+                        duration = Toast.LENGTH_SHORT
 
-
-        fun infoToast(context: Activity, message: String, position: Int) {
-            layoutInflater = LayoutInflater.from(context)
-            val layout = layoutInflater.inflate(
-                R.layout.custom_toast_layout,
-                (context).findViewById(R.id.custom_toast_layout)
-            )
-            layout.custom_toast_message.setTextColor(Color.WHITE)
-            layout.custom_toast_message.text = message
-            val toast = Toast(context.applicationContext)
-            toast.duration = Toast.LENGTH_SHORT
-            if (position == GRAVITY_BOTTOM) {
-                toast.setGravity(position, 0, 300)
-            } else {
-                toast.setGravity(position, 0, 300)
-            }
-            toast.view = layout //setting the view of custom toast layout
-            toast.show()
+                        setGravity(Gravity.BOTTOM, 0, 300)
+                    }.show()
+                }
         }
     }
 }

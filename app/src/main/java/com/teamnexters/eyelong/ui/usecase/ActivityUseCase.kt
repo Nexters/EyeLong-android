@@ -6,6 +6,7 @@ import com.teamnexters.eyelong.ui.exercise.EyeExerciseActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitCheckoutActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitEditActivity
+import com.teamnexters.eyelong.util.KCustomToast
 
 class ActivityUseCase(private val activity: Activity) {
     fun startEyeExerciseActivity() {
@@ -26,5 +27,9 @@ class ActivityUseCase(private val activity: Activity) {
 
     fun finishActivity() {
         activity.finish()
+    }
+
+    fun showToast(message: String) {
+        KCustomToast.show(activity, message)
     }
 }

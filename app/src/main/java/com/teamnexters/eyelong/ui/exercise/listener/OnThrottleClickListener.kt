@@ -1,4 +1,4 @@
-package com.teamnexters.eyelong.util
+package com.teamnexters.eyelong.ui.exercise.listener
 
 import android.util.Log
 import android.view.View

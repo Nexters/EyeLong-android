@@ -40,6 +40,7 @@ dependencies {
     def room_version = '2.2.5'
     def glide_version = '4.9.0'
     def lottie_version = '3.0.0'
+    def mpandroidchart_version = 'v3.1.0'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -66,6 +67,9 @@ dependencies {
     // glide
     implementation "com.github.bumptech.glide:glide:$glide_version"
     implementation "com.airbnb.android:lottie:$lottie_version"
+
+    // MPAndroidChart
+    implementation "com.github.PhilJay:MPAndroidChart:$mpandroidchart_version"
 
     // test
     testImplementation 'junit:junit:4.12'

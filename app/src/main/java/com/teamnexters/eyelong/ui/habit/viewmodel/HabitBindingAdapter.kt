@@ -23,7 +23,10 @@ fun bindItems(
     }
 
     val adapter = view.adapter as? HabitRecyclerViewAdapter
-        ?: HabitRecyclerViewAdapter(itemType).apply { view.adapter = this }
+        ?: HabitRecyclerViewAdapter(itemType).apply {
+            setHasStableIds(true)
+            view.adapter = this
+        }
 
     adapter.items = items
     adapter.observer = observer

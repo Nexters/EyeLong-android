@@ -11,7 +11,7 @@ import com.teamnexters.eyelong.util.KCustomToast
 import com.teamnexters.eyelong.ui.exercise.listener.OnThrottleClickListener
 import kotlinx.android.synthetic.main.activity_start_exercise.*
 
-class StartExerciseActivity : AppCompatActivity(), View.OnClickListener {
+class EyePlaygroundActivity : AppCompatActivity(), View.OnClickListener {
 
     var btnCount = 0
     var exerciseList: ArrayList<Int> = ArrayList()

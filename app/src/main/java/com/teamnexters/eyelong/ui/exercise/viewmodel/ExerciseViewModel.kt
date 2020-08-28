@@ -49,6 +49,6 @@ class ExerciseViewModel(
     }
 
     fun onStartExerciseButtonClick() {
-        activityUseCase.intentStartEyeExerciseActivity()
+        activityUseCase.startEyePlaygroundActivity()
     }
 }

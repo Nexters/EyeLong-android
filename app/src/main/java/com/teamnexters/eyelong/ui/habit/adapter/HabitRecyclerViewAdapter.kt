@@ -62,9 +62,6 @@ class HabitRecyclerViewAdapter(val itemType: ItemType) :
                         cbHabitCheckout.visibility = View.GONE
                         btnHabitEdit.visibility = View.VISIBLE
                         btnHabitEdit.setOnClickListener {
-<<<<<<< HEAD
-                            
-=======
                             observer?.run {
                                 items[adapterPosition].let {
                                     if (!it.getRegistered()) {
@@ -74,7 +71,6 @@ class HabitRecyclerViewAdapter(val itemType: ItemType) :
                                     }
                                 }
                             }
->>>>>>> feature-#5/habit
                         }
                     }
                 }

@@ -64,14 +64,8 @@ class EyeExerciseActivity : AppCompatActivity(), View.OnClickListener,
             DataBindingUtil.setContentView(this@EyeExerciseActivity, R.layout.activity_eye_exercise)
         binding.setVariable(BR.viewModel, exerciseViewModel)
 
-<<<<<<< HEAD
         //init()
         //configureRecyclerView()
-
-=======
-        //로직
-        //총 소요시간 -> dataList의 elapsedTime들을
->>>>>>> feature-#5/habit
     }
 
     private fun init() {

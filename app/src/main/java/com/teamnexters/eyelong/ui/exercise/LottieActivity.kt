@@ -135,7 +135,7 @@ class LottieActivity : AppCompatActivity() , View.OnClickListener {
                         }
                         else{
                             lottie_animation.cancelAnimation()
-                            val intent = Intent(this@LottieActivity, StartExerciseActivity::class.java)
+                            val intent = Intent(this@LottieActivity, EyePlaygroundActivity::class.java)
                             intent.putExtra("exercise_num", exercisenum+1)
                             startActivity(intent)
                             Toast.makeText(this@LottieActivity, exercisenum.toString() + "번째 운동 끝", Toast.LENGTH_SHORT ).show()

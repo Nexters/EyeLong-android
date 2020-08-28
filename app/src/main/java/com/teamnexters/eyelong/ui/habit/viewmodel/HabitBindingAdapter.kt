@@ -9,24 +9,25 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.db.entity.Habit
-import com.teamnexters.eyelong.ui.habit.adapter.HabitListAdapter
+import com.teamnexters.eyelong.ui.habit.adapter.HabitRecyclerViewAdapter
 
 @BindingAdapter(value = ["items", "observer"], requireAll = false)
 fun bindItems(
     view: RecyclerView,
     items: ObservableArrayList<Habit>,
-    observer: HabitListAdapter.Observer
+    observer: HabitRecyclerViewAdapter.Observer
 ) {
     val itemType = when (view.id) {
-        R.id.recycler_habit_checkout -> HabitListAdapter.ItemType.CHECKOUT
-        else -> HabitListAdapter.ItemType.EDIT
+        R.id.recycler_habit_checkout -> HabitRecyclerViewAdapter.ItemType.CHECKOUT
+        else -> HabitRecyclerViewAdapter.ItemType.EDIT
     }
 
-    val adapter = view.adapter as? HabitListAdapter
-        ?: HabitListAdapter(itemType).apply { view.adapter = this }
+    val adapter = view.adapter as? HabitRecyclerViewAdapter
+        ?: HabitRecyclerViewAdapter(itemType).apply { view.adapter = this }
 
-    adapter.submitList(items)
+    adapter.items = items
     adapter.observer = observer
+    adapter.notifyDataSetChanged()
 }
 
 @BindingAdapter("divider")

@@ -3,7 +3,7 @@ package com.teamnexters.eyelong.ui.habit.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
+import androidx.databinding.ObservableArrayList
 import androidx.recyclerview.widget.RecyclerView
 import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
@@ -11,10 +11,11 @@ import com.teamnexters.eyelong.databinding.ItemHabitRecyclerBinding
 import com.teamnexters.eyelong.db.entity.Habit
 import com.teamnexters.eyelong.ui.habit.viewmodel.getRegistered
 
-class HabitListAdapter(val itemType: ItemType) :
-    ListAdapter<Habit, HabitListAdapter.ViewHolder>(DiffCallback) {
+class HabitRecyclerViewAdapter(val itemType: ItemType) :
+    RecyclerView.Adapter<HabitRecyclerViewAdapter.ViewHolder>() {
     enum class ItemType { CHECKOUT, EDIT }
 
+    var items = ObservableArrayList<Habit>()
     var observer: Observer? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,8 +30,10 @@ class HabitListAdapter(val itemType: ItemType) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(items[position])
     }
+
+    override fun getItemCount() = items.size
 
     inner class ViewHolder(private val binding: ItemHabitRecyclerBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -43,7 +46,7 @@ class HabitListAdapter(val itemType: ItemType) :
                         cbHabitCheckout.visibility = View.VISIBLE
                         cbHabitCheckout.setOnCheckedChangeListener { _, isChecked ->
                             observer?.run {
-                                getItem(adapterPosition).let {
+                                items[adapterPosition].let {
                                     if (isChecked) {
                                         onItemAdded(it)
                                     } else {
@@ -60,7 +63,7 @@ class HabitListAdapter(val itemType: ItemType) :
                         btnHabitEdit.visibility = View.VISIBLE
                         btnHabitEdit.setOnClickListener {
                             observer?.run {
-                                getItem(adapterPosition).let {
+                                items[adapterPosition].let {
                                     if (!it.getRegistered()) {
                                         onItemAdded(it)
                                     } else {

@@ -8,8 +8,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.util.KCustomToast
-import com.teamnexters.eyelong.util.KCustomToast.Companion.GRAVITY_BOTTOM
-import com.teamnexters.eyelong.util.OnThrottleClickListener
+import com.teamnexters.eyelong.ui.exercise.listener.OnThrottleClickListener
 import kotlinx.android.synthetic.main.activity_start_exercise.*
 
 class StartExerciseActivity : AppCompatActivity(), View.OnClickListener {
@@ -30,7 +29,11 @@ class StartExerciseActivity : AppCompatActivity(), View.OnClickListener {
 
     fun View.onThrottleClick(action: (v: View) -> Unit) {
         val listener = View.OnClickListener { action(it) }
-        setOnClickListener(OnThrottleClickListener(listener))
+        setOnClickListener(
+            OnThrottleClickListener(
+                listener
+            )
+        )
     }
 
     override fun onClick(v: View?) {
@@ -72,7 +75,7 @@ class StartExerciseActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     fun showInfoToastWithTypeface(view: View) {
-        KCustomToast.infoToast(this, getString(R.string.block_blue_light), GRAVITY_BOTTOM)
+        KCustomToast.show(this, getString(R.string.block_blue_light))
     }
 
     //중복방지

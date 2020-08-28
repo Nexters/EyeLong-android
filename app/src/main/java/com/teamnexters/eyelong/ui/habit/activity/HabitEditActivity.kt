@@ -7,6 +7,7 @@ import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.databinding.ActivityHabitEditBinding
 import com.teamnexters.eyelong.ui.habit.viewmodel.HabitEditViewModel
+import com.teamnexters.eyelong.ui.provider.ResourceProviderImpl
 import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
 import com.teamnexters.eyelong.ui.usecase.RoomDatabaseUseCase
 
@@ -19,7 +20,8 @@ class HabitEditActivity : AppCompatActivity() {
 
         habitEditViewModel = HabitEditViewModel(
             ActivityUseCase(this@HabitEditActivity),
-            RoomDatabaseUseCase(applicationContext)
+            RoomDatabaseUseCase(applicationContext),
+            ResourceProviderImpl(applicationContext)
         )
 
         val binding: ActivityHabitEditBinding =

@@ -11,8 +11,8 @@ import com.teamnexters.eyelong.ui.usecase.RoomDatabaseUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
+import java.text.SimpleDateFormat
+import java.util.*
 
 class HabitCheckoutViewModel(
     private val activityUseCase: ActivityUseCase,
@@ -21,7 +21,7 @@ class HabitCheckoutViewModel(
     val items = ObservableArrayList<Habit>()
     val selectedItems = ObservableArrayList<Habit>()
     val observer = object : HabitRecyclerViewAdapter.Observer {
-        override fun onItemChecked(habit: Habit) {
+        override fun onItemAdded(habit: Habit) {
             selectedItems.add(habit)
         }
 
@@ -56,11 +56,11 @@ class HabitCheckoutViewModel(
                             HabitHistory(
                                 userId = userDao().getUserByUserName("master")[0].id,
                                 habitId = it.id,
-                                createDate = LocalDateTime.now()
-                                    .format(DateTimeFormatter.ofPattern("yyyyMMdd hh:mm:ss"))
+                                createDate = Date(System.currentTimeMillis()).let {
+                                    SimpleDateFormat("yyyyMMdd hh:mm:ss").format(it)
+                                }
                             )
-                        }
-                        .forEach {
+                        }.forEach {
                             habitHistoryDao().insertHistory(it)
                         }
                 }

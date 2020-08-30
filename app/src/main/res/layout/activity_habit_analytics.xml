@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.habit.activity.HabitAnalyticsActivity">
 
@@ -14,5 +15,128 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <FrameLayout
+            android:id="@+id/appbar_habit_analytics"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/btn_habit_analytics_back"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="16dp"
+                android:background="@android:color/transparent"
+                android:onClick="@{()->viewModel.onBackButtonClick()}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_back_btn_black" />
+
+            <TextView
+                android:id="@+id/tv_habit_analytics_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/notosanskrmedium"
+                android:includeFontPadding="false"
+                android:text="@string/habit_analytics"
+                android:textColor="@color/colorBlack_700"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_habit_analytics_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/notosanskrregular"
+            android:includeFontPadding="false"
+            android:text="2020년 01월 첫째주"
+            android:textColor="@color/colorBlack_300"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appbar_habit_analytics" />
+
+        <TextView
+            android:id="@+id/tv_habit_analytics_cheer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/notosanskrmedium"
+            android:includeFontPadding="false"
+            android:text="@string/habit_analytics_cheer"
+            android:textColor="@color/colorBlack_800"
+            android:textSize="26sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_habit_analytics_week"
+            app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics_week" />
+
+        <TextView
+            android:id="@+id/tv_habit_analytics_badge"
+            android:layout_width="100dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_habit_analytics_badge"
+            android:fontFamily="@font/notosanskrmedium"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/habit_analytics_badge"
+            android:textColor="@color/colorBlack_800"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_habit_analytics_cheer"
+            app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics_cheer" />
+
+        <View
+            android:id="@+id/graph_habit_analytics"
+            android:layout_width="match_parent"
+            android:layout_height="272dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics_badge" />
+
+        <View
+            android:id="@+id/divider_habit_analytics"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorGray_800"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/graph_habit_analytics" />
+
+        <TextView
+            android:id="@+id/tv_habit_analytics_tomorrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/notosanskrregular"
+            android:includeFontPadding="false"
+            android:text="@string/habit_analytics_tomorrow"
+            android:textColor="@color/colorBlack_300"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_habit_analytics" />
+
+        <ListView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics_tomorrow" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -24,7 +24,10 @@
     <string name="habit_edit_unregistered">미등록된 습관</string>
     <string name="habit_edit_limit">눈 습관은 5개만 등록할 수 있습니다</string>
     <string name="habit_analytics">하루 습관 분석</string>
+    <string name="habit_analytics_badge">달성한 습관수</string>
+    <string name="habit_analytics_cheer">조금 더 힘내서\n오아시스에 가볼까요?</string>
     <string name="habit_analytics_description">일주일의 습관 분석을 확인해볼까요?</string>
+    <string name="habit_analytics_tomorrow">내일은 달성해보면 어떨까요?</string>
 
     <!-- day of week -->
     <string name="day_mon">월</string>

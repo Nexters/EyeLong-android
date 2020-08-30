@@ -1,4 +1,10 @@
 package com.teamnexters.eyelong.ui.habit.viewmodel
 
-class HabitAnalyticsViewModel {
+import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
+
+class HabitAnalyticsViewModel(private val activityUseCase: ActivityUseCase) {
+
+    fun onBackButtonClick() {
+        activityUseCase.finishActivity()
+    }
 }

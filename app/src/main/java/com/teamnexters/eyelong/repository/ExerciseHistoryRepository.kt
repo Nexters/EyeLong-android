@@ -5,7 +5,6 @@ import com.teamnexters.eyelong.db.dao.ExerciseHistoryDao
 import com.teamnexters.eyelong.db.entity.ExerciseHistory
 
 class ExerciseHistoryRepository(private val exerciseHistoryDao: ExerciseHistoryDao) {
-
     val allExercise: LiveData<List<ExerciseHistory>> = exerciseHistoryDao.getHistoryAll()
 
     fun getExerciseInfo(id: Int) {

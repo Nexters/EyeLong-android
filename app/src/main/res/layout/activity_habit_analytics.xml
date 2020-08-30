@@ -82,7 +82,7 @@
             android:layout_width="100dp"
             android:layout_height="34dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/bg_habit_analytics_badge"
+            android:background="@drawable/bg_habit_analytics_graph_badge"
             android:fontFamily="@font/notosanskrmedium"
             android:gravity="center"
             android:includeFontPadding="false"
@@ -130,6 +130,7 @@
             app:layout_constraintTop_toBottomOf="@+id/divider_habit_analytics" />
 
         <ListView
+            android:id="@+id/list_habit_analytics_tomorrow"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"

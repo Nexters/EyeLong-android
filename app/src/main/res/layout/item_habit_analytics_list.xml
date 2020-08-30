@@ -37,6 +37,7 @@
             android:layout_marginStart="12dp"
             android:fontFamily="@font/notosanskrmedium"
             android:includeFontPadding="false"
+            android:text="@{habit.description}"
             android:textColor="@color/colorBlack_700"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_habit_badge"

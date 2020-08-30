@@ -8,6 +8,7 @@ import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.databinding.ActivityHabitAnalyticsBinding
 import com.teamnexters.eyelong.ui.habit.viewmodel.HabitAnalyticsViewModel
 import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
+import com.teamnexters.eyelong.ui.usecase.RoomDatabaseUseCase
 
 class HabitAnalyticsActivity : AppCompatActivity() {
     private lateinit var habitAnalyticsViewModel: HabitAnalyticsViewModel
@@ -16,8 +17,10 @@ class HabitAnalyticsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_habit_analytics)
 
-        habitAnalyticsViewModel =
-            HabitAnalyticsViewModel(ActivityUseCase(this@HabitAnalyticsActivity))
+        habitAnalyticsViewModel = HabitAnalyticsViewModel(
+            ActivityUseCase(this@HabitAnalyticsActivity),
+            RoomDatabaseUseCase(applicationContext)
+        )
 
         val binding: ActivityHabitAnalyticsBinding =
             DataBindingUtil.setContentView(

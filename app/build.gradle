@@ -68,9 +68,6 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glide_version"
     implementation "com.airbnb.android:lottie:$lottie_version"
 
-    // MPAndroidChart
-    implementation "com.github.PhilJay:MPAndroidChart:$mpandroidchart_version"
-
     // test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

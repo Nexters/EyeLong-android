@@ -92,7 +92,7 @@
             app:layout_constraintStart_toStartOf="@+id/tv_habit_analytics_cheer"
             app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics_cheer" />
 
-        <View
+        <ListView
             android:id="@+id/graph_habit_analytics"
             android:layout_width="match_parent"
             android:layout_height="272dp"

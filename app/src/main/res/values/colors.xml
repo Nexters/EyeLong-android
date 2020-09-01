@@ -25,6 +25,9 @@
     <color name="colorBlue_500">#3F97FF</color>
     <color name="colorBlue_700">#0078FD</color>
 
+    <!--navy-->
+    <color name="colorNavy_500">#172072</color>
+
     <!--green-->
     <color name="colorGreen">#00D282</color>
     <color name="colorGreen_500">#3BEAA7</color>

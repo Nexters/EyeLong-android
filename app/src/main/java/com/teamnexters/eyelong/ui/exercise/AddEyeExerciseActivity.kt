@@ -3,8 +3,6 @@ package com.teamnexters.eyelong.ui.exercise
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.ui.exercise.adapter.AddEyeExerciseRecyclerViewAdapter

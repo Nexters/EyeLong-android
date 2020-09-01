@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.exercise.EyeExerciseActivity"
-    >
+    tools:context=".ui.exercise.EyeExerciseActivity">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.teamnexters.eyelong.ui.exercise.viewmodel.ExerciseViewModel" />
@@ -17,7 +16,7 @@
         android:layout_height="match_parent"
         android:background="@color/colorBlack">
 
-    <!--back btn-->
+        <!--back btn-->
         <ImageView
             android:id="@+id/img_btn_back"
             android:layout_width="12dp"
@@ -29,51 +28,51 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_back_btn_white" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="8dp"
-        android:src="@drawable/illustration_2"
-        app:layout_constraintBottom_toTopOf="@+id/cl_eye_exercise_list_box"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!--main text-->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_main_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_btn_back">
-
-        <TextView
-            android:id="@+id/tv_like_desert"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:text="@string/exercise_for_oasis"
-            android:textColor="@color/colorWhite"
-            android:textSize="28sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginRight="8dp"
+            android:src="@drawable/illustration_2"
+            app:layout_constraintBottom_toTopOf="@+id/cl_eye_exercise_list_box"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_for_eyes"
+        <!--main text-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_main_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="12dp"
-            android:text="@string/today_exercise"
-            android:textColor="@color/colorWhite"
-            android:textSize="28sp"
-            android:textStyle="bold"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="28dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_like_desert" />
+            app:layout_constraintTop_toBottomOf="@+id/img_btn_back">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tv_like_desert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:text="@string/exercise_for_oasis"
+                android:textColor="@color/colorWhite"
+                android:textSize="28sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <!--main text-->
+            <TextView
+                android:id="@+id/tv_for_eyes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/today_exercise"
+                android:textColor="@color/colorWhite"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_like_desert" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--main text-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_eye_exercise_list_box"
             android:layout_width="match_parent"
@@ -104,11 +103,11 @@
                 android:layout_marginBottom="24dp"
                 android:orientation="horizontal"
                 app:items="@{viewModel.items}"
-                app:observer="@{viewModel.observer}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toTopOf="@+id/v_line"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_exercise_list" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_exercise_list"
+                app:observer="@{viewModel.observer}" />
 
             <!--
 

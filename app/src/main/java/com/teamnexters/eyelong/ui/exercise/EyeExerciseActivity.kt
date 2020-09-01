@@ -8,7 +8,6 @@ import androidx.databinding.DataBindingUtil
 import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.databinding.ActivityEyeExerciseBinding
-import com.teamnexters.eyelong.databinding.ActivityHabitBinding
 import com.teamnexters.eyelong.db.entity.Exercise
 import com.teamnexters.eyelong.ui.exercise.adapter.EyeExerciseRecyclerViewAdapter
 import com.teamnexters.eyelong.ui.exercise.viewmodel.ExerciseHistoryViewModel

@@ -1,18 +1,16 @@
 package com.teamnexters.eyelong.ui.exercise
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.teamnexters.eyelong.R
-import kotlinx.android.synthetic.main.activity_eye_exercise.*
 import kotlinx.android.synthetic.main.activity_guide_exercise.*
-import kotlinx.android.synthetic.main.activity_guide_exercise.img_btn_back
 import java.util.*
 import kotlin.concurrent.timer
 
 class GuideExerciseActivity : AppCompatActivity(), View.OnClickListener {
-    private lateinit var timer : Timer
+    private lateinit var timer: Timer
     var time = 4
     var exercise_num = 0
 
@@ -41,12 +39,12 @@ class GuideExerciseActivity : AppCompatActivity(), View.OnClickListener {
 
         exercise_num = intent.getIntExtra("exercise_num", -1)
 
-        if(exercise_num == 1) {
+        if (exercise_num == 1) {
             img_green_icon.setImageResource(R.drawable.stepper2)
             cl_background_color.setBackgroundColor(resources.getColor(R.color.colorLemon_500))
             cl_lets_start_toast.setBackgroundColor(resources.getColor(R.color.colorLemon_200))
         }
-        if(exercise_num == 2) {
+        if (exercise_num == 2) {
             img_green_icon.setImageResource(R.drawable.stepper3)
             cl_background_color.setBackgroundColor(resources.getColor(R.color.colorBlue_500))
             //cl_lets_start_toast.setBackgroundColor(resources.getColor(R.color.colorLemon_200))
@@ -68,17 +66,17 @@ class GuideExerciseActivity : AppCompatActivity(), View.OnClickListener {
         // 이거 check 해서 해줘야함...
 
         //1초에 한번씩
-        timer = timer(period = 1000){
+        timer = timer(period = 1000) {
             time--
 
             runOnUiThread {
                 tv_timer.text = "$time"
 
-                if(time == 1){
+                if (time == 1) {
                     cl_lets_start_toast.visibility = View.VISIBLE
                 }
             }
-            if(time == 0) {
+            if (time == 0) {
                 val intent = Intent(this@GuideExerciseActivity, LottieActivity::class.java)
                 intent.putExtra("exercise_num", exercise_num)
                 startActivity(intent)

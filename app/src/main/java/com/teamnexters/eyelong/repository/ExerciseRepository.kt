@@ -1,6 +1,5 @@
 package com.teamnexters.eyelong.repository
 
-import androidx.lifecycle.LiveData
 import com.teamnexters.eyelong.db.dao.ExerciseDao
 import com.teamnexters.eyelong.db.entity.Exercise
 

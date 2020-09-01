@@ -2,23 +2,19 @@ package com.teamnexters.eyelong.ui.exercise.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.provider.Settings.Global.getString
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.google.android.material.snackbar.Snackbar
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.db.entity.Exercise
 import com.teamnexters.eyelong.ui.exercise.AddEyeExerciseActivity
 import com.teamnexters.eyelong.ui.exercise.EyeExerciseDetailActivity
-import com.teamnexters.eyelong.util.KCustomToast
 
 
 class EyeExerciseRecyclerViewAdapter(val ctx: Context, val dataList: ArrayList<Exercise>) :
@@ -26,7 +22,7 @@ class EyeExerciseRecyclerViewAdapter(val ctx: Context, val dataList: ArrayList<E
 
     private var listener: OnItemClickListener? = null
 
-    interface OnItemClickListener  {
+    interface OnItemClickListener {
         fun onItemClicked()
     }
 

@@ -11,12 +11,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.teamnexters.eyelong.R
 import kotlinx.android.synthetic.main.activity_lottie.*
 
-class LottieActivity : AppCompatActivity() , View.OnClickListener {
+class LottieActivity : AppCompatActivity(), View.OnClickListener {
 
     var lottieNum = 0
     var progressNum = 0
     var cnt = 1;
-    var lottieAssetNameArrayList : ArrayList<String> = ArrayList()
+    var lottieAssetNameArrayList: ArrayList<String> = ArrayList()
     val handler: Handler = Handler()
     var exercisenum = 0
 
@@ -48,6 +48,7 @@ class LottieActivity : AppCompatActivity() , View.OnClickListener {
         lottie()
 
     }
+
     private fun init() {
         img_delete_btn_lottie.setOnClickListener(this)
         img_pause_lottie.setOnClickListener(this)
@@ -57,12 +58,12 @@ class LottieActivity : AppCompatActivity() , View.OnClickListener {
 
         lottieAssetNameArrayList.clear()
 
-        when(exercisenum) {
+        when (exercisenum) {
 
             //사실 1번부터 해야 안헷갈릴듯
             0 -> {
                 lottieNum = 6
-                progressNum = 100/lottieNum + 1
+                progressNum = 100 / lottieNum + 1
 
                 lottieAssetNameArrayList.add("exercise_make_eight_180_1.json")
                 lottieAssetNameArrayList.add("exercise_make_eight_180_2.json")
@@ -115,15 +116,15 @@ class LottieActivity : AppCompatActivity() , View.OnClickListener {
         lottie_animation.loop(true)
         lottie_animation.playAnimation()
 
-        lottie_animation.addAnimatorListener(object : Animator.AnimatorListener{
+        lottie_animation.addAnimatorListener(object : Animator.AnimatorListener {
             override fun onAnimationRepeat(animation: Animator?) {
 
                 handler.postDelayed(Runnable { // do something after 1.5s
 
                     run {
-                        if(cnt != lottieNum) {
+                        if (cnt != lottieNum) {
                             Log.v("TAGG", cnt.toString())
-                            Log.v("TAGG_progress", (progressNum*(cnt+1)).toString())
+                            Log.v("TAGG_progress", (progressNum * (cnt + 1)).toString())
                             Log.v("TAGG_arrayList", lottieAssetNameArrayList.get(cnt))
                             lottie_animation.setAnimation(lottieAssetNameArrayList.get(cnt))
                             lottie_animation.playAnimation()
@@ -131,14 +132,18 @@ class LottieActivity : AppCompatActivity() , View.OnClickListener {
                             cnt++;
                             img_character.visibility = View.INVISIBLE
                             //progress bar
-                            pb_lottie.setProgress(progressNum*(cnt+1))
-                        }
-                        else{
+                            pb_lottie.setProgress(progressNum * (cnt + 1))
+                        } else {
                             lottie_animation.cancelAnimation()
-                            val intent = Intent(this@LottieActivity, EyePlaygroundActivity::class.java)
-                            intent.putExtra("exercise_num", exercisenum+1)
+                            val intent =
+                                Intent(this@LottieActivity, EyePlaygroundActivity::class.java)
+                            intent.putExtra("exercise_num", exercisenum + 1)
                             startActivity(intent)
-                            Toast.makeText(this@LottieActivity, exercisenum.toString() + "번째 운동 끝", Toast.LENGTH_SHORT ).show()
+                            Toast.makeText(
+                                this@LottieActivity,
+                                exercisenum.toString() + "번째 운동 끝",
+                                Toast.LENGTH_SHORT
+                            ).show()
                             finish()
                         }
                     }

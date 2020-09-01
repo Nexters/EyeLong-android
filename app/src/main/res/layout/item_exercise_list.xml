@@ -8,10 +8,11 @@
         <variable
             name="exercise"
             type="com.teamnexters.eyelong.db.entity.Exercise" />
+
         <variable
             name="viewModel"
             type="com.teamnexters.eyelong.ui.exercise.viewmodel.ExerciseViewModel" />
-        
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -110,9 +111,9 @@
                     android:id="@+id/tv_exercise_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(exercise.elapsedTime/60)+@string/exercise_minute+String.valueOf(exercise.elapsedTime%60)+@string/exercise_second}"
                     android:textColor="@color/colorBlack_700"
                     android:textSize="10sp"
-                    android:text="@{String.valueOf(exercise.elapsedTime/60)+@string/exercise_minute+String.valueOf(exercise.elapsedTime%60)+@string/exercise_second}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -130,7 +131,6 @@
                 android:src="@{exercise.tipImagePath}"-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
         <androidx.constraintlayout.widget.ConstraintLayout

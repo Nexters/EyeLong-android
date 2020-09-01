@@ -2,7 +2,6 @@ package com.teamnexters.eyelong.ui.habit.viewmodel
 
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
-import android.widget.ListView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.ObservableArrayList
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -10,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.db.entity.Habit
-import com.teamnexters.eyelong.ui.habit.adapter.HabitListAdapter
+import com.teamnexters.eyelong.ui.habit.adapter.HabitAchieveViewAdapter
 import com.teamnexters.eyelong.ui.habit.adapter.HabitRecyclerViewAdapter
 
 @BindingAdapter(value = ["items", "observer"], requireAll = false)
@@ -35,10 +34,18 @@ fun bindItems(
     adapter.notifyDataSetChanged()
 }
 
-@BindingAdapter("items")
-fun bindItems(view: ListView, items: List<Habit>) {
-    val adapter = view.adapter as? HabitListAdapter
-        ?: HabitListAdapter(items).apply { view.adapter = this }
+@BindingAdapter("achieveItems")
+fun bindAchieveItems(
+    view: RecyclerView,
+    items: ObservableArrayList<Habit>
+) {
+    val adapter = view.adapter as? HabitAchieveViewAdapter
+        ?: HabitAchieveViewAdapter().apply {
+            view.adapter = this
+        }
+
+    adapter.items = items
+    adapter.notifyDataSetChanged()
 }
 
 @BindingAdapter("divider")

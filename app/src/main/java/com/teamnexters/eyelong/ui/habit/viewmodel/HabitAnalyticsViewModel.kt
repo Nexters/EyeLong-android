@@ -12,12 +12,12 @@ class HabitAnalyticsViewModel(
     private val activityUseCase: ActivityUseCase,
     private val roomDatabaseUseCase: RoomDatabaseUseCase
 ) {
-    var items = ObservableArrayList<Habit>()
+    var achieveItems = ObservableArrayList<Habit>()
 
     init {
         GlobalScope.launch(Dispatchers.IO) {
             roomDatabaseUseCase.getAppDatabase()?.run {
-                habitDao().getHabitAll().let { items.addAll(it) }
+                habitDao().getHabitAll().let { achieveItems.addAll(it) }
             }
         }
     }

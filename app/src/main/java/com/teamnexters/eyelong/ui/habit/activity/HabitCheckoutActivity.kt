@@ -23,7 +23,10 @@ class HabitCheckoutActivity : AppCompatActivity() {
         )
 
         val binding: ActivityHabitCheckoutBinding =
-            DataBindingUtil.setContentView(this@HabitCheckoutActivity, R.layout.activity_habit_checkout)
+            DataBindingUtil.setContentView(
+                this@HabitCheckoutActivity,
+                R.layout.activity_habit_checkout
+            )
         binding.setVariable(BR.viewModel, habitCheckoutViewModel)
     }
 }

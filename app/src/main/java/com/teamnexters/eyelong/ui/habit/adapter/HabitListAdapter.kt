@@ -8,7 +8,7 @@ import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.databinding.ItemHabitAnalyticsListBinding
 import com.teamnexters.eyelong.db.entity.Habit
 
-class HabitListViewAdapter(private val items: List<Habit>) : BaseAdapter() {
+class HabitListAdapter(private val items: List<Habit>) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
         val itemView: View?

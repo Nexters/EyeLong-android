@@ -10,7 +10,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_item_graph"
+        android:id="@+id/layout_item_chart"
         android:layout_width="40dp"
         android:layout_height="match_parent">
 
@@ -24,18 +24,19 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <View
-                android:id="@+id/view_item_graph_background"
+                android:id="@+id/view_item_chart_background"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bg_habit_analytics_graph_background" />
+                android:background="@drawable/bg_habit_analytics_chart_background" />
 
             <View
-                android:id="@+id/view_item_graph_achieved"
+                android:id="@+id/view_item_chart_achieved"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:background="@drawable/bg_habit_analytics_graph_achieved" />
+                android:background="@drawable/bg_habit_analytics_chart_achieved" />
 
             <TextView
+                android:id="@+id/tv_item_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

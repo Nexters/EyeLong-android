@@ -2,12 +2,14 @@ package com.teamnexters.eyelong.ui.habit.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.ObservableArrayList
 import androidx.recyclerview.widget.RecyclerView
+import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.databinding.ItemHabitAnalyticsChartBinding
-import com.teamnexters.eyelong.db.entity.Habit
+import com.teamnexters.eyelong.ui.habit.chart.Item
 
 class HabitChartViewAdapter : RecyclerView.Adapter<HabitChartViewAdapter.ViewHolder>() {
-    val items = emptyList<Habit>()
+    var items = ObservableArrayList<Item>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
@@ -21,7 +23,7 @@ class HabitChartViewAdapter : RecyclerView.Adapter<HabitChartViewAdapter.ViewHol
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.bind(items[position])
     }
 
     override fun getItemCount() = items.size
@@ -29,6 +31,8 @@ class HabitChartViewAdapter : RecyclerView.Adapter<HabitChartViewAdapter.ViewHol
     inner class ViewHolder(private val binding: ItemHabitAnalyticsChartBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(habit: Habit) {}
+        fun bind(item: Item) {
+            binding.apply { setVariable(BR.item, item) }
+        }
     }
 }

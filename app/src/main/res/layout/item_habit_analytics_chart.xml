@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="habit"
-            type="com.teamnexters.eyelong.db.entity.Habit" />
+            name="item"
+            type="com.teamnexters.eyelong.ui.habit.chart.Item" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,7 +43,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/notosanskrregular"
                 android:includeFontPadding="false"
-                android:text="1"
+                android:text="@{item.value}"
                 android:textColor="@color/colorWhite"
                 android:textSize="14sp" />
         </FrameLayout>
@@ -54,7 +54,7 @@
             android:layout_height="40dp"
             android:fontFamily="@font/notosanskrmedium"
             android:gravity="center"
-            android:text="1일"
+            android:text="@{item.date}"
             android:textColor="@color/colorBlack_800"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

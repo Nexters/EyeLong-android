@@ -8,6 +8,7 @@ import com.teamnexters.eyelong.ui.usecase.RoomDatabaseUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlin.random.Random
 
 class HabitAnalyticsViewModel(
     private val activityUseCase: ActivityUseCase,
@@ -20,6 +21,12 @@ class HabitAnalyticsViewModel(
         GlobalScope.launch(Dispatchers.IO) {
             roomDatabaseUseCase.getAppDatabase()?.run {
                 habitDao().getHabitAll().let { achieveItems.addAll(it) }
+            }
+        }
+        GlobalScope.launch(Dispatchers.IO) {
+            for (date in 1..7) {
+                val item = Item(Random.nextInt(6), "${date}일")
+                chartItems.add(item)
             }
         }
     }

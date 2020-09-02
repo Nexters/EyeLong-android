@@ -1,6 +1,8 @@
 package com.teamnexters.eyelong.ui.habit.viewmodel
 
+import android.graphics.Rect
 import android.graphics.drawable.Drawable
+import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.ObservableArrayList
@@ -66,10 +68,30 @@ fun bindAchieveItems(
 
 @BindingAdapter("divider")
 fun bindDivider(view: RecyclerView, drawable: Drawable) {
-    DividerItemDecoration(view.context, LinearLayoutManager.VERTICAL).apply {
-        setDrawable(drawable)
-    }.also {
-        view.addItemDecoration(it)
+    val layoutManager = view.layoutManager as? LinearLayoutManager
+        ?: LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false).apply {
+            view.layoutManager = this
+        }
+
+    layoutManager.let {
+        object : DividerItemDecoration(view.context, it.orientation) {
+            override fun getItemOffsets(
+                outRect: Rect,
+                view: View,
+                parent: RecyclerView,
+                state: RecyclerView.State
+            ) {
+                if (parent.getChildAdapterPosition(view) == state.itemCount - 1) {
+                    outRect.setEmpty()
+                } else {
+                    super.getItemOffsets(outRect, view, parent, state)
+                }
+            }
+        }.apply {
+            setDrawable(drawable)
+        }.also {
+            view.addItemDecoration(it)
+        }
     }
 }
 

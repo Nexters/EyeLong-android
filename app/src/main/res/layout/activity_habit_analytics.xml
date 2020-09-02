@@ -50,99 +50,114 @@
                 app:layout_constraintTop_toTopOf="parent" />
         </FrameLayout>
 
-        <TextView
-            android:id="@+id/tv_habit_analytics_week"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/notosanskrregular"
-            android:includeFontPadding="false"
-            android:text="2020년 01월 첫째주"
-            android:textColor="@color/colorBlack_300"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appbar_habit_analytics" />
-
-        <TextView
-            android:id="@+id/tv_habit_analytics_cheer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/notosanskrmedium"
-            android:includeFontPadding="false"
-            android:text="@string/habit_analytics_cheer"
-            android:textColor="@color/colorBlack_800"
-            android:textSize="26sp"
-            app:layout_constraintStart_toStartOf="@+id/tv_habit_analytics_week"
-            app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics_week" />
-
-        <TextView
-            android:id="@+id/tv_habit_analytics_badge"
-            android:layout_width="100dp"
-            android:layout_height="34dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/bg_habit_analytics_chart_badge"
-            android:fontFamily="@font/notosanskrmedium"
-            android:gravity="center"
-            android:includeFontPadding="false"
-            android:text="@string/habit_analytics_badge"
-            android:textColor="@color/colorBlack_800"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/tv_habit_analytics_cheer"
-            app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics_cheer" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/chart_habit_analytics"
-            android:layout_width="0dp"
-            android:layout_height="272dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="24dp"
-            app:chartItems="@{viewModel.chartItems}"
-            app:divider="@{@drawable/divider_habit_chart}"
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics_badge" />
+            app:layout_constraintTop_toBottomOf="@+id/appbar_habit_analytics">
 
-        <View
-            android:id="@+id/divider_habit_analytics"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/colorGray_800"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chart_habit_analytics" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_habit_analytics_achieve"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:fontFamily="@font/notosanskrregular"
-            android:includeFontPadding="false"
-            android:text="@string/habit_analytics_achieve"
-            android:textColor="@color/colorBlack_300"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider_habit_analytics" />
+                <TextView
+                    android:id="@+id/tv_habit_analytics_week"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/notosanskrregular"
+                    android:includeFontPadding="false"
+                    android:text="2020년 01월 첫째주"
+                    android:textColor="@color/colorBlack_300"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_habit_analytics_achieve"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
-            android:divider="@null"
-            app:achieveItems="@{viewModel.achieveItems}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics_achieve" />
+                <TextView
+                    android:id="@+id/tv_habit_analytics_cheer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/notosanskrmedium"
+                    android:includeFontPadding="false"
+                    android:text="@string/habit_analytics_cheer"
+                    android:textColor="@color/colorBlack_800"
+                    android:textSize="26sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_habit_analytics_week"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics_week" />
+
+                <TextView
+                    android:id="@+id/tv_habit_analytics_badge"
+                    android:layout_width="100dp"
+                    android:layout_height="34dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bg_habit_analytics_chart_badge"
+                    android:fontFamily="@font/notosanskrmedium"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="@string/habit_analytics_badge"
+                    android:textColor="@color/colorBlack_800"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_habit_analytics_cheer"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics_cheer" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/chart_habit_analytics"
+                    android:layout_width="0dp"
+                    android:layout_height="272dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="24dp"
+                    app:chartItems="@{viewModel.chartItems}"
+                    app:divider="@{@drawable/divider_habit_chart}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics_badge" />
+
+                <View
+                    android:id="@+id/divider_habit_analytics"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@color/colorGray_800"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/chart_habit_analytics" />
+
+                <TextView
+                    android:id="@+id/tv_habit_analytics_achieve"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/notosanskrregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/habit_analytics_achieve"
+                    android:textColor="@color/colorBlack_300"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_habit_analytics" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_habit_analytics_achieve"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="16dp"
+                    android:divider="@null"
+                    app:achieveItems="@{viewModel.achieveItems}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics_achieve" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.databinding.ItemHabitAnalyticsChartBinding
 import com.teamnexters.eyelong.ui.habit.chart.Item
+import kotlin.math.roundToInt
 
 class HabitChartViewAdapter : RecyclerView.Adapter<HabitChartViewAdapter.ViewHolder>() {
     var items = ObservableArrayList<Item>()
@@ -32,7 +33,20 @@ class HabitChartViewAdapter : RecyclerView.Adapter<HabitChartViewAdapter.ViewHol
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Item) {
-            binding.apply { setVariable(BR.item, item) }
+            binding.apply {
+                root.post {
+                    viewItemChartAchieved.apply {
+                        layoutParams.apply {
+                            height =
+                                item.value * (viewItemChartBackground.height.toDouble() / 5).roundToInt()
+                        }.also {
+                            layoutParams = it
+                        }
+                    }
+                }
+
+                setVariable(BR.item, item)
+            }
         }
     }
 }

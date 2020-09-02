@@ -33,6 +33,7 @@
                 android:id="@+id/view_item_chart_achieved"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_gravity="bottom"
                 android:background="@drawable/bg_habit_analytics_chart_achieved" />
 
             <TextView

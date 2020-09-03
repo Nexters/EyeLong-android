@@ -23,4 +23,15 @@ object DateUtil {
                 }
             ).toString()
     }
+
+    fun daysOfWeek() = GregorianCalendar.getInstance()
+        .apply { time = Date(System.currentTimeMillis()) }
+        .let {
+            mutableListOf<String>().apply {
+                for (i in 1..7) {
+                    it[Calendar.DAY_OF_WEEK] = i
+                    add(SimpleDateFormat("yyyyMMdd").format(it.time))
+                }
+            }.toList()
+        }
 }

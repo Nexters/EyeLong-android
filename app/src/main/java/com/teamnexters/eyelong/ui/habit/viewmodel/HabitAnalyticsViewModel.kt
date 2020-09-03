@@ -21,7 +21,16 @@ class HabitAnalyticsViewModel(
     init {
         GlobalScope.launch(Dispatchers.IO) {
             roomDatabaseUseCase.getAppDatabase()?.run {
-                habitHistoryDao().getHistoryByCreateDate(DateUtil.now()).let { history ->
+                DateUtil.daysOfWeek().map {
+                    Item(
+                        habitHistoryDao().getHistoryByDate(it).count(),
+                        "${it.substring(6 until it.length)}일"
+                    )
+                }.let {
+                    chartItems.addAll(it)
+                }
+
+                habitHistoryDao().getHistoryByDate(DateUtil.now()).let { history ->
                     habitDao().getHabitByRegistered()
                         .filterNot { it.id in history.map { it.habitId } }
                         .let { achieveItems.addAll(it) }

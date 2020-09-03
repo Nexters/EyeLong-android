@@ -15,7 +15,7 @@ class LottieActivity : AppCompatActivity(), View.OnClickListener {
 
     var lottieNum = 0
     var progressNum = 0
-    var cnt = 1;
+    var cnt = 1
     var lottieAssetNameArrayList: ArrayList<String> = ArrayList()
     val handler: Handler = Handler()
     var exercisenum = 0
@@ -41,7 +41,7 @@ class LottieActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lottie)
 
-        exercisenum = intent.getIntExtra("exercise_num", -1);
+        exercisenum = intent.getIntExtra("exercise_num", -1)
 
 
         init()
@@ -112,7 +112,7 @@ class LottieActivity : AppCompatActivity(), View.OnClickListener {
 
 
         lottie_animation.setAnimation(lottieAssetNameArrayList.get(0))
-        pb_lottie.setProgress(progressNum)
+        pb_lottie.progress = progressNum
         lottie_animation.loop(true)
         lottie_animation.playAnimation()
 
@@ -129,10 +129,10 @@ class LottieActivity : AppCompatActivity(), View.OnClickListener {
                             lottie_animation.setAnimation(lottieAssetNameArrayList.get(cnt))
                             lottie_animation.playAnimation()
                             lottie_animation.speed = 5f
-                            cnt++;
+                            cnt++
                             img_character.visibility = View.INVISIBLE
                             //progress bar
-                            pb_lottie.setProgress(progressNum * (cnt + 1))
+                            pb_lottie.progress = progressNum * (cnt + 1)
                         } else {
                             lottie_animation.cancelAnimation()
                             val intent =

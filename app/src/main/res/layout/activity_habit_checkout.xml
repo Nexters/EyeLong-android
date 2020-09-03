@@ -93,7 +93,7 @@
             android:background="@drawable/bg_habit_btn_save"
             android:fontFamily="@font/notosanskrbold"
             android:onClick="@{()->viewModel.onCheckoutButtonClick()}"
-            android:text="@{viewModel.selectedItems.size()+@string/habit_checkout_save}"
+            android:text="@{viewModel.selectedItems.size()+@string/habit_checkout_checked}"
             android:textColor="@color/colorWhite"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"

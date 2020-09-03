@@ -21,7 +21,7 @@ class EyePlaygroundActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start_exercise)
 
-        exercisenum = intent.getIntExtra("exercise_num", 0);
+        exercisenum = intent.getIntExtra("exercise_num", 0)
 
         init()
         onClick()

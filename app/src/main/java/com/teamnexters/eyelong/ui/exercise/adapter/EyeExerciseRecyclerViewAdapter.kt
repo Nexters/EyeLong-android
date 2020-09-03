@@ -50,7 +50,7 @@ class EyeExerciseRecyclerViewAdapter(val ctx: Context, val dataList: ArrayList<E
             Glide.with(ctx).load(dataList[position].tipImagePath).into(holder.exercise_img)
 
 
-        var number = position + 1;
+        var number = position + 1
         holder.number.text = number.toString()
 
         var second_time = dataList[position].elapsedTime

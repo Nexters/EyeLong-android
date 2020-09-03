@@ -34,7 +34,7 @@ class HabitEditViewModel(
                 }
             } else {
                 resourceProvider.getString(R.string.habit_edit_limit).let {
-                    activityUseCase.showToast(it.toString())
+                    activityUseCase.showWarningToast(it.toString())
                 }
             }
         }

@@ -2,6 +2,7 @@ package com.teamnexters.eyelong.wrapper.usecase
 
 import android.app.Activity
 import android.content.Intent
+import android.view.Gravity
 import com.teamnexters.eyelong.ui.exercise.EyeExerciseActivity
 import com.teamnexters.eyelong.ui.exercise.EyePlaygroundActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitActivity
@@ -40,9 +41,24 @@ class ActivityUseCase(private val activity: Activity) {
         activity.finish()
     }
 
-    fun showToast(message: String) {
+    fun showWarningToast(message: String) {
         KCustomToast.Builder(activity)
-            .apply { this.message = message }
+            .apply {
+                this.message = message
+                this.configure =
+                    KCustomToast.Configure(KCustomToast.Configure.Level.WARNING, Gravity.BOTTOM)
+            }
+            .build()
+            .show()
+    }
+
+    fun showInfoToast(message: String) {
+        KCustomToast.Builder(activity)
+            .apply {
+                this.message = message
+                this.configure =
+                    KCustomToast.Configure(KCustomToast.Configure.Level.INFO, Gravity.BOTTOM)
+            }
             .build()
             .show()
     }

@@ -21,6 +21,4 @@ interface ExerciseHistoryDao {
 
     @Query("SELECT * FROM exercise_history WHERE create_date = :create_date")
     fun getHistoryByCreateTime(create_date: String): List<ExerciseHistory>
-
-
 }

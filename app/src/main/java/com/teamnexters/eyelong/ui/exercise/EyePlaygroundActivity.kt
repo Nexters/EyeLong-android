@@ -8,7 +8,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.ui.exercise.listener.OnThrottleClickListener
-import com.teamnexters.eyelong.util.KCustomToast
+import com.teamnexters.eyelong.ui.main.custom.KCustomToast
 import kotlinx.android.synthetic.main.activity_start_exercise.*
 
 class EyePlaygroundActivity : AppCompatActivity(), View.OnClickListener {

@@ -7,8 +7,8 @@ import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.databinding.ActivityMainBinding
 import com.teamnexters.eyelong.ui.main.viewmodel.MainViewModel
-import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
-import com.teamnexters.eyelong.ui.usecase.RoomDatabaseUseCase
+import com.teamnexters.eyelong.wrapper.usecase.ActivityUseCase
+import com.teamnexters.eyelong.wrapper.usecase.RoomDatabaseUseCase
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mainViewModel: MainViewModel

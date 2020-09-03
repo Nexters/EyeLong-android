@@ -12,9 +12,9 @@ import com.teamnexters.eyelong.db.entity.Exercise
 import com.teamnexters.eyelong.ui.exercise.adapter.EyeExerciseRecyclerViewAdapter
 import com.teamnexters.eyelong.ui.exercise.viewmodel.ExerciseHistoryViewModel
 import com.teamnexters.eyelong.ui.exercise.viewmodel.ExerciseViewModel
-import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
-import com.teamnexters.eyelong.ui.usecase.RoomDatabaseUseCase
-import com.teamnexters.eyelong.util.KCustomToast
+import com.teamnexters.eyelong.wrapper.usecase.ActivityUseCase
+import com.teamnexters.eyelong.wrapper.usecase.RoomDatabaseUseCase
+import com.teamnexters.eyelong.ui.main.custom.KCustomToast
 import kotlinx.android.synthetic.main.activity_eye_exercise.*
 import java.text.SimpleDateFormat
 import java.util.*

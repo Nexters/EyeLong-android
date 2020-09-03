@@ -6,8 +6,9 @@ import androidx.databinding.ObservableArrayList
 import com.teamnexters.eyelong.db.entity.Habit
 import com.teamnexters.eyelong.db.entity.HabitHistory
 import com.teamnexters.eyelong.ui.habit.adapter.HabitRecyclerViewAdapter
-import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
-import com.teamnexters.eyelong.ui.usecase.RoomDatabaseUseCase
+import com.teamnexters.eyelong.util.DateUtil
+import com.teamnexters.eyelong.wrapper.usecase.ActivityUseCase
+import com.teamnexters.eyelong.wrapper.usecase.RoomDatabaseUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -56,9 +57,7 @@ class HabitCheckoutViewModel(
                             HabitHistory(
                                 userId = userDao().getUserByUserName("master")[0].id,
                                 habitId = it.id,
-                                createDate = Date(System.currentTimeMillis()).let {
-                                    SimpleDateFormat("yyyyMMdd hh:mm:ss").format(it)
-                                }
+                                createDate = DateUtil.now()
                             )
                         }.forEach {
                             habitHistoryDao().insertHistory(it)

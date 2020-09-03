@@ -17,4 +17,7 @@ interface HabitHistoryDao {
 
     @Query("SELECT * FROM habit_history WHERE user_id = :userId")
     fun getHistoryByUserId(userId: String): List<HabitHistory>
+
+    @Query("SELECT * FROM habit_history WHERE create_date BETWEEN :createDate+' 00:00:00' AND :createDate+' 23:59:59'")
+    fun getHistoryByCreateDate(createDate: String): List<HabitHistory>
 }

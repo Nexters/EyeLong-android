@@ -1,8 +1,8 @@
 package com.teamnexters.eyelong.ui.main.viewmodel
 
 import androidx.databinding.ObservableField
-import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
-import com.teamnexters.eyelong.ui.usecase.RoomDatabaseUseCase
+import com.teamnexters.eyelong.wrapper.usecase.ActivityUseCase
+import com.teamnexters.eyelong.wrapper.usecase.RoomDatabaseUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

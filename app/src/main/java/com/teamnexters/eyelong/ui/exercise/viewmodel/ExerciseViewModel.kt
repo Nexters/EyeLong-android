@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.databinding.ObservableArrayList
 import com.teamnexters.eyelong.db.entity.Exercise
 import com.teamnexters.eyelong.ui.exercise.adapter.EyeExerciseTest
-import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
-import com.teamnexters.eyelong.ui.usecase.RoomDatabaseUseCase
+import com.teamnexters.eyelong.wrapper.usecase.ActivityUseCase
+import com.teamnexters.eyelong.wrapper.usecase.RoomDatabaseUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

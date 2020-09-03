@@ -7,9 +7,9 @@ import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.databinding.ActivityHabitEditBinding
 import com.teamnexters.eyelong.ui.habit.viewmodel.HabitEditViewModel
-import com.teamnexters.eyelong.ui.provider.ResourceProviderImpl
-import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
-import com.teamnexters.eyelong.ui.usecase.RoomDatabaseUseCase
+import com.teamnexters.eyelong.wrapper.provider.ResourceProviderImpl
+import com.teamnexters.eyelong.wrapper.usecase.ActivityUseCase
+import com.teamnexters.eyelong.wrapper.usecase.RoomDatabaseUseCase
 
 class HabitEditActivity : AppCompatActivity() {
     private lateinit var habitEditViewModel: HabitEditViewModel

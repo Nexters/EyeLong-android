@@ -1,6 +1,6 @@
 package com.teamnexters.eyelong.ui.habit.viewmodel
 
-import com.teamnexters.eyelong.ui.usecase.ActivityUseCase
+import com.teamnexters.eyelong.wrapper.usecase.ActivityUseCase
 
 class HabitViewModel(private val activityUseCase: ActivityUseCase) {
     fun onBackButtonClick() {

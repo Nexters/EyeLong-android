@@ -1,4 +1,4 @@
-package com.teamnexters.eyelong.util
+package com.teamnexters.eyelong.ui.main.custom
 
 import android.content.Context
 import android.graphics.Color

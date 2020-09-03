@@ -1,4 +1,4 @@
-package com.teamnexters.eyelong.ui.provider
+package com.teamnexters.eyelong.wrapper.provider
 
 import android.content.Context
 

@@ -143,6 +143,9 @@ class EyeExerciseActivity : AppCompatActivity(), View.OnClickListener,
 
 
     fun showInfoToastWithTypeface(view: View) {
-        KCustomToast.show(this, getString(R.string.exercise_maximum_three))
+        KCustomToast.Builder(this@EyeExerciseActivity)
+            .apply { message = getString(R.string.exercise_maximum_three) }
+            .build()
+            .show()
     }
 }

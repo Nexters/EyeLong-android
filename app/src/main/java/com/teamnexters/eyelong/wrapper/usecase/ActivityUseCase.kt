@@ -41,6 +41,9 @@ class ActivityUseCase(private val activity: Activity) {
     }
 
     fun showToast(message: String) {
-        KCustomToast.show(activity, message)
+        KCustomToast.Builder(activity)
+            .apply { this.message = message }
+            .build()
+            .show()
     }
 }

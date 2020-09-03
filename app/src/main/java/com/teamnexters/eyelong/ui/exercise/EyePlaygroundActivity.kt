@@ -75,7 +75,10 @@ class EyePlaygroundActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     fun showInfoToastWithTypeface(view: View) {
-        KCustomToast.show(this, getString(R.string.block_blue_light))
+        KCustomToast.Builder(this@EyePlaygroundActivity)
+            .apply { message = getString(R.string.block_blue_light) }
+            .build()
+            .show()
     }
 
     //중복방지

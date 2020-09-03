@@ -14,8 +14,8 @@ class HabitAnalyticsViewModel(
     private val activityUseCase: ActivityUseCase,
     private val roomDatabaseUseCase: RoomDatabaseUseCase
 ) {
-    var achieveItems = ObservableArrayList<Habit>()
     var chartItems = ObservableArrayList<Item>()
+    var suggestItems = ObservableArrayList<Habit>()
     val nowOfWeek = DateUtil.nowOfWeek()
 
     init {
@@ -33,7 +33,7 @@ class HabitAnalyticsViewModel(
                 habitHistoryDao().getHistoryByDate(DateUtil.now()).let { history ->
                     habitDao().getHabitByRegistered()
                         .filterNot { it.id in history.map { it.habitId } }
-                        .let { achieveItems.addAll(it) }
+                        .let { suggestItems.addAll(it) }
                 }
             }
         }

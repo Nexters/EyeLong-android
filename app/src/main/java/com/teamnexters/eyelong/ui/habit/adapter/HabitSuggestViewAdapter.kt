@@ -8,7 +8,7 @@ import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.databinding.ItemHabitAnalyticsAchieveBinding
 import com.teamnexters.eyelong.db.entity.Habit
 
-class HabitAchieveViewAdapter : RecyclerView.Adapter<HabitAchieveViewAdapter.ViewHolder>() {
+class HabitSuggestViewAdapter : RecyclerView.Adapter<HabitSuggestViewAdapter.ViewHolder>() {
     var items = ObservableArrayList<Habit>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

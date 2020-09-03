@@ -131,21 +131,21 @@
                     app:layout_constraintTop_toBottomOf="@+id/chart_habit_analytics" />
 
                 <TextView
-                    android:id="@+id/tv_habit_analytics_achieve"
+                    android:id="@+id/tv_habit_analytics_suggest"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/notosanskrregular"
                     android:includeFontPadding="false"
-                    android:text="@string/habit_analytics_achieve"
+                    android:text="@string/habit_analytics_suggest"
                     android:textColor="@color/colorBlack_300"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider_habit_analytics" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_habit_analytics_achieve"
+                    android:id="@+id/recycler_habit_analytics_suggest"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -153,11 +153,11 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="60dp"
                     android:divider="@null"
-                    app:achieveItems="@{viewModel.achieveItems}"
+                    app:suggestItems="@{viewModel.suggestItems}"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics_achieve" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics_suggest" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

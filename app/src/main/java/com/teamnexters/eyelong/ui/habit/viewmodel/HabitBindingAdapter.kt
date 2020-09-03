@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.db.entity.Habit
-import com.teamnexters.eyelong.ui.habit.adapter.HabitAchieveViewAdapter
+import com.teamnexters.eyelong.ui.habit.adapter.HabitSuggestViewAdapter
 import com.teamnexters.eyelong.ui.habit.adapter.HabitChartViewAdapter
 import com.teamnexters.eyelong.ui.habit.adapter.HabitRecyclerViewAdapter
 import com.teamnexters.eyelong.ui.habit.chart.Item
@@ -52,13 +52,13 @@ fun bindChartItems(
     adapter.notifyDataSetChanged()
 }
 
-@BindingAdapter("achieveItems")
-fun bindAchieveItems(
+@BindingAdapter("suggestItems")
+fun bindSuggestItems(
     view: RecyclerView,
     items: ObservableArrayList<Habit>
 ) {
-    val adapter = view.adapter as? HabitAchieveViewAdapter
-        ?: HabitAchieveViewAdapter().apply {
+    val adapter = view.adapter as? HabitSuggestViewAdapter
+        ?: HabitSuggestViewAdapter().apply {
             view.adapter = this
         }
 

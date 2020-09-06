@@ -10,6 +10,7 @@ import com.teamnexters.eyelong.ui.habit.activity.HabitAnalyticsActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitCheckoutActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitEditActivity
 import com.teamnexters.eyelong.ui.main.custom.KCustomToast
+import com.teamnexters.eyelong.ui.settings.activity.AlarmSettingsActivity
 
 class ActivityUseCase(private val activity: Activity) {
 
@@ -35,6 +36,10 @@ class ActivityUseCase(private val activity: Activity) {
 
     fun startHabitAnalyticsActivity() {
         activity.startActivity(Intent(activity, HabitAnalyticsActivity::class.java))
+    }
+
+    fun startAlarmSettingsActivity() {
+        activity.startActivity(Intent(activity, AlarmSettingsActivity::class.java))
     }
 
     fun finishActivity() {

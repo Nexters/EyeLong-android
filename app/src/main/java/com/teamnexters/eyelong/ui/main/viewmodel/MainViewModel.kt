@@ -27,6 +27,10 @@ class MainViewModel(
         activityUseCase.startEyeExerciseActivity()
     }
 
+    fun onAlarmSettingsClick() {
+        activityUseCase.startAlarmSettingsActivity()
+    }
+
     fun onHabitButtonClick() {
         activityUseCase.startHabitActivity()
     }

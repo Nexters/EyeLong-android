@@ -7,7 +7,7 @@
     <!-- main ui -->
     <string name="main_ci">사막같은\n눈을 위해\n오아시스로 출발!</string>
     <string name="main_start_exercise">눈 운동 시작하기</string>
-    <string name="main_setting_alarm">지속적인 운동을 위해 알람 맞추기</string>
+    <string name="main_settings_alarm">지속적인 운동을 위해 알람 맞추기</string>
     <string name="main_habit_title">오늘의 눈 습관</string>
     <string name="main_habit_description">오아시스를 향한 당신의 여정에 도움을 줄 거에요.</string>
     <string name="main_habit_cheer">습관 달성을 위해 힘내봐요!</string>
@@ -29,6 +29,9 @@
     <string name="habit_analytics_cheer">조금 더 힘내서\n오아시스에 가볼까요?</string>
     <string name="habit_analytics_description">일주일의 습관 분석을 확인해볼까요?</string>
     <string name="habit_analytics_suggest">내일은 달성해보면 어떨까요?</string>
+
+    <!-- settings -->
+    <string name="settings_alarm">알람 설정</string>
 
     <!-- day of week -->
     <string name="day_mon">월</string>

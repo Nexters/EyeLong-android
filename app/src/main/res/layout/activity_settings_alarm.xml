@@ -110,7 +110,7 @@
             app:layout_constraintTop_toBottomOf="@+id/title_settings_alarm_time" />
 
         <View
-            android:id="@+id/divider_settings_alarm"
+            android:id="@+id/divider_settings_alarm_time"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginStart="36dp"
@@ -120,5 +120,44 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/include_settings_alarm_time" />
+
+        <TextView
+            android:id="@+id/title_settings_alarm_repeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/notosanskrmedium"
+            android:includeFontPadding="false"
+            android:text="@string/settings_alarm_repeat"
+            android:textColor="@color/colorBlack_500"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_settings_alarm_time" />
+
+        <include
+            android:id="@+id/include_settings_alarm_repeat"
+            layout="@layout/layout_settings_repeat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="36dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_settings_alarm_repeat" />
+
+        <View
+            android:id="@+id/divider_settings_alarm_repeat"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="36dp"
+            android:background="@color/colorGray_800"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_settings_alarm_repeat" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -31,6 +31,7 @@
     <string name="habit_analytics_suggest">내일은 달성해보면 어떨까요?</string>
 
     <!-- settings -->
+    <string name="settings_reset">초기화</string>
     <string name="settings_alarm">알람 설정</string>
 
     <!-- day of week -->

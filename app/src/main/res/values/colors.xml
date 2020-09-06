@@ -6,6 +6,7 @@
 
     <!--black-->
     <color name="colorBlack">#000000</color>
+    <color name="colorBlack_100">#CFCFCF</color>
     <color name="colorBlack_200">#A0A0A0</color>
     <color name="colorBlack_300">#888888</color>
     <color name="colorBlack_400">#707070</color>

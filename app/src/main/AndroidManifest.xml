@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".ui.habit.activity.HabitAnalyticsActivity"></activity>
+        <activity android:name=".ui.alarm.activity.AlarmActivity"></activity>
+        <activity android:name=".ui.habit.activity.HabitAnalyticsActivity" />
         <activity android:name=".ui.habit.activity.HabitEditActivity" />
         <activity android:name=".ui.habit.activity.HabitCheckoutActivity" />
         <activity android:name=".ui.habit.activity.HabitActivity" />

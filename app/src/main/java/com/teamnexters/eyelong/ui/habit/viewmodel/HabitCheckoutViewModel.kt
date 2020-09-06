@@ -1,7 +1,5 @@
 package com.teamnexters.eyelong.ui.habit.viewmodel
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.databinding.ObservableArrayList
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.db.entity.Habit
@@ -25,11 +23,11 @@ class HabitCheckoutViewModel(
     val selectedItems = ObservableArrayList<Habit>()
     val observer = object : HabitRecyclerViewAdapter.Observer {
         override fun onItemAdded(habit: Habit) {
-            selectedItems.add(habit)
+            selectedItems.add(habit.apply { achieved = true })
         }
 
         override fun onItemDeleted(habit: Habit) {
-            selectedItems.remove(habit)
+            selectedItems.remove(habit.apply { achieved = false })
         }
     }
 
@@ -59,26 +57,30 @@ class HabitCheckoutViewModel(
         activityUseCase.startHabitEditActivity()
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun onCheckoutButtonClick() {
-        if (selectedItems.size > 0) {
-            roomDatabaseUseCase.getAppDatabase()?.run {
-                GlobalScope.launch(Dispatchers.IO) {
-                    selectedItems.map {
-                        HabitHistory(
-                            userId = userDao().getUserByUserName("master")[0].id,
-                            habitId = it.id,
-                            createDate = DateUtil.now()
-                        )
-                    }.forEach {
-                        habitHistoryDao().insertHistory(it)
-                    }
+        roomDatabaseUseCase.getAppDatabase()?.run {
+            GlobalScope.launch(Dispatchers.IO) {
+                habitHistoryDao().run {
+                    val oldList = getHistoryByDate(DateUtil.now())
+                    deleteHistory(*oldList.toTypedArray())
 
-                    async(Dispatchers.Main) {
-                        activityUseCase.showInfoToast(
-                            resourceProvider.getString(R.string.habit_checkout_succeed).toString()
-                        )
-                    }
+                    items.filter { it.achieved }
+                        .map {
+                            HabitHistory(
+                                userId = userDao().getUserByUserName("master")[0].id,
+                                habitId = it.id,
+                                createDate = DateUtil.now()
+                            )
+                        }.forEach {
+                            habitHistoryDao().insertHistory(it)
+                        }.run {
+                            async(Dispatchers.Main) {
+                                activityUseCase.showInfoToast(
+                                    resourceProvider.getString(R.string.habit_checkout_succeed)
+                                        .toString()
+                                )
+                            }
+                        }
                 }
             }
         }

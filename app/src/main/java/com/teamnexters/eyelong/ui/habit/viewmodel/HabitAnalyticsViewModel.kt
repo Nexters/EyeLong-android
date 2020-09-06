@@ -30,11 +30,13 @@ class HabitAnalyticsViewModel(
                     chartItems.addAll(it)
                 }
 
-                habitHistoryDao().getHistoryByDate(DateUtil.now()).let { history ->
-                    habitDao().getHabitByRegistered()
-                        .filterNot { it.id in history.map { it.habitId } }
-                        .let { suggestItems.addAll(it) }
-                }
+                habitHistoryDao().getHistoryByDate(DateUtil.now())
+                    .map { it.habitId }
+                    .let { ids ->
+                        habitDao().getHabitByRegistered()
+                            .filterNot { it.id in ids }
+                            .let { suggestItems.addAll(it) }
+                    }
             }
         }
     }

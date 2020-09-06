@@ -79,8 +79,9 @@ class HabitRecyclerViewAdapter(val itemType: ItemType) :
 
         fun bind(habit: Habit) {
             binding.apply {
-                if (itemType == ItemType.EDIT) {
-                    setItemViewDrawable(habit.getRegistered())
+                when (itemType) {
+                    ItemType.CHECKOUT -> setItemViewDrawable(habit.achieved)
+                    ItemType.EDIT -> setItemViewDrawable(habit.getRegistered())
                 }
 
                 setVariable(BR.habit, habit)
@@ -106,6 +107,7 @@ class HabitRecyclerViewAdapter(val itemType: ItemType) :
                 layoutHabitItem.background = root.context.getDrawable(itemBackground)
                 imgHabitIcon.background = root.context.getDrawable(iconBackground)
                 btnHabitEdit.background = root.context.getDrawable(btnBackground)
+                cbHabitCheckout.isChecked = value
             }
         }
     }

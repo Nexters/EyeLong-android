@@ -36,7 +36,17 @@ class HabitCheckoutViewModel(
     init {
         GlobalScope.launch(Dispatchers.IO) {
             roomDatabaseUseCase.getAppDatabase()?.run {
-                items.addAll(habitDao().getHabitByRegistered())
+                habitHistoryDao().getHistoryByDate(DateUtil.now())
+                    .map { it.habitId }
+                    .let { ids ->
+                        habitDao().getHabitByRegistered().forEach {
+                            if (it.id in ids) {
+                                it.achieved = true
+                            }
+
+                            items.add(it)
+                        }
+                    }
             }
         }
     }

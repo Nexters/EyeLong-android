@@ -46,6 +46,11 @@
     <string name="day_sun">일</string>
     <string name="day_end">도착</string>
 
+    <!-- time -->
+    <string name="clock">00 : 00</string>
+    <string name="ante_meridiem">오전</string>
+    <string name="post_meridiem">오후</string>
+
     <!--exercise-->
     <string name="exercise_for_oasis">오아시스를 향한</string>
     <string name="today_exercise">오늘의 눈 운동</string>

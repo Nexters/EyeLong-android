@@ -153,11 +153,12 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="60dp"
                     android:divider="@null"
-                    app:suggestItems="@{viewModel.suggestItems}"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics_suggest" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_habit_analytics_suggest"
+                    app:suggestItems="@{viewModel.suggestItems}" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

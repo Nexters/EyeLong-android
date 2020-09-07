@@ -32,9 +32,11 @@
 
     <!-- settings -->
     <string name="settings_reset">초기화</string>
+    <string name="settings_save">완료</string>
     <string name="settings_alarm">알람 설정</string>
     <string name="settings_alarm_time">알람 시간</string>
     <string name="settings_alarm_repeat">알람 반복</string>
+    <string name="settings_alarm_repeat_daily">요일 반복</string>
 
     <!-- day of week -->
     <string name="day_mon">월</string>

@@ -1,8 +1,11 @@
 package com.teamnexters.eyelong.wrapper.usecase
 
 import android.app.Activity
+import android.content.DialogInterface
 import android.content.Intent
 import android.view.Gravity
+import androidx.appcompat.app.AlertDialog
+import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.ui.exercise.EyeExerciseActivity
 import com.teamnexters.eyelong.ui.exercise.EyePlaygroundActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitActivity
@@ -11,6 +14,7 @@ import com.teamnexters.eyelong.ui.habit.activity.HabitCheckoutActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitEditActivity
 import com.teamnexters.eyelong.ui.main.custom.KCustomToast
 import com.teamnexters.eyelong.ui.settings.activity.AlarmSettingsActivity
+import kotlinx.android.synthetic.main.layout_dialog_time_picker.view.*
 
 class ActivityUseCase(private val activity: Activity) {
 
@@ -65,6 +69,20 @@ class ActivityUseCase(private val activity: Activity) {
                     KCustomToast.Configure(KCustomToast.Configure.Level.INFO, Gravity.BOTTOM)
             }
             .build()
+            .show()
+    }
+
+    fun showTimePickerDialog(onTimeChanged: (String) -> Unit) {
+        var dialog: DialogInterface? = null
+        dialog = activity.layoutInflater.inflate(R.layout.layout_dialog_time_picker, null)
+            .apply {
+                time_picker.setOnTimeChangedListener { _, hourOfDay, minute ->
+                    onTimeChanged("$hourOfDay:$minute")
+                }
+
+                btn_picker.setOnClickListener { dialog?.dismiss() }
+            }
+            .let { AlertDialog.Builder(activity).apply { setView(it) } }
             .show()
     }
 }

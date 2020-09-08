@@ -1,80 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.teamnexters.eyelong.ui.settings.viewmodel.AlarmSettingsViewModel" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginBottom="20dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_settings_repeat_time"
-            android:layout_width="119dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/selector_settings_repeat_time"
-            android:enabled="false"
-            android:fontFamily="@font/notosanskrmedium"
-            android:gravity="center"
-            android:includeFontPadding="false"
-            android:text="@string/clock"
-            android:textColor="@color/colorGray_800"
-            android:textSize="24sp" />
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="12dp"
-            android:fontFamily="@font/notosanskrmedium"
-            android:includeFontPadding="false"
-            android:text="마다"
-            android:textColor="@color/colorBlack_700"
-            android:textSize="20sp" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tv_settings_repeat_time"
+                android:layout_width="119dp"
+                android:layout_height="52dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/selector_settings_repeat_time"
+                android:fontFamily="@font/notosanskrmedium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:onClick="@{()->viewModel.onTimePickerRepeatClick()}"
+                android:text="@string/clock"
+                android:textColor="@color/colorGray_800"
+                android:textSize="24sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/notosanskrmedium"
+                android:includeFontPadding="false"
+                android:text="마다"
+                android:textColor="@color/colorBlack_700"
+                android:textSize="20sp" />
+        </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="4dp"
-            android:fontFamily="@font/notosanskrmedium"
-            android:includeFontPadding="false"
-            android:text="총"
-            android:textColor="@color/colorBlack_700"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/tv_settings_repeat_count"
-            android:layout_width="77dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="18dp"
-            android:background="@drawable/bg_settings_repeat_count"
-            android:fontFamily="@font/notosanskrmedium"
-            android:gravity="center"
-            android:includeFontPadding="false"
-            android:text="0번"
-            android:textColor="@color/colorBlack_700"
-            android:textSize="20sp" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="13dp"
-            android:fontFamily="@font/notosanskrmedium"
-            android:includeFontPadding="false"
-            android:text="알림"
-            android:textColor="@color/colorBlack_700"
-            android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/notosanskrmedium"
+                android:includeFontPadding="false"
+                android:text="총"
+                android:textColor="@color/colorBlack_700"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_settings_repeat_count"
+                android:layout_width="77dp"
+                android:layout_height="42dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="18dp"
+                android:background="@drawable/bg_settings_repeat_count"
+                android:fontFamily="@font/notosanskrmedium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="0번"
+                android:textColor="@color/colorBlack_700"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="13dp"
+                android:fontFamily="@font/notosanskrmedium"
+                android:includeFontPadding="false"
+                android:text="알림"
+                android:textColor="@color/colorBlack_700"
+                android:textSize="20sp" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</layout>

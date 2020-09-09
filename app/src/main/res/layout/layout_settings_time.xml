@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -27,23 +28,25 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="16dp"
+                android:enabled="false"
                 android:fontFamily="@font/notosanskrmedium"
                 android:includeFontPadding="false"
-                android:text="@string/ante_meridiem"
-                android:textColor="@color/colorGray_800"
-                android:textSize="20sp" />
+                android:textColor="@drawable/selector_settings_text"
+                android:textSize="20sp"
+                app:meridiem="@{viewModel.startTime}" />
 
             <TextView
-                android:id="@+id/tv_settings_time_start_clock"
+                android:id="@+id/tv_settings_time_start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="14dp"
+                android:enabled="false"
                 android:fontFamily="@font/notosanskrmedium"
                 android:includeFontPadding="false"
-                android:text="@string/clock"
-                android:textColor="@color/colorGray_800"
-                android:textSize="20sp" />
+                android:textColor="@drawable/selector_settings_text"
+                android:textSize="20sp"
+                app:time="@{viewModel.startTime}" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -70,23 +73,25 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="16dp"
+                android:enabled="false"
                 android:fontFamily="@font/notosanskrmedium"
                 android:includeFontPadding="false"
-                android:text="@string/post_meridiem"
-                android:textColor="@color/colorGray_800"
-                android:textSize="20sp" />
+                android:textColor="@drawable/selector_settings_text"
+                android:textSize="20sp"
+                app:meridiem="@{viewModel.endTime}" />
 
             <TextView
-                android:id="@+id/tv_settings_time_end_clock"
+                android:id="@+id/tv_settings_time_end"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="14dp"
+                android:enabled="false"
                 android:fontFamily="@font/notosanskrmedium"
                 android:includeFontPadding="false"
-                android:text="@string/clock"
-                android:textColor="@color/colorGray_800"
-                android:textSize="20sp" />
+                android:textColor="@drawable/selector_settings_text"
+                android:textSize="20sp"
+                app:time="@{viewModel.endTime}" />
 
             <TextView
                 android:layout_width="wrap_content"

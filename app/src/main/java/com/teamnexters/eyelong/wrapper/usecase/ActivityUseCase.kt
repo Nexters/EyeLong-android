@@ -72,13 +72,16 @@ class ActivityUseCase(private val activity: Activity) {
             .show()
     }
 
-    fun showTimePickerDialog(is24HourView: Boolean = false, onTimeChanged: (String) -> Unit) {
+    fun showTimePickerDialog(
+        is24HourView: Boolean = false,
+        onTimeChanged: (hourOfDay: Int, minute: Int) -> Unit
+    ) {
         var dialog: DialogInterface? = null
         dialog = activity.layoutInflater.inflate(R.layout.layout_dialog_time_picker, null)
             .apply {
                 time_picker.setIs24HourView(is24HourView)
                 time_picker.setOnTimeChangedListener { _, hourOfDay, minute ->
-                    onTimeChanged("$hourOfDay:$minute")
+                    onTimeChanged(hourOfDay, minute)
                 }
 
                 btn_picker.setOnClickListener { dialog?.dismiss() }

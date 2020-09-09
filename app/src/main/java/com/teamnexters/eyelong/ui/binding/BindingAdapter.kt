@@ -1,9 +1,11 @@
-package com.teamnexters.eyelong.ui.habit.viewmodel
+package com.teamnexters.eyelong.ui.binding
 
+import android.content.Context
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.ObservableArrayList
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -11,10 +13,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.db.entity.Habit
-import com.teamnexters.eyelong.ui.habit.adapter.HabitSuggestViewAdapter
 import com.teamnexters.eyelong.ui.habit.adapter.HabitChartViewAdapter
 import com.teamnexters.eyelong.ui.habit.adapter.HabitRecyclerViewAdapter
+import com.teamnexters.eyelong.ui.habit.adapter.HabitSuggestViewAdapter
 import com.teamnexters.eyelong.ui.habit.chart.Item
+import java.time.LocalTime
+
+fun LocalTime.format() = String.format("%02d : %02d", hour, minute)
+fun LocalTime.meridiem(context: Context) =
+    context.getString(if (hour >= 12) R.string.post_meridiem else R.string.ante_meridiem)
 
 @BindingAdapter(value = ["items", "observer"], requireAll = false)
 fun bindItems(
@@ -101,4 +108,12 @@ fun bindIcon(view: ImageView, imagePath: String?) {
         val drawable = getDrawable(resources.getIdentifier(imagePath, "drawable", packageName))
         view.setImageDrawable(drawable)
     }
+}
+
+@BindingAdapter("meridiem")
+fun bindMeridiem(view: TextView, t: LocalTime?) {
+}
+
+@BindingAdapter("time")
+fun bindTime(view: TextView, t: LocalTime?) {
 }

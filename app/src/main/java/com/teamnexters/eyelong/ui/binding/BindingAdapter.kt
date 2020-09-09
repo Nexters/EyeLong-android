@@ -111,9 +111,17 @@ fun bindIcon(view: ImageView, imagePath: String?) {
 }
 
 @BindingAdapter("meridiem")
-fun bindMeridiem(view: TextView, t: LocalTime?) {
+fun bindMeridiem(view: TextView, time: LocalTime?) {
+    view.apply {
+        text = time?.meridiem(context) ?: context.getString(R.string.ante_meridiem)
+        isEnabled = time != null
+    }
 }
 
 @BindingAdapter("time")
-fun bindTime(view: TextView, t: LocalTime?) {
+fun bindTime(view: TextView, time: LocalTime?) {
+    view.apply {
+        text = time?.format() ?: context.getString(R.string.clock)
+        isEnabled = time != null
+    }
 }

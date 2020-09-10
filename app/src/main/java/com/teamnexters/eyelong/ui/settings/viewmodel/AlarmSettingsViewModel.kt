@@ -1,6 +1,8 @@
 package com.teamnexters.eyelong.ui.settings.viewmodel
 
+import androidx.databinding.Observable
 import androidx.databinding.ObservableField
+import com.teamnexters.eyelong.ui.binding.count
 import com.teamnexters.eyelong.wrapper.usecase.ActivityUseCase
 import java.time.LocalTime
 
@@ -8,26 +10,40 @@ class AlarmSettingsViewModel(private val activityUseCase: ActivityUseCase) {
     val startTime = ObservableField<LocalTime>()
     val endTime = ObservableField<LocalTime>()
     val repeatTime = ObservableField<LocalTime>()
+    val repeatCount = ObservableField(0)
+    val callback = object : Observable.OnPropertyChangedCallback() {
+        override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
+            repeatTime.get()?.let {
+                val start = startTime.get()
+                val end = endTime.get()
 
-    fun onTimePickerStartClick() {
-        activityUseCase.showTimePickerDialog { hourOfDay, minute ->
-            startTime.set(LocalTime.of(hourOfDay, minute))
+                if (start != null && end != null) {
+                    repeatCount.set(it.count(start, end).toInt())
+                }
+            }
         }
     }
 
-    fun onTimePickerEndClick() {
-        activityUseCase.showTimePickerDialog { hourOfDay, minute ->
-            endTime.set(LocalTime.of(hourOfDay, minute))
-        }
+    init {
+        startTime.addOnPropertyChangedCallback(callback)
+        endTime.addOnPropertyChangedCallback(callback)
+        repeatTime.addOnPropertyChangedCallback(callback)
     }
 
-    fun onTimePickerRepeatClick() {
-        activityUseCase.showTimePickerDialog(true) { hourOfDay, minute ->
-            repeatTime.set(LocalTime.of(hourOfDay, minute))
-        }
-    }
+    fun onTimePickerStartClick() = onTimePickerClick(field = startTime)
+    fun onTimePickerEndClick() = onTimePickerClick(field = endTime)
+    fun onTimePickerRepeatClick() = onTimePickerClick(is24HourView = true, field = repeatTime)
 
     fun onBackButtonClick() {
         activityUseCase.finishActivity()
+    }
+
+    private fun onTimePickerClick(
+        is24HourView: Boolean = false,
+        field: ObservableField<LocalTime>
+    ) {
+        activityUseCase.showTimePickerDialog(is24HourView) { hourOfDay, minute ->
+            field.set(LocalTime.of(hourOfDay, minute))
+        }
     }
 }

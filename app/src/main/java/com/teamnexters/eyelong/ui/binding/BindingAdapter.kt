@@ -17,14 +17,22 @@ import com.teamnexters.eyelong.ui.habit.adapter.HabitChartViewAdapter
 import com.teamnexters.eyelong.ui.habit.adapter.HabitRecyclerViewAdapter
 import com.teamnexters.eyelong.ui.habit.adapter.HabitSuggestViewAdapter
 import com.teamnexters.eyelong.ui.habit.chart.Item
+import java.time.Duration
 import java.time.LocalTime
 
 fun LocalTime.format() = String.format("%02d : %02d", hour, minute)
 fun LocalTime.meridiem(context: Context) =
     context.getString(if (hour >= 12) R.string.post_meridiem else R.string.ante_meridiem)
 
+fun LocalTime.count(start: LocalTime, end: LocalTime) = if (start.isAfter(end)) {
+    val diff = Duration.ofDays(1).toNanos() - start.toNanoOfDay()
+    diff + end.toNanoOfDay()
+} else {
+    Duration.between(start, end).toNanos()
+}.let { it / toNanoOfDay() }
+
 @BindingAdapter(value = ["items", "observer"], requireAll = false)
-fun bindItems(
+fun bindHabitItems(
     view: RecyclerView,
     items: ObservableArrayList<Habit>,
     observer: HabitRecyclerViewAdapter.Observer

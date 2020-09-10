@@ -31,7 +31,7 @@
                 android:fontFamily="@font/notosanskrmedium"
                 android:gravity="center"
                 android:includeFontPadding="false"
-                android:textColor="@drawable/selector_settings_text"
+                android:textColor="@drawable/selector_settings_text_white"
                 android:textSize="24sp"
                 app:time="@{viewModel.repeatTime}" />
 
@@ -73,7 +73,7 @@
                 android:fontFamily="@font/notosanskrmedium"
                 android:gravity="center"
                 android:includeFontPadding="false"
-                android:text="0번"
+                android:text="@{viewModel.repeatCount+@string/text_count}"
                 android:textColor="@color/colorBlack_700"
                 android:textSize="20sp" />
 

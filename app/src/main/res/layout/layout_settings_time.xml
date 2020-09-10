@@ -31,7 +31,7 @@
                 android:enabled="false"
                 android:fontFamily="@font/notosanskrmedium"
                 android:includeFontPadding="false"
-                android:textColor="@drawable/selector_settings_text"
+                android:textColor="@drawable/selector_settings_text_black"
                 android:textSize="20sp"
                 app:meridiem="@{viewModel.startTime}" />
 
@@ -44,7 +44,7 @@
                 android:enabled="false"
                 android:fontFamily="@font/notosanskrmedium"
                 android:includeFontPadding="false"
-                android:textColor="@drawable/selector_settings_text"
+                android:textColor="@drawable/selector_settings_text_black"
                 android:textSize="20sp"
                 app:time="@{viewModel.startTime}" />
 
@@ -76,7 +76,7 @@
                 android:enabled="false"
                 android:fontFamily="@font/notosanskrmedium"
                 android:includeFontPadding="false"
-                android:textColor="@drawable/selector_settings_text"
+                android:textColor="@drawable/selector_settings_text_black"
                 android:textSize="20sp"
                 app:meridiem="@{viewModel.endTime}" />
 
@@ -89,7 +89,7 @@
                 android:enabled="false"
                 android:fontFamily="@font/notosanskrmedium"
                 android:includeFontPadding="false"
-                android:textColor="@drawable/selector_settings_text"
+                android:textColor="@drawable/selector_settings_text_black"
                 android:textSize="20sp"
                 app:time="@{viewModel.endTime}" />
 

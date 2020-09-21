@@ -35,18 +35,23 @@ android {
 }
 
 dependencies {
+    def rx_version = '3.0.6'
+    def rx_kotlin_version = '3.0.1'
     def material_version = '1.1.0'
     def arch_version = '2.2.0'
     def room_version = '2.2.5'
     def glide_version = '4.9.0'
     def lottie_version = '3.0.0'
-    def mpandroidchart_version = 'v3.1.0'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.core:core-ktx:1.3.1'
+
+    // reactiveX
+    implementation "io.reactivex.rxjava3:rxjava:$rx_version"
+    implementation "io.reactivex.rxjava3:rxkotlin:$rx_kotlin_version"
 
     // material design
     implementation "com.google.android.material:material:$material_version"

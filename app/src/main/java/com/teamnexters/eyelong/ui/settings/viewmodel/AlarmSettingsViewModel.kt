@@ -11,8 +11,9 @@ class AlarmSettingsViewModel(private val activityUseCase: ActivityUseCase) {
     val startTime = ObservableField<LocalTime>()
     val endTime = ObservableField<LocalTime>()
     val repeatTime = ObservableField<LocalTime>()
-    val repeatCount = ObservableField(0)
-    val buttonEnable = ObservableField(false)
+    val repeatCount = ObservableField<Int>().apply { set(0) }
+    val buttonEnable = ObservableField<Boolean>().apply { set(false) }
+    val buttonCheck = ObservableField<Boolean>()
 
     private val checklist = mutableListOf<String>()
 
@@ -43,6 +44,15 @@ class AlarmSettingsViewModel(private val activityUseCase: ActivityUseCase) {
 
     fun onBackButtonClick() {
         activityUseCase.finishActivity()
+    }
+
+    fun onClearButtonClick() {
+        startTime.set(null)
+        endTime.set(null)
+        repeatTime.set(null)
+        repeatCount.set(0)
+        buttonCheck.set(false)
+        buttonCheck.set(null)
     }
 
     fun onCompoundButtonCheck(compoundButton: CompoundButton, isChecked: Boolean) {

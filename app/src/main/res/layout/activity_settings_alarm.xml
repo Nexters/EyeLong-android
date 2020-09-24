@@ -201,7 +201,8 @@
                     android:layout_marginEnd="49dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/title_settings_alarm_repeat_daily" />
+                    app:layout_constraintTop_toBottomOf="@+id/title_settings_alarm_repeat_daily"
+                    app:viewModel="@{viewModel}" />
 
                 <Button
                     android:id="@+id/btn_settings_alarm_save"
@@ -212,7 +213,7 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="50dp"
                     android:background="@drawable/selector_settings_repeat_save"
-                    android:enabled="false"
+                    android:enabled="@{viewModel.buttonEnable}"
                     android:fontFamily="@font/notosanskrbold"
                     android:text="@string/settings_save"
                     android:textColor="@color/colorWhite"

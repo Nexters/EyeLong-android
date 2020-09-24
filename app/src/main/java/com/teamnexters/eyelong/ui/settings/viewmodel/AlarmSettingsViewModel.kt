@@ -11,20 +11,24 @@ class AlarmSettingsViewModel(private val activityUseCase: ActivityUseCase) {
     val endTime = ObservableField<LocalTime>()
     val repeatTime = ObservableField<LocalTime>()
     val repeatCount = ObservableField(0)
-    val callback = object : Observable.OnPropertyChangedCallback() {
-        override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
-            repeatTime.get()?.let {
-                val start = startTime.get()
-                val end = endTime.get()
-
-                if (start != null && end != null) {
-                    repeatCount.set(it.count(start, end).toInt())
-                }
-            }
-        }
-    }
+    val buttonEnable = ObservableField(false)
 
     init {
+        val callback = object : Observable.OnPropertyChangedCallback() {
+            override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
+                repeatTime.get()?.let {
+                    val start = startTime.get()
+                    val end = endTime.get()
+
+                    if (start != null && end != null) {
+                        repeatCount.set(it.count(start, end).toInt())
+                    }
+                }
+
+                isNullOrEmptyObservable()
+            }
+        }
+
         startTime.addOnPropertyChangedCallback(callback)
         endTime.addOnPropertyChangedCallback(callback)
         repeatTime.addOnPropertyChangedCallback(callback)
@@ -38,6 +42,10 @@ class AlarmSettingsViewModel(private val activityUseCase: ActivityUseCase) {
         activityUseCase.finishActivity()
     }
 
+    fun onDailyClick() {
+        isNullOrEmptyObservable()
+    }
+
     private fun onTimePickerClick(
         is24HourView: Boolean = false,
         field: ObservableField<LocalTime>
@@ -46,4 +54,6 @@ class AlarmSettingsViewModel(private val activityUseCase: ActivityUseCase) {
             field.set(LocalTime.of(hourOfDay, minute))
         }
     }
+
+    private fun isNullOrEmptyObservable() {}
 }

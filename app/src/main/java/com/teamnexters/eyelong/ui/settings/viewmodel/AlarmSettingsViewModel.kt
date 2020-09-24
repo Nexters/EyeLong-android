@@ -1,5 +1,6 @@
 package com.teamnexters.eyelong.ui.settings.viewmodel
 
+import android.widget.CompoundButton
 import androidx.databinding.Observable
 import androidx.databinding.ObservableField
 import com.teamnexters.eyelong.ui.binding.count
@@ -12,6 +13,8 @@ class AlarmSettingsViewModel(private val activityUseCase: ActivityUseCase) {
     val repeatTime = ObservableField<LocalTime>()
     val repeatCount = ObservableField(0)
     val buttonEnable = ObservableField(false)
+
+    private val checklist = mutableListOf<String>()
 
     init {
         val callback = object : Observable.OnPropertyChangedCallback() {
@@ -42,9 +45,19 @@ class AlarmSettingsViewModel(private val activityUseCase: ActivityUseCase) {
         activityUseCase.finishActivity()
     }
 
-    fun onDailyClick() {
+    fun onCompoundButtonCheck(compoundButton: CompoundButton, isChecked: Boolean) {
+        compoundButton.text.toString().let {
+            if (isChecked) {
+                checklist.add(it)
+            } else {
+                checklist.remove(it)
+            }
+        }
+
         isNullOrEmptyObservable()
     }
+
+    fun onSaveButtonClick() {}
 
     private fun onTimePickerClick(
         is24HourView: Boolean = false,
@@ -55,5 +68,12 @@ class AlarmSettingsViewModel(private val activityUseCase: ActivityUseCase) {
         }
     }
 
-    private fun isNullOrEmptyObservable() {}
+    private fun isNullOrEmptyObservable() {
+        buttonEnable.set(
+            startTime.get() != null
+                    && endTime.get() != null
+                    && repeatTime.get() != null
+                    && checklist.size > 0
+        )
+    }
 }

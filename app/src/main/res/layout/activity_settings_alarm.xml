@@ -215,6 +215,7 @@
                     android:background="@drawable/selector_settings_repeat_save"
                     android:enabled="@{viewModel.buttonEnable}"
                     android:fontFamily="@font/notosanskrbold"
+                    android:onClick="@{()->viewModel.onSaveButtonClick()}"
                     android:text="@string/settings_save"
                     android:textColor="@color/colorWhite"
                     android:textSize="20sp"

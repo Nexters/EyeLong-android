@@ -20,7 +20,7 @@ import com.teamnexters.eyelong.ui.habit.chart.Item
 import java.time.Duration
 import java.time.LocalTime
 
-fun LocalTime.format() = String.format("%02d : %02d", hour, minute)
+fun LocalTime.format(format: String) = String.format(format, hour, minute)
 fun LocalTime.meridiem(context: Context) =
     context.getString(if (hour >= 12) R.string.post_meridiem else R.string.ante_meridiem)
 
@@ -129,7 +129,7 @@ fun bindMeridiem(view: TextView, time: LocalTime?) {
 @BindingAdapter("time")
 fun bindTime(view: TextView, time: LocalTime?) {
     view.apply {
-        text = time?.format() ?: context.getString(R.string.clock)
+        text = time?.format("%02d : %02d") ?: context.getString(R.string.clock)
         isEnabled = time != null
     }
 }

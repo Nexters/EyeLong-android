@@ -42,7 +42,11 @@ android {
 dependencies {
     def rx_version = '3.0.6'
     def rx_kotlin_version = '3.0.1'
+    def rx_android_version = '3.0.0'
     def retrofit_version = '2.9.0'
+    def retrofit_rx_version = '3.0.0'
+    def retrofit_gson_version = '2.9.0'
+    def gson_version = '2.8.6'
     def firebase_core_version = '17.0.0'
     def firebase_analytics_version = '17.5.0'
     def firebase_messaging_version = '20.2.4'
@@ -61,9 +65,15 @@ dependencies {
     // reactiveX
     implementation "io.reactivex.rxjava3:rxjava:$rx_version"
     implementation "io.reactivex.rxjava3:rxkotlin:$rx_kotlin_version"
+    implementation "io.reactivex.rxjava3:rxandroid:$rx_android_version"
 
     // retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.github.akarnokd:rxjava3-retrofit-adapter:$retrofit_rx_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_gson_version"
+
+    // gson
+    implementation "com.google.code.gson:gson:$gson_version"
 
     // google firebase
     implementation "com.google.firebase:firebase-core:$firebase_core_version"

@@ -6,11 +6,13 @@ import androidx.databinding.Observable
 import androidx.databinding.ObservableField
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.iid.FirebaseInstanceId
+import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.network.entity.CreateData
 import com.teamnexters.eyelong.network.entity.DeleteData
 import com.teamnexters.eyelong.network.service.EyeLongService
 import com.teamnexters.eyelong.ui.binding.count
 import com.teamnexters.eyelong.ui.binding.format
+import com.teamnexters.eyelong.wrapper.provider.ResourceProvider
 import com.teamnexters.eyelong.wrapper.usecase.ActivityUseCase
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -19,7 +21,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.time.LocalTime
 
-class AlarmSettingsViewModel(private val activityUseCase: ActivityUseCase) {
+class AlarmSettingsViewModel(
+    private val activityUseCase: ActivityUseCase,
+    private val resourceProvider: ResourceProvider
+) {
     val startTime = ObservableField<LocalTime>()
     val endTime = ObservableField<LocalTime>()
     val repeatTime = ObservableField<LocalTime>()
@@ -76,7 +81,7 @@ class AlarmSettingsViewModel(private val activityUseCase: ActivityUseCase) {
     fun onClearButtonClick() {
         firebaseToken?.let {
             val retrofit = Retrofit.Builder()
-                .baseUrl("http://54.180.169.231:8081/")
+                .baseUrl(resourceProvider.getString(R.string.server_base_url).toString())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
@@ -125,7 +130,7 @@ class AlarmSettingsViewModel(private val activityUseCase: ActivityUseCase) {
             )
 
             val retrofit = Retrofit.Builder()
-                .baseUrl("http://54.180.169.231:8081/")
+                .baseUrl(resourceProvider.getString(R.string.server_base_url).toString())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

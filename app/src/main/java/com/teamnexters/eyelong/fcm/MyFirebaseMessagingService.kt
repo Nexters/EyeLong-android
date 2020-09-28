@@ -22,7 +22,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         super.onMessageReceived(remoteMessage)
 
         notification(remoteMessage)
-        Log.i("FirebaseCloudMessaging", remoteMessage.notification.toString())
     }
 
     private fun notification(remoteMessage: RemoteMessage) {
@@ -44,8 +43,8 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         var builder = NotificationCompat.Builder(this@MyFirebaseMessagingService, channelId)
             .setSmallIcon(R.mipmap.ic_launcher)
-            .setContentTitle("Hello")
-            .setContentText("Hello")
+            .setContentTitle(remoteMessage.notification?.title)
+            .setContentText(remoteMessage.notification?.body)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
         with(NotificationManagerCompat.from(this@MyFirebaseMessagingService)) {

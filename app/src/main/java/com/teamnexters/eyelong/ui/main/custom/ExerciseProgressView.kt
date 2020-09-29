@@ -54,16 +54,6 @@ class ExerciseProgressView : LinearLayout {
             )
         }
 
-        with(findViewById<View>(R.id.today_main_exercise)) {
-            val xPos = progress * 64f
-
-            translationX = TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                xPos,
-                resources.displayMetrics
-            )
-        }
-
         with(findViewById<LinearLayout>(R.id.progress_main_exercise)) {
             for (index in 1..progress) {
                 View(context).apply {

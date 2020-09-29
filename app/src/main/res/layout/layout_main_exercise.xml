@@ -21,104 +21,101 @@
         android:background="@drawable/bg_main_exercise_progress"
         android:orientation="horizontal" />
 
-    <FrameLayout
+    <LinearLayout
+        android:id="@+id/week_main_exercise"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp">
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
 
-        <View
-            android:id="@+id/today_main_exercise"
+        <TextView
             android:layout_width="22dp"
             android:layout_height="22dp"
             android:layout_marginStart="17dp"
-            android:background="@drawable/bg_main_exercise_oval" />
+            android:background="@drawable/bg_main_exercise_oval"
+            android:fontFamily="@font/notosanskrbold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/day_mon"
+            android:textColor="@color/colorWhite"
+            android:textSize="10sp" />
 
-        <LinearLayout
-            android:id="@+id/week_main_exercise"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
+        <TextView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="42dp"
+            android:fontFamily="@font/notosanskrbold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/day_tue"
+            android:textColor="@color/colorBlack"
+            android:textSize="10sp" />
 
-            <TextView
-                android:layout_width="10dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="23dp"
-                android:fontFamily="@font/notosanskrbold"
-                android:includeFontPadding="false"
-                android:text="@string/day_mon"
-                android:textColor="@color/colorWhite"
-                android:textSize="10sp" />
+        <TextView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="42dp"
+            android:fontFamily="@font/notosanskrbold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/day_wed"
+            android:textColor="@color/colorBlack"
+            android:textSize="10sp" />
 
-            <TextView
-                android:layout_width="10dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="54dp"
-                android:fontFamily="@font/notosanskrbold"
-                android:includeFontPadding="false"
-                android:text="@string/day_tue"
-                android:textColor="@color/colorBlack"
-                android:textSize="10sp" />
+        <TextView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="42dp"
+            android:fontFamily="@font/notosanskrbold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/day_thu"
+            android:textColor="@color/colorBlack"
+            android:textSize="10sp" />
 
-            <TextView
-                android:layout_width="10dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="54dp"
-                android:fontFamily="@font/notosanskrbold"
-                android:includeFontPadding="false"
-                android:text="@string/day_wed"
-                android:textColor="@color/colorBlack"
-                android:textSize="10sp" />
+        <TextView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="42dp"
+            android:fontFamily="@font/notosanskrbold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/day_fri"
+            android:textColor="@color/colorBlack"
+            android:textSize="10sp" />
 
-            <TextView
-                android:layout_width="10dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="54dp"
-                android:fontFamily="@font/notosanskrbold"
-                android:includeFontPadding="false"
-                android:text="@string/day_thu"
-                android:textColor="@color/colorBlack"
-                android:textSize="10sp" />
+        <TextView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="42dp"
+            android:fontFamily="@font/notosanskrbold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/day_sat"
+            android:textColor="@color/colorBlack"
+            android:textSize="10sp" />
 
-            <TextView
-                android:layout_width="10dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="54dp"
-                android:fontFamily="@font/notosanskrbold"
-                android:includeFontPadding="false"
-                android:text="@string/day_fri"
-                android:textColor="@color/colorBlack"
-                android:textSize="10sp" />
+        <TextView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="42dp"
+            android:fontFamily="@font/notosanskrbold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/day_sun"
+            android:textColor="@color/colorBlack"
+            android:textSize="10sp" />
 
-            <TextView
-                android:layout_width="10dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="54dp"
-                android:fontFamily="@font/notosanskrbold"
-                android:includeFontPadding="false"
-                android:text="@string/day_sat"
-                android:textColor="@color/colorBlack"
-                android:textSize="10sp" />
-
-            <TextView
-                android:layout_width="10dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="54dp"
-                android:fontFamily="@font/notosanskrbold"
-                android:includeFontPadding="false"
-                android:text="@string/day_sun"
-                android:textColor="@color/colorBlack"
-                android:textSize="10sp" />
-
-            <TextView
-                android:layout_width="19dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="49dp"
-                android:fontFamily="@font/notosanskrbold"
-                android:includeFontPadding="false"
-                android:text="@string/day_end"
-                android:textColor="@color/colorBlack"
-                android:textSize="10sp" />
-        </LinearLayout>
-    </FrameLayout>
+        <TextView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="42dp"
+            android:fontFamily="@font/notosanskrbold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/day_end"
+            android:textColor="@color/colorBlack"
+            android:textSize="10sp" />
+    </LinearLayout>
 </LinearLayout>

@@ -9,12 +9,13 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.children
+import androidx.databinding.ObservableArrayList
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.util.DateUtil
 import java.time.DayOfWeek
 
 
-class ExerciseProgressView : LinearLayout {
+class EyeLongChallengeView : LinearLayout {
     constructor(context: Context?) : super(context) {
         initView(context)
     }
@@ -28,19 +29,19 @@ class ExerciseProgressView : LinearLayout {
         attrs,
         defStyleAttr
     ) {
-        initView(context, attrs)
+        initView(context, attrs, defStyleAttr)
     }
 
     private fun initView(context: Context?) {
         context?.let {
             val inflater = it.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            inflater.inflate(R.layout.layout_main_exercise, this@ExerciseProgressView, false)
+            inflater.inflate(R.layout.layout_eyelong_challenge, this@EyeLongChallengeView, false)
                 .apply {
                     addView(this)
                 }
         }
 
-        with(findViewById<ImageView>(R.id.img_main_exercise_character)) {
+        with(findViewById<ImageView>(R.id.img_character_eyelong_challenge)) {
             val dayOfWeek = DateUtil.dayOfWeek()
             val xPos = (dayOfWeek.value - 1) * 64f
 
@@ -51,7 +52,7 @@ class ExerciseProgressView : LinearLayout {
             )
         }
 
-        with(findViewById<LinearLayout>(R.id.week_main_exercise)) {
+        with(findViewById<LinearLayout>(R.id.week_eyelong_challenge)) {
             children.map { it as TextView }.forEach {
                 context?.run {
                     val dayOfWeek = DateUtil.dayOfWeek()
@@ -72,9 +73,13 @@ class ExerciseProgressView : LinearLayout {
         initView(context)
     }
 
-    fun setProgress(progress: Int) {
-        with(findViewById<LinearLayout>(R.id.progress_main_exercise)) {
-            for (index in 1..progress) {
+    private fun initView(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) {
+        initView(context)
+    }
+
+    fun setDoList(doList: ObservableArrayList<Boolean>) {
+        with(findViewById<LinearLayout>(R.id.progress_eyelong_challenge)) {
+            doList.forEachIndexed { index, done ->
                 View(context).apply {
                     layoutParams = LayoutParams(
                         LayoutParams.MATCH_PARENT,
@@ -87,13 +92,15 @@ class ExerciseProgressView : LinearLayout {
                         ).toInt()
                     }
 
-                    background = context.getDrawable(
-                        when (index) {
-                            DayOfWeek.MONDAY.value -> R.drawable.bg_main_exercise_progress_start
-                            DayOfWeek.SUNDAY.value -> R.drawable.bg_main_exercise_progress_end
-                            else -> R.drawable.bg_main_exercise_progress_do
-                        }
-                    )
+                    if (done) {
+                        background = context.getDrawable(
+                            when (index) {
+                                DayOfWeek.MONDAY.value - 1 -> R.drawable.bg_eyelong_progress_start
+                                DayOfWeek.SUNDAY.value - 1 -> R.drawable.bg_eyelong_progress_end
+                                else -> R.drawable.bg_eyelong_progress_do
+                            }
+                        )
+                    }
                 }.also {
                     addView(it)
                 }

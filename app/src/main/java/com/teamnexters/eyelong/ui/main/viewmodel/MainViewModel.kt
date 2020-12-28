@@ -1,5 +1,6 @@
 package com.teamnexters.eyelong.ui.main.viewmodel
 
+import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableField
 import com.teamnexters.eyelong.wrapper.usecase.ActivityUseCase
 import com.teamnexters.eyelong.wrapper.usecase.RoomDatabaseUseCase
@@ -11,14 +12,13 @@ class MainViewModel(
     private val activityUseCase: ActivityUseCase,
     private val roomDatabaseUseCase: RoomDatabaseUseCase
 ) {
-    val exerciseHistoryCount = ObservableField<Int>()
-    val habitHistoryCount = ObservableField<Int>()
+    val doListOfWeek = ObservableArrayList<Boolean>()
+    val habitCountOfToday = ObservableField<Int>()
 
     init {
         GlobalScope.launch(Dispatchers.IO) {
             roomDatabaseUseCase.getAppDatabase()?.run {
-                exerciseHistoryCount.set(1)
-                habitHistoryCount.set(habitHistoryDao().getHistoryAll().size)
+                habitCountOfToday.set(habitHistoryDao().getHistoryAll().size)
             }
         }
     }

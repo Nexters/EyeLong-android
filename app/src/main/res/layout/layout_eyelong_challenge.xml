@@ -6,14 +6,14 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/img_main_exercise_character"
+        android:id="@+id/img_character_eyelong_challenge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        app:srcCompat="@drawable/ic_main_exercise_character" />
+        app:srcCompat="@drawable/ic_character_eyelong" />
 
     <LinearLayout
-        android:id="@+id/progress_main_exercise"
+        android:id="@+id/progress_eyelong_challenge"
         android:layout_width="448dp"
         android:layout_height="12dp"
         android:layout_marginStart="28dp"
@@ -22,7 +22,7 @@
         android:orientation="horizontal" />
 
     <LinearLayout
-        android:id="@+id/week_main_exercise"
+        android:id="@+id/week_eyelong_challenge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"

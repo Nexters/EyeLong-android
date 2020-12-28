@@ -83,10 +83,10 @@
                 android:scrollbars="none"
                 app:layout_constraintBottom_toTopOf="@+id/tv_main_habit_title">
 
-                <com.teamnexters.eyelong.ui.main.custom.ExerciseProgressView
+                <com.teamnexters.eyelong.ui.main.custom.EyeLongChallengeView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:progress="@{viewModel.exerciseHistoryCount}" />
+                    app:doList="@{viewModel.doListOfWeek}" />
             </HorizontalScrollView>
 
             <TextView
@@ -152,7 +152,7 @@
                     android:text="@string/main_habit_today"
                     android:textColor="@color/colorBlack_600"
                     android:textSize="12sp"
-                    app:habitCount="@{viewModel.habitHistoryCount}"
+                    app:habitCount="@{viewModel.habitCountOfToday}"
                     app:layout_constraintStart_toStartOf="@+id/tv_main_habit_cheer"
                     app:layout_constraintTop_toBottomOf="@+id/tv_main_habit_cheer" />
 

@@ -10,6 +10,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.children
 import com.teamnexters.eyelong.R
+import com.teamnexters.eyelong.util.DateUtil
+import java.time.DayOfWeek
 
 
 class ExerciseProgressView : LinearLayout {
@@ -37,15 +39,10 @@ class ExerciseProgressView : LinearLayout {
                     addView(this)
                 }
         }
-    }
 
-    private fun initView(context: Context?, attrs: AttributeSet?) {
-        initView(context)
-    }
-
-    fun setProgress(progress: Int) {
         with(findViewById<ImageView>(R.id.img_main_exercise_character)) {
-            val xPos = (progress - 1) * 64f
+            val dayOfWeek = DateUtil.dayOfWeek()
+            val xPos = (dayOfWeek.value - 1) * 64f
 
             translationX = TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP,
@@ -54,6 +51,28 @@ class ExerciseProgressView : LinearLayout {
             )
         }
 
+        with(findViewById<LinearLayout>(R.id.week_main_exercise)) {
+            children.map { it as TextView }.forEach {
+                context?.run {
+                    val dayOfWeek = DateUtil.dayOfWeek()
+
+                    if (indexOfChild(it) == dayOfWeek.value - 1) {
+                        it.setTextColor(getColor(R.color.colorWhite))
+                        it.background = getDrawable(R.drawable.bg_main_exercise_oval)
+                    } else {
+                        it.setTextColor(getColor(R.color.colorBlack))
+                        it.background = null
+                    }
+                }
+            }
+        }
+    }
+
+    private fun initView(context: Context?, attrs: AttributeSet?) {
+        initView(context)
+    }
+
+    fun setProgress(progress: Int) {
         with(findViewById<LinearLayout>(R.id.progress_main_exercise)) {
             for (index in 1..progress) {
                 View(context).apply {
@@ -70,28 +89,14 @@ class ExerciseProgressView : LinearLayout {
 
                     background = context.getDrawable(
                         when (index) {
-                            1 -> R.drawable.bg_main_exercise_progress_start
-                            7 -> R.drawable.bg_main_exercise_progress_end
+                            DayOfWeek.MONDAY.value -> R.drawable.bg_main_exercise_progress_start
+                            DayOfWeek.SUNDAY.value -> R.drawable.bg_main_exercise_progress_end
                             else -> R.drawable.bg_main_exercise_progress_do
                         }
                     )
                 }.also {
                     addView(it)
                 }
-            }
-        }
-
-        with(findViewById<LinearLayout>(R.id.week_main_exercise)) {
-            children.map { it as TextView }.forEach {
-                it.setTextColor(
-                    context.getColor(
-                        if (indexOfChild(it) == progress) {
-                            R.color.colorWhite
-                        } else {
-                            R.color.colorBlack
-                        }
-                    )
-                )
             }
         }
     }

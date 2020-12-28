@@ -16,7 +16,7 @@ class HabitAnalyticsViewModel(
 ) {
     var chartItems = ObservableArrayList<Item>()
     var suggestItems = ObservableArrayList<Habit>()
-    val nowOfWeek = DateUtil.nowOfWeek()
+    val nowOfWeek = DateUtil.weekOfMonth()
 
     init {
         GlobalScope.launch(Dispatchers.IO) {

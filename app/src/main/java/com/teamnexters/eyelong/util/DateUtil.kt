@@ -1,6 +1,8 @@
 package com.teamnexters.eyelong.util
 
 import java.text.SimpleDateFormat
+import java.time.DayOfWeek
+import java.time.LocalDate
 import java.util.*
 
 object DateUtil {
@@ -8,7 +10,7 @@ object DateUtil {
         SimpleDateFormat("yyyyMMdd HH:mm:ss").format(it)
     }
 
-    fun nowOfWeek(): String = Calendar.getInstance().run {
+    fun weekOfMonth() = Calendar.getInstance().run {
         StringBuilder()
             .append("${get(Calendar.YEAR)}년 ")
             .append("${get(Calendar.MONTH) + 1}월 ")
@@ -23,6 +25,8 @@ object DateUtil {
                 }
             ).toString()
     }
+
+    fun dayOfWeek(): DayOfWeek = LocalDate.now().dayOfWeek
 
     fun daysOfWeek() = GregorianCalendar.getInstance()
         .apply { time = Date(System.currentTimeMillis()) }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.exercise.AddEyeExerciseActivity">
+    tools:context=".ui.exercise.activity.AddEyeExerciseActivity">
 
     <!--toolbar-->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -73,7 +73,7 @@
             android:layout_height="64dp"
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="50dp"
-            android:background="@drawable/bg_exercise_start_btn_green_round_box"
+            android:background="@drawable/bg_exercise_btn_start"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
 

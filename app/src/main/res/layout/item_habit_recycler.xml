@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="19dp"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/notosanskrmedium"
+            android:fontFamily="@font/notosanscjkkrmedium"
             android:includeFontPadding="false"
             android:text="@{habit.description}"
             android:textColor="@color/colorBlack_200"

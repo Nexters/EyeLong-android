@@ -58,11 +58,11 @@
 
     <!--exercise-->
     <string name="exercise_for_oasis">오아시스를 향한</string>
-    <string name="today_exercise">오늘의 눈 운동</string>
-    <string name="exercise_list">눈 운동 리스트</string>
-    <string name="start_exercise">운동 시작</string>
-    <string name="exercise_total_time">총 소요시간</string>
-    <string name="exercise_total_time_num">7분 30초</string>
+    <string name="exercise_today">오늘의 눈 운동</string>
+    <string name="exercise_list_title">눈 운동 리스트</string>
+    <string name="exercise_start">운동 시작</string>
+    <string name="exercise_elapsed_time">총 소요시간</string>
+    <string name="exercise_elapsed_time_default">0분 0초</string>
     <string name="exercise_minute">"분 "</string>
     <string name="exercise_second">초 </string>
 

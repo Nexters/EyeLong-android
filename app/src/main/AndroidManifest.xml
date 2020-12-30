@@ -21,27 +21,27 @@
         <activity android:name=".ui.habit.activity.HabitCheckoutActivity" />
         <activity android:name=".ui.habit.activity.HabitActivity" />
         <activity
-            android:name=".ui.exercise.LottieActivity"
+            android:name=".ui.exercise.activity.LottieActivity"
             android:screenOrientation="landscape"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".ui.exercise.GuideExerciseActivity"
+            android:name=".ui.exercise.activity.GuideExerciseActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".ui.exercise.EyePlaygroundActivity"
+            android:name=".ui.exercise.activity.EyePlaygroundActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".ui.exercise.AddEyeExerciseActivity"
+            android:name=".ui.exercise.activity.AddEyeExerciseActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".ui.exercise.EyeExerciseDetailActivity"
+            android:name=".ui.exercise.activity.EyeExerciseDetailActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".ui.exercise.EyeExerciseActivity"
+            android:name=".ui.exercise.activity.EyeExerciseActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity

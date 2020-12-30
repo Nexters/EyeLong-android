@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- https://fonts.adobe.com/fonts/noto-sans-cjk-kr#details-section -->
+    <font
+        android:font="@font/notosanscjkkrthin"
+        android:fontStyle="normal"
+        android:fontWeight="200" />
+    <font
+        android:font="@font/notosanscjkkrlight"
+        android:fontStyle="normal"
+        android:fontWeight="200" />
+    <font
+        android:font="@font/notosanscjkkrdemilight"
+        android:fontStyle="normal"
+        android:fontWeight="300" />
+    <font
+        android:font="@font/notosanscjkkrregular"
+        android:fontStyle="normal"
+        android:fontWeight="400" />
+    <font
+        android:font="@font/notosanscjkkrmedium"
+        android:fontStyle="normal"
+        android:fontWeight="500" />
+    <font
+        android:font="@font/notosanscjkkrbold"
+        android:fontStyle="normal"
+        android:fontWeight="700" />
+    <font
+        android:font="@font/notosanscjkkrblack"
+        android:fontStyle="normal"
+        android:fontWeight="900" />
+</font-family>

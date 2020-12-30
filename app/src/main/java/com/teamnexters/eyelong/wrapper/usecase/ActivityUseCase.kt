@@ -6,8 +6,8 @@ import android.content.Intent
 import android.view.Gravity
 import androidx.appcompat.app.AlertDialog
 import com.teamnexters.eyelong.R
-import com.teamnexters.eyelong.ui.exercise.EyeExerciseActivity
-import com.teamnexters.eyelong.ui.exercise.EyePlaygroundActivity
+import com.teamnexters.eyelong.ui.exercise.activity.EyeExerciseActivity
+import com.teamnexters.eyelong.ui.exercise.activity.EyePlaygroundActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitAnalyticsActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitCheckoutActivity

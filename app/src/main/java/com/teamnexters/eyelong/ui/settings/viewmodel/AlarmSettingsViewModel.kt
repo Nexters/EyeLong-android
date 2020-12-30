@@ -10,8 +10,8 @@ import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.network.entity.CreateData
 import com.teamnexters.eyelong.network.entity.DeleteData
 import com.teamnexters.eyelong.network.service.EyeLongService
-import com.teamnexters.eyelong.ui.binding.count
-import com.teamnexters.eyelong.ui.binding.format
+import com.teamnexters.eyelong.ui.settings.binding.count
+import com.teamnexters.eyelong.ui.settings.binding.format
 import com.teamnexters.eyelong.wrapper.provider.ResourceProvider
 import com.teamnexters.eyelong.wrapper.usecase.ActivityUseCase
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory

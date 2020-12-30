@@ -58,7 +58,7 @@ class AddEyeExerciseRecyclerViewAdapter(val ctx: Context) :
 
         val check_btn = itemView.findViewById(R.id.img_check_btn_rv_item) as ImageView
 
-        val exercise_title = itemView.findViewById(R.id.tv_exercise_title) as TextView
+        val exercise_title = itemView.findViewById(R.id.tv_exercise_name) as TextView
         val exercise_effect = itemView.findViewById(R.id.tv_exercise_effect) as TextView
         val exercise_time = itemView.findViewById(R.id.tv_start_eye_exercise) as TextView
 

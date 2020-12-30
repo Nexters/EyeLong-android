@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:verticalScrollbarPosition="defaultPosition"
-    tools:context=".ui.exercise.EyeExerciseDetailActivity">
+    tools:context=".ui.exercise.activity.EyeExerciseDetailActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/img_btn_back">
 
                 <TextView
-                    android:id="@+id/tv_exercise_title"
+                    android:id="@+id/tv_exercise_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/exercise_title"
@@ -57,7 +57,7 @@
                     android:textColor="@color/colorBlack_500"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_exercise_title" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_exercise_name" />
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout

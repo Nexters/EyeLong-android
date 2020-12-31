@@ -85,15 +85,23 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tv_exercise_effect" />
 
-                <ImageView
-                    android:id="@+id/img_exercise"
+                <FrameLayout
+                    android:id="@+id/layout_img_exercise"
                     android:layout_width="match_parent"
                     android:layout_height="196dp"
                     android:layout_marginTop="40dp"
-                    app:icon="@{exercise.tipImagePath}"
+                    android:background="@color/colorGray_100"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_exercise_effect" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_exercise_effect">
+
+                    <ImageView
+                        android:id="@+id/img_exercise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:icon="@{exercise.iconImagePath}" />
+                </FrameLayout>
 
                 <TextView
                     android:id="@+id/tv_effect_title"
@@ -111,7 +119,7 @@
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/img_exercise" />
+                    app:layout_constraintTop_toBottomOf="@+id/layout_img_exercise" />
 
                 <TextView
                     android:id="@+id/tv_exercise_effect_tip"

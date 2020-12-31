@@ -11,7 +11,6 @@ import com.teamnexters.eyelong.wrapper.usecase.RoomDatabaseUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 fun Exercise.getRegistered() = registered == "Y"
 fun Exercise.setRegistered(value: Boolean) {

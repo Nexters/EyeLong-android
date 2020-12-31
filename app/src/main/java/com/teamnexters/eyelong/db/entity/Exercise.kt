@@ -31,8 +31,8 @@ data class Exercise(
     @ColumnInfo(name = "tip")
     val tip: String?,
 
-    @ColumnInfo(name = "tip_image_path")
-    val tipImagePath: String?,
+    @ColumnInfo(name = "icon_image_path")
+    val iconImagePath: String?,
 
     @ColumnInfo(name = "registered")
     var registered: String?
@@ -58,7 +58,7 @@ data class Exercise(
         parcel.writeString(effectSimple)
         parcel.writeString(effectDescription)
         parcel.writeString(tip)
-        parcel.writeString(tipImagePath)
+        parcel.writeString(iconImagePath)
         parcel.writeString(registered)
     }
 

@@ -1,0 +1,12 @@
+<vector android:autoMirrored="true" android:height="32dp"
+    android:viewportHeight="32" android:viewportWidth="171"
+    android:width="171dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#111111" android:fillType="evenOdd" android:pathData="M106.714,0.418L109.606,3.553C114.471,8.826 120.908,12.387 127.961,13.705L130.883,14.251C134.926,15.007 139.074,15.007 143.116,14.251L146.039,13.705C153.091,12.387 159.529,8.826 164.394,3.553L167.285,0.418L170.714,3.582L167.823,6.716C162.277,12.729 154.937,16.788 146.896,18.291L143.974,18.837C139.364,19.699 134.635,19.699 130.026,18.837L127.103,18.291C119.063,16.788 111.723,12.729 106.177,6.716L103.285,3.582L106.714,0.418Z"/>
+    <path android:fillColor="#111111" android:fillType="evenOdd" android:pathData="M134.667,32V17.692H139.333V32H134.667Z"/>
+    <path android:fillColor="#111111" android:fillType="evenOdd" android:pathData="M161.27,24.796L154.185,12.405L158.215,10.056L165.301,22.446L161.27,24.796Z"/>
+    <path android:fillColor="#111111" android:fillType="evenOdd" android:pathData="M108.47,22.446L115.556,10.056L119.587,12.405L112.501,24.796L108.47,22.446Z"/>
+    <path android:fillColor="#111111" android:fillType="evenOdd" android:pathData="M3.714,0.418L6.606,3.553C11.471,8.826 17.908,12.387 24.961,13.705L27.883,14.251C31.926,15.007 36.074,15.007 40.116,14.251L43.039,13.705C50.091,12.387 56.529,8.826 61.394,3.553L64.285,0.418L67.715,3.582L64.823,6.716C59.277,12.729 51.937,16.788 43.896,18.291L40.974,18.837C36.364,19.699 31.635,19.699 27.026,18.837L24.104,18.291C16.063,16.788 8.723,12.729 3.177,6.716L0.285,3.582L3.714,0.418Z"/>
+    <path android:fillColor="#111111" android:fillType="evenOdd" android:pathData="M31.667,32V17.692H36.333V32H31.667Z"/>
+    <path android:fillColor="#111111" android:fillType="evenOdd" android:pathData="M58.27,24.796L51.185,12.405L55.215,10.056L62.301,22.446L58.27,24.796Z"/>
+    <path android:fillColor="#111111" android:fillType="evenOdd" android:pathData="M5.47,22.446L12.556,10.056L16.587,12.405L9.501,24.796L5.47,22.446Z"/>
+</vector>

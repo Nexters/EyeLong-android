@@ -44,6 +44,7 @@ class EyeExerciseViewModel(
                     }
 
                     items.remove(exercise)
+                    totalElapsedTime.set(getTotalElapsedTime())
                 },
                 {}
             )
@@ -65,7 +66,7 @@ class EyeExerciseViewModel(
                 exerciseDao().getExerciseAll().run {
                     filter { it.getRegistered() }.let {
                         items.addAll(it)
-                        totalElapsedTime.set(it.fold(0) { acc, exercise -> acc + exercise.elapsedTime })
+                        totalElapsedTime.set(getTotalElapsedTime())
                     }
                 }
             }
@@ -75,4 +76,7 @@ class EyeExerciseViewModel(
     fun onBackButtonClick() {
         activityUseCase.finishActivity()
     }
+
+    private fun getTotalElapsedTime() =
+        items.fold(0) { acc, exercise -> acc + exercise.elapsedTime }
 }

@@ -58,8 +58,12 @@ class EyeExerciseRecyclerViewAdapter :
         RecyclerView.ViewHolder(binding.root) {
         init {
             binding.apply {
+                root.setOnClickListener {
+                    observer?.onItemClick(items[adapterPosition])
+                }
+
                 btnExerciseDelete.setOnClickListener {
-                    observer?.run { onItemDeleted(items[adapterPosition]) }
+                    observer?.onItemDeleted(items[adapterPosition])
                 }
             }
         }
@@ -83,6 +87,7 @@ class EyeExerciseRecyclerViewAdapter :
     }
 
     interface Observer {
+        fun onItemClick(exercise: Exercise)
         fun onItemAdded(exercise: Exercise)
         fun onItemDeleted(exercise: Exercise)
         fun onExerciseAddButtonClick()

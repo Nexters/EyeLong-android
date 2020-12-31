@@ -17,7 +17,14 @@ class EyeExerciseViewModel(
     val items = ObservableArrayList<Exercise>()
     val totalElapsedTime = ObservableField<Int>()
     val observer = object : EyeExerciseRecyclerViewAdapter.Observer {
-        override fun onItemAdded(exercise: Exercise) {}
+        override fun onItemClick(exercise: Exercise) {
+            activityUseCase.startEyeExerciseDetailActivity(exercise)
+        }
+
+        override fun onItemAdded(exercise: Exercise) {
+
+        }
+
         override fun onItemDeleted(exercise: Exercise) {
             items.remove(exercise)
         }

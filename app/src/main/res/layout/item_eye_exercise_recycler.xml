@@ -76,7 +76,7 @@
             android:layout_height="26dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="10.5dp"
-            android:background="@drawable/bg_settings_repeat_count"
+            android:background="@drawable/bg_text_round_box_yellow"
             android:fontFamily="@font/notosanscjkkrmedium"
             android:gravity="center"
             android:includeFontPadding="false"

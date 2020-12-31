@@ -6,7 +6,9 @@ import android.content.Intent
 import android.view.Gravity
 import androidx.appcompat.app.AlertDialog
 import com.teamnexters.eyelong.R
+import com.teamnexters.eyelong.db.entity.Exercise
 import com.teamnexters.eyelong.ui.exercise.activity.EyeExerciseActivity
+import com.teamnexters.eyelong.ui.exercise.activity.EyeExerciseDetailActivity
 import com.teamnexters.eyelong.ui.exercise.activity.EyePlaygroundActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitAnalyticsActivity
@@ -20,6 +22,12 @@ class ActivityUseCase(private val activity: Activity) {
 
     fun startEyeExerciseActivity() {
         activity.startActivity(Intent(activity, EyeExerciseActivity::class.java))
+    }
+
+    fun startEyeExerciseDetailActivity(exercise: Exercise) {
+        Intent(activity, EyeExerciseDetailActivity::class.java)
+            .apply { putExtra("data", exercise) }
+            .let { activity.startActivity(it) }
     }
 
     fun startEyePlaygroundActivity() {

@@ -5,32 +5,56 @@ import android.view.ViewGroup
 import androidx.databinding.ObservableArrayList
 import androidx.recyclerview.widget.RecyclerView
 import com.teamnexters.eyelong.BR
+import com.teamnexters.eyelong.databinding.FooterEyeExerciseRecyclerBinding
 import com.teamnexters.eyelong.databinding.ItemEyeExerciseRecyclerBinding
 import com.teamnexters.eyelong.db.entity.Exercise
 
 class EyeExerciseRecyclerViewAdapter :
-    RecyclerView.Adapter<EyeExerciseRecyclerViewAdapter.ViewHolder>() {
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private val VIEW_TYPE_HEADER = 0
+    private val VIEW_TYPE_ITEM = 1
+    private val VIEW_TYPE_FOOTER = 2
+
     var items = ObservableArrayList<Exercise>()
     var observer: Observer? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding =
-            ItemEyeExerciseRecyclerBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return when (viewType) {
+            VIEW_TYPE_FOOTER -> {
+                val binding =
+                    FooterEyeExerciseRecyclerBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
 
-        return ViewHolder(binding)
+                FooterViewHolder(binding)
+            }
+            else -> {
+                val binding =
+                    ItemEyeExerciseRecyclerBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
+
+                ItemViewHolder(binding)
+            }
+        }
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(items[position])
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is ItemViewHolder) {
+            holder.bind(items[position])
+        }
     }
 
-    override fun getItemCount() = items.size
+    override fun getItemCount() = items.size + 1
 
-    inner class ViewHolder(private val binding: ItemEyeExerciseRecyclerBinding) :
+    override fun getItemViewType(position: Int) =
+        if (position == items.size) VIEW_TYPE_FOOTER else VIEW_TYPE_ITEM
+
+    inner class ItemViewHolder(private val binding: ItemEyeExerciseRecyclerBinding) :
         RecyclerView.ViewHolder(binding.root) {
         init {
             binding.apply {
@@ -49,8 +73,18 @@ class EyeExerciseRecyclerViewAdapter :
         }
     }
 
+    inner class FooterViewHolder(private val binding: FooterEyeExerciseRecyclerBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        init {
+            binding.apply {
+                btnExerciseAdd.setOnClickListener {}
+            }
+        }
+    }
+
     interface Observer {
         fun onItemAdded(exercise: Exercise)
         fun onItemDeleted(exercise: Exercise)
+        fun onExerciseAddButtonClick()
     }
 }

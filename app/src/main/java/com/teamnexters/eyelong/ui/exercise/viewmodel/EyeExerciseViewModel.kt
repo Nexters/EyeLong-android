@@ -21,6 +21,10 @@ class EyeExerciseViewModel(
         override fun onItemDeleted(exercise: Exercise) {
             items.remove(exercise)
         }
+
+        override fun onExerciseAddButtonClick() {
+            TODO("Not yet implemented")
+        }
     }
 
     init {

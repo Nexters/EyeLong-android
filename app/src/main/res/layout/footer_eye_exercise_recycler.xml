@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="exercise"
+            type="com.teamnexters.eyelong.db.entity.Exercise" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="232dp"
+        android:layout_height="176dp"
+        android:background="@drawable/bg_exercise_list_item">
+
+        <ImageButton
+            android:id="@+id/btn_exercise_add"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_exercise_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

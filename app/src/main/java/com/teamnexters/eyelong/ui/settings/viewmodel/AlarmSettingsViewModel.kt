@@ -81,7 +81,7 @@ class AlarmSettingsViewModel(
     fun onClearButtonClick() {
         firebaseToken?.let {
             val retrofit = Retrofit.Builder()
-                .baseUrl(resourceProvider.getString(R.string.server_base_url).toString())
+                .baseUrl(resourceProvider.getString(R.string.server_base_url))
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
@@ -130,7 +130,7 @@ class AlarmSettingsViewModel(
             )
 
             val retrofit = Retrofit.Builder()
-                .baseUrl(resourceProvider.getString(R.string.server_base_url).toString())
+                .baseUrl(resourceProvider.getString(R.string.server_base_url))
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

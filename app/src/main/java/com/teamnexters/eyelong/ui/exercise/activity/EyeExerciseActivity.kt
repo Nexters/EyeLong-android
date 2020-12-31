@@ -7,6 +7,7 @@ import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.databinding.ActivityEyeExerciseBinding
 import com.teamnexters.eyelong.ui.exercise.viewmodel.EyeExerciseViewModel
+import com.teamnexters.eyelong.wrapper.provider.ResourceProviderImpl
 import com.teamnexters.eyelong.wrapper.usecase.ActivityUseCase
 import com.teamnexters.eyelong.wrapper.usecase.RoomDatabaseUseCase
 
@@ -18,7 +19,8 @@ class EyeExerciseActivity : AppCompatActivity() {
 
         eyeExerciseViewModel = EyeExerciseViewModel(
             ActivityUseCase(this@EyeExerciseActivity),
-            RoomDatabaseUseCase(applicationContext)
+            RoomDatabaseUseCase(applicationContext),
+            ResourceProviderImpl(applicationContext)
         )
 
         val binding: ActivityEyeExerciseBinding =

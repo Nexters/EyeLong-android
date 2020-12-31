@@ -67,11 +67,16 @@
     <string name="exercise_second">초 </string>
     <string name="exercise_add">눈 운동 변경하기</string>
     <string name="exercise_add_limit">눈 운동은 한 세트에 3개까지만 추가할 수 있습니다</string>
+    <string name="exercise_add_succeed">눈 운동이 추가되었습니다</string>
+    <string name="exercise_delete">눈 운동 삭제</string>
+    <string name="exercise_delete_message">이 운동을 삭제하시겠어요?</string>
     <string name="exercise_notice_title">참고해주세요!</string>
     <string name="exercise_notice_content">눈이 아프면 운동을 멈춰주세요.\n그리고 눈 운동의 효과는 사람마다 다를 수 있습니다.</string>
 
     <!--text-->
     <string name="text_add">추가하기</string>
+    <string name="text_delete">삭제</string>
+    <string name="text_cancel">취소</string>
     <string name="text_count">번</string>
     <string name="text_edit">편집</string>
     <string name="text_effect">효과</string>

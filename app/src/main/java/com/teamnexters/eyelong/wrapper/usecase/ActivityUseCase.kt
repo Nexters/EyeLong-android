@@ -7,8 +7,10 @@ import android.view.Gravity
 import androidx.appcompat.app.AlertDialog
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.db.entity.Exercise
+import com.teamnexters.eyelong.dialog.CustomDialog
 import com.teamnexters.eyelong.ui.exercise.activity.EyeExerciseActivity
 import com.teamnexters.eyelong.ui.exercise.activity.EyeExerciseDetailActivity
+import com.teamnexters.eyelong.ui.exercise.activity.EyeExerciseEditActivity
 import com.teamnexters.eyelong.ui.exercise.activity.EyePlaygroundActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitAnalyticsActivity
@@ -28,6 +30,10 @@ class ActivityUseCase(private val activity: Activity) {
         Intent(activity, EyeExerciseDetailActivity::class.java)
             .apply { putExtra("data", exercise) }
             .let { activity.startActivity(it) }
+    }
+
+    fun startEyeExerciseEditActivity() {
+        activity.startActivity(Intent(activity, EyeExerciseEditActivity::class.java))
     }
 
     fun startEyePlaygroundActivity() {
@@ -78,6 +84,20 @@ class ActivityUseCase(private val activity: Activity) {
             }
             .build()
             .show()
+    }
+
+    fun showExerciseDeleteDialog(onConfirm: () -> Unit, onCancel: () -> Unit) {
+        with(activity) {
+            CustomDialog(
+                this,
+                getString(R.string.exercise_delete),
+                getString(R.string.exercise_delete_message),
+                getString(R.string.text_delete),
+                getString(R.string.text_cancel),
+                onConfirm,
+                onCancel
+            ).show()
+        }
     }
 
     fun showTimePickerDialog(

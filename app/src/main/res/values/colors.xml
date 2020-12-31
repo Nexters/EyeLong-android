@@ -14,6 +14,7 @@
     <color name="colorBlack_600">#414141</color>
     <color name="colorBlack_700">#292929</color>
     <color name="colorBlack_800">#111111</color>
+    <color name="colorBlack_900">#000000</color>
 
     <!--gray-->
     <color name="colorGray_100">#F9F9F9</color>

@@ -75,10 +75,7 @@ class HabitCheckoutViewModel(
                             habitHistoryDao().insertHistory(it)
                         }.run {
                             async(Dispatchers.Main) {
-                                activityUseCase.showInfoToast(
-                                    resourceProvider.getString(R.string.habit_checkout_succeed)
-                                        .toString()
-                                )
+                                activityUseCase.showInfoToast(resourceProvider.getString(R.string.habit_checkout_succeed))
                             }
                         }
                 }

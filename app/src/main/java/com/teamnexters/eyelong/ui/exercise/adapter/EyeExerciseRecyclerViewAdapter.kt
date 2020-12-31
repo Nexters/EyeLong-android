@@ -81,7 +81,9 @@ class EyeExerciseRecyclerViewAdapter :
         RecyclerView.ViewHolder(binding.root) {
         init {
             binding.apply {
-                btnExerciseAdd.setOnClickListener {}
+                btnExerciseAdd.setOnClickListener {
+                    observer?.onExerciseAddButtonClick()
+                }
             }
         }
     }

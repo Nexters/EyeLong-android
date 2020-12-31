@@ -1,9 +1,6 @@
 package com.teamnexters.eyelong.db.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.teamnexters.eyelong.db.entity.Exercise
 
 @Dao
@@ -11,6 +8,9 @@ interface ExerciseDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertExercise(exercise: Exercise)
+
+    @Update
+    fun updateExercise(exercise: Exercise)
 
     @Query("SELECT * FROM exercise")
     fun getExerciseAll(): List<Exercise>

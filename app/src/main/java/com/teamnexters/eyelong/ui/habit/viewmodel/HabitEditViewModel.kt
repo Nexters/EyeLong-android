@@ -33,9 +33,7 @@ class HabitEditViewModel(
                     roomDatabaseUseCase.getAppDatabase()?.run { habitDao().updateHabit(habit) }
                 }
             } else {
-                resourceProvider.getString(R.string.habit_edit_limit).let {
-                    activityUseCase.showWarningToast(it.toString())
-                }
+                activityUseCase.showWarningToast(resourceProvider.getString(R.string.habit_edit_limit))
             }
         }
 

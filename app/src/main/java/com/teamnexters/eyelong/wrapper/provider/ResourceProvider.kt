@@ -1,5 +1,5 @@
 package com.teamnexters.eyelong.wrapper.provider
 
 interface ResourceProvider {
-    fun getString(resId: Int): CharSequence
+    fun getString(resId: Int): String
 }

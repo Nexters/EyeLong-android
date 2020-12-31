@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="exercise"
+            type="com.teamnexters.eyelong.db.entity.Exercise" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite">
+
+        <CheckBox
+            android:id="@+id/cb_exercise_edit"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="50dp"
+            android:button="@drawable/selector_checkbox"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_exercise_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="24dp"
+            app:icon="@{exercise.tipImagePath}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cb_exercise_edit"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_exercise_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/notosanscjkkrbold"
+            android:includeFontPadding="false"
+            android:text="@{exercise.name}"
+            android:textColor="@color/colorBlack_800"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/img_exercise_icon"
+            app:layout_constraintTop_toTopOf="@+id/img_exercise_icon" />
+
+        <TextView
+            android:id="@+id/tv_exercise_effect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanscjkkrmedium"
+            android:includeFontPadding="false"
+            android:text="@{exercise.effectSimple}"
+            android:textColor="@color/colorBlack_500"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_exercise_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_exercise_name" />
+
+        <TextView
+            android:id="@+id/tv_exercise_elapsed_time"
+            android:layout_width="61dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginBottom="47dp"
+            android:background="@drawable/bg_text_round_box_yellow"
+            android:fontFamily="@font/notosanscjkkrmedium"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:textColor="@color/colorBlack_600"
+            android:textSize="10sp"
+            app:elapsedTime="@{exercise.elapsedTime}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

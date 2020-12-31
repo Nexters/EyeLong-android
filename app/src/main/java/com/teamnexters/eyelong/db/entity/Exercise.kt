@@ -32,13 +32,17 @@ data class Exercise(
     val tip: String?,
 
     @ColumnInfo(name = "tip_image_path")
-    val tipImagePath: String?
+    val tipImagePath: String?,
+
+    @ColumnInfo(name = "registered")
+    var registered: String?
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString() ?: "",
         parcel.readString(),
         parcel.readInt(),
+        parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
@@ -55,6 +59,7 @@ data class Exercise(
         parcel.writeString(effectDescription)
         parcel.writeString(tip)
         parcel.writeString(tipImagePath)
+        parcel.writeString(registered)
     }
 
     override fun describeContents(): Int {

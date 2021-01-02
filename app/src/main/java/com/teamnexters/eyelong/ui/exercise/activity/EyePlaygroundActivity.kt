@@ -66,7 +66,7 @@ class EyePlaygroundActivity : AppCompatActivity(), View.OnClickListener {
         Handler().postDelayed({
             //1초 후에 intent하기
 
-            val intent = Intent(this, GuideExerciseActivity::class.java)
+            val intent = Intent(this, EyeExerciseGuideActivity::class.java)
             intent.putIntegerArrayListExtra("exercise_list", exerciseList)
             intent.putExtra("exercise_num", exercisenum)
             startActivity(intent)

@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.teamnexters.eyelong.R
-import kotlinx.android.synthetic.main.activity_guide_exercise.*
+import kotlinx.android.synthetic.main.activity_eye_exercise_guide.*
 import java.util.*
 import kotlin.concurrent.timer
 
-class GuideExerciseActivity : AppCompatActivity(), View.OnClickListener {
+class EyeExerciseGuideActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var timer: Timer
     var time = 4
     var exercise_num = 0
@@ -25,7 +25,7 @@ class GuideExerciseActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_guide_exercise)
+        setContentView(R.layout.activity_eye_exercise_guide)
 
 
         timerLogic()
@@ -77,7 +77,7 @@ class GuideExerciseActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             if (time == 0) {
-                val intent = Intent(this@GuideExerciseActivity, LottieActivity::class.java)
+                val intent = Intent(this@EyeExerciseGuideActivity, LottieActivity::class.java)
                 intent.putExtra("exercise_num", exercise_num)
                 startActivity(intent)
                 finish()

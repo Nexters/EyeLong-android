@@ -25,7 +25,7 @@
             android:screenOrientation="landscape"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".ui.exercise.activity.GuideExerciseActivity"
+            android:name=".ui.exercise.activity.EyeExerciseGuideActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity

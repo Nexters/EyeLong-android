@@ -1,5 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/eyeExerciseGuideFragment">
 
+    <fragment
+        android:id="@+id/eyeExerciseGuideFragment"
+        android:name="com.teamnexters.eyelong.ui.exercise.fragment.EyeExerciseGuideFragment"
+        android:label="fragment_eye_exercise_guide"
+        tools:layout="@layout/fragment_eye_exercise_guide" >
+        <action
+            android:id="@+id/action_eyeExerciseGuideFragment_to_eyeExerciseCountdownFragment"
+            app:destination="@id/eyeExerciseCountdownFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eyeExerciseCountdownFragment"
+        android:name="com.teamnexters.eyelong.ui.exercise.fragment.EyeExerciseCountdownFragment"
+        android:label="fragment_eye_exercise_countdown"
+        tools:layout="@layout/fragment_eye_exercise_countdown" >
+        <action
+            android:id="@+id/action_eyeExerciseCountdownFragment_to_eyeExerciseLottieFragment"
+            app:destination="@id/eyeExerciseLottieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eyeExerciseLottieFragment"
+        android:name="com.teamnexters.eyelong.ui.exercise.fragment.EyeExerciseLottieFragment"
+        android:label="fragment_eye_exercise_lottie"
+        tools:layout="@layout/fragment_eye_exercise_lottie" >
+        <action
+            android:id="@+id/action_eyeExerciseLottieFragment_to_eyeExerciseFinishFragment2"
+            app:destination="@id/eyeExerciseFinishFragment2" />
+        <action
+            android:id="@+id/action_eyeExerciseLottieFragment_to_eyeExerciseActivity"
+            app:destination="@id/eyeExerciseActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/eyeExerciseFinishFragment2"
+        android:name="com.teamnexters.eyelong.ui.exercise.fragment.EyeExerciseFinishFragment"
+        android:label="fragment_eye_exercise_finish"
+        tools:layout="@layout/fragment_eye_exercise_finish" >
+        <action
+            android:id="@+id/action_eyeExerciseFinishFragment2_to_mainActivity2"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.teamnexters.eyelong.ui.main.activity.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/eyeExerciseActivity"
+        android:name="com.teamnexters.eyelong.ui.exercise.activity.EyeExerciseActivity"
+        android:label="activity_eye_exercise"
+        tools:layout="@layout/activity_eye_exercise" />
 </navigation>

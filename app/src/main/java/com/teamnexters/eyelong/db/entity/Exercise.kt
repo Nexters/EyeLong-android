@@ -16,9 +16,6 @@ data class Exercise(
     @ColumnInfo(name = "name")
     val name: String,
 
-    @ColumnInfo(name = "lottie_image_path")
-    val lottieImagePath: String?,
-
     @ColumnInfo(name = "elapsed_time")
     val elapsedTime: Int,
 
@@ -31,8 +28,20 @@ data class Exercise(
     @ColumnInfo(name = "tip")
     val tip: String?,
 
+    @ColumnInfo(name = "tip_image_path")
+    val tipImagePath: String?,
+
+    @ColumnInfo(name = "guide_description")
+    val guideDescription: String?,
+
+    @ColumnInfo(name = "guide_image_path")
+    val guideImagePath: String?,
+
     @ColumnInfo(name = "icon_image_path")
     val iconImagePath: String?,
+
+    @ColumnInfo(name = "lottie_image_path")
+    val lottieImagePath: String?,
 
     @ColumnInfo(name = "registered")
     var registered: String?
@@ -40,8 +49,11 @@ data class Exercise(
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString() ?: "",
-        parcel.readString(),
         parcel.readInt(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
@@ -53,12 +65,15 @@ data class Exercise(
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(id)
         parcel.writeString(name)
-        parcel.writeString(lottieImagePath)
         parcel.writeInt(elapsedTime)
         parcel.writeString(effectSimple)
         parcel.writeString(effectDescription)
         parcel.writeString(tip)
+        parcel.writeString(tipImagePath)
+        parcel.writeString(guideDescription)
+        parcel.writeString(guideImagePath)
         parcel.writeString(iconImagePath)
+        parcel.writeString(lottieImagePath)
         parcel.writeString(registered)
     }
 

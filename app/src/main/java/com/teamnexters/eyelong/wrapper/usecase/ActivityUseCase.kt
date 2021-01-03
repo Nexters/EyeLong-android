@@ -11,7 +11,6 @@ import com.teamnexters.eyelong.dialog.CustomDialog
 import com.teamnexters.eyelong.ui.exercise.activity.EyeExerciseActivity
 import com.teamnexters.eyelong.ui.exercise.activity.EyeExerciseDetailActivity
 import com.teamnexters.eyelong.ui.exercise.activity.EyeExerciseEditActivity
-import com.teamnexters.eyelong.ui.exercise.activity.EyePlaygroundActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitAnalyticsActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitCheckoutActivity
@@ -34,10 +33,6 @@ class ActivityUseCase(private val activity: Activity) {
 
     fun startEyeExerciseEditActivity() {
         activity.startActivity(Intent(activity, EyeExerciseEditActivity::class.java))
-    }
-
-    fun startEyePlaygroundActivity() {
-        activity.startActivity(Intent(activity, EyePlaygroundActivity::class.java))
     }
 
     fun startHabitActivity() {

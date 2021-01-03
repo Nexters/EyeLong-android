@@ -14,8 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
-        <activity android:name=".ui.settings.activity.AlarmSettingsActivity"></activity>
+        <activity android:name=".ui.exercise.activity.EyeExerciseGroundActivity"></activity>
+        <activity android:name=".ui.settings.activity.AlarmSettingsActivity" />
         <activity android:name=".ui.habit.activity.HabitAnalyticsActivity" />
         <activity android:name=".ui.habit.activity.HabitEditActivity" />
         <activity android:name=".ui.habit.activity.HabitCheckoutActivity" />

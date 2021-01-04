@@ -4,6 +4,8 @@
 
     <data>
 
+        <import type="com.teamnexters.eyelong.application.ConstKt" />
+
         <variable
             name="exercise"
             type="com.teamnexters.eyelong.db.entity.Exercise" />
@@ -64,7 +66,7 @@
             android:layout_marginTop="4dp"
             android:fontFamily="@font/notosanscjkkrmedium"
             android:includeFontPadding="false"
-            android:text="@{exercise.effectSimple}"
+            android:text="@{exercise.effectTitle}"
             android:textColor="@color/colorBlack_300"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -102,7 +104,7 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:scaleType="fitCenter"
-                app:icon="@{exercise.iconImagePath}" />
+                app:icon="@{ConstKt.getIconImagePath(exercise.id)}" />
         </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -19,8 +19,11 @@ data class Exercise(
     @ColumnInfo(name = "elapsed_time")
     val elapsedTime: Int,
 
-    @ColumnInfo(name = "effect_simple")
-    val effectSimple: String?,
+    @ColumnInfo(name = "effect_title")
+    val effectTitle: String?,
+
+    @ColumnInfo(name = "effect_simple_description")
+    val effectSimpleDescription: String?,
 
     @ColumnInfo(name = "effect_description")
     val effectDescription: String?,
@@ -28,20 +31,8 @@ data class Exercise(
     @ColumnInfo(name = "tip")
     val tip: String?,
 
-    @ColumnInfo(name = "tip_image_path")
-    val tipImagePath: String?,
-
-    @ColumnInfo(name = "guide_description")
-    val guideDescription: String?,
-
-    @ColumnInfo(name = "guide_image_path")
-    val guideImagePath: String?,
-
-    @ColumnInfo(name = "icon_image_path")
-    val iconImagePath: String?,
-
-    @ColumnInfo(name = "lottie_image_path")
-    val lottieImagePath: String?,
+    @ColumnInfo(name = "guide")
+    val guide: String?,
 
     @ColumnInfo(name = "registered")
     var registered: String?
@@ -55,9 +46,6 @@ data class Exercise(
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
-        parcel.readString(),
-        parcel.readString(),
-        parcel.readString(),
         parcel.readString()
     ) {
     }
@@ -66,14 +54,11 @@ data class Exercise(
         parcel.writeInt(id)
         parcel.writeString(name)
         parcel.writeInt(elapsedTime)
-        parcel.writeString(effectSimple)
+        parcel.writeString(effectTitle)
+        parcel.writeString(effectSimpleDescription)
         parcel.writeString(effectDescription)
         parcel.writeString(tip)
-        parcel.writeString(tipImagePath)
-        parcel.writeString(guideDescription)
-        parcel.writeString(guideImagePath)
-        parcel.writeString(iconImagePath)
-        parcel.writeString(lottieImagePath)
+        parcel.writeString(guide)
         parcel.writeString(registered)
     }
 

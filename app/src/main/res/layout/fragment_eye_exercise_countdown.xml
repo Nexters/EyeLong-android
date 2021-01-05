@@ -1,14 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".EyeExerciseCountdownFragment">
+    tools:context="com.teamnexters.eyelong.ui.exercise.fragment.EyeExerciseCountdownFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+        <import type="com.teamnexters.eyelong.application.ConstKt" />
+
+        <variable
+            name="exercise"
+            type="com.teamnexters.eyelong.db.entity.Exercise" />
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/appbar_habit_analytics"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageButton
+                    android:id="@+id/btn_habit_analytics_back"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16dp"
+                    android:background="@android:color/transparent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_back_btn_black" />
+            </FrameLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img_exercise_step"
+                    android:layout_width="184dp"
+                    android:layout_height="61dp"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_exercise_step_1" />
+
+                <FrameLayout
+                    android:id="@+id/layout_exercise_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="196dp"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img_exercise_step">
+
+                    <ImageView
+                        android:id="@+id/img_exercise_icon"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/img_exercise_stretching" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_exercise_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/notosanscjkkrbold"
+                    android:includeFontPadding="false"
+                    android:text="NAME"
+                    android:textColor="@color/colorBlack_900"
+                    android:textSize="28sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_exercise_icon" />
+
+                <TextView
+                    android:id="@+id/tv_exercise_effect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/notosanscjkkrmedium"
+                    android:includeFontPadding="false"
+                    android:text="EFFECT"
+                    android:textColor="@color/colorBlack_400"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_exercise_name"
+                    app:layout_constraintStart_toStartOf="@+id/tv_exercise_name"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_exercise_name" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_exercise_countdown"
+                    android:layout_width="0dp"
+                    android:layout_height="294dp"
+                    android:background="@android:color/holo_blue_dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:fontFamily="@font/notosanscjkkrmedium"
+                        android:includeFontPadding="false"
+                        android:text="1"
+                        android:textColor="@color/colorBlack_800"
+                        android:textSize="120sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/toast_exercise_start"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="51dp"
+                        android:layout_marginEnd="51dp"
+                        android:layout_marginBottom="59dp"
+                        android:background="@drawable/bg_btn_round_box_remon"
+                        android:fontFamily="@font/notosanscjkkrmedium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:text="@string/exercise_start_message"
+                        android:textColor="@color/colorBlack_800"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </FrameLayout>
+</layout>

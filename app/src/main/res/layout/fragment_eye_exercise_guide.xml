@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.teamnexters.eyelong.ui.exercise.fragment.EyeExerciseGuideFragment">
+
+    <data>
+
+        <import type="android.text.Html" />
+
+        <import type="com.teamnexters.eyelong.application.ConstKt" />
+
+        <variable
+            name="exercise"
+            type="com.teamnexters.eyelong.db.entity.Exercise" />
+    </data>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.teamnexters.eyelong.ui.exercise.fragment.EyeExerciseGuideFragment">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,6 +55,7 @@
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/notosanscjkkrbold"
                     android:includeFontPadding="false"
+                    android:text="@{exercise.name}"
                     android:textColor="@color/colorBlack_800"
                     android:textSize="30sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +63,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_exercise_guide"
+                    android:id="@+id/tv_exercise_guide_message"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/notosanscjkkrbold"
@@ -62,6 +74,41 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_exercise_name" />
+
+                <ImageView
+                    android:id="@+id/img_exercise_guide"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="212dp"
+                    app:icon="@{ConstKt.getGuideImagePath(exercise.id)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_exercise_guide_message" />
+
+                <TextView
+                    android:id="@+id/tv_exercise_guide_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/notosanscjkkrregular"
+                    android:includeFontPadding="false"
+                    android:text="@{Html.fromHtml(exercise.guide, Html.FROM_HTML_MODE_LEGACY)}"
+                    android:textColor="@color/colorBlack_700"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img_exercise_guide" />
+
+                <ImageButton
+                    android:id="@+id/btn_next"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginBottom="48dp"
+                    android:background="@android:color/transparent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/ic_next_fab_blue" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </FrameLayout>

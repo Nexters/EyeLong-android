@@ -72,6 +72,10 @@ class EyeExerciseViewModel(
         }
     }
 
+    fun onStartExerciseButtonClick() {
+        activityUseCase.startEyeExerciseGroundActivity()
+    }
+
     fun onBackButtonClick() {
         activityUseCase.finishActivity()
     }

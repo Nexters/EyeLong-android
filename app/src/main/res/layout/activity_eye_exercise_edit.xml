@@ -20,7 +20,7 @@
             android:orientation="vertical">
 
             <FrameLayout
-                android:id="@+id/appbar_habit_analytics"
+                android:id="@+id/appbar"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +28,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageButton
-                    android:id="@+id/btn_habit_analytics_back"
+                    android:id="@+id/btn_back"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center_vertical"
@@ -40,7 +40,7 @@
                     app:srcCompat="@drawable/ic_back_btn_black" />
 
                 <TextView
-                    android:id="@+id/tv_habit_analytics_title"
+                    android:id="@+id/tv_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_eyeExerciseCountdownFragment_to_eyeExerciseLottieFragment"
             app:destination="@id/eyeExerciseLottieFragment" />
+        <argument
+            android:name="dataArg"
+            app:argType="com.teamnexters.eyelong.db.entity.Exercise" />
     </fragment>
     <fragment
         android:id="@+id/eyeExerciseLottieFragment"

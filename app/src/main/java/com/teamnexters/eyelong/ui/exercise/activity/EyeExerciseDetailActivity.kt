@@ -22,7 +22,7 @@ class EyeExerciseDetailActivity : AppCompatActivity() {
             val exercise = intent.getParcelableExtra<Exercise>("data")
             setVariable(BR.exercise, exercise)
 
-            btnEyeExerciseDetailBack.setOnClickListener { finish() }
+            btnBack.setOnClickListener { finish() }
         }
     }
 }

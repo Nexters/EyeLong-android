@@ -17,7 +17,7 @@
         android:background="@color/colorBlack_800">
 
         <ImageButton
-            android:id="@+id/btn_habit_back"
+            android:id="@+id/btn_back"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="16dp"

@@ -42,14 +42,5 @@
         android:id="@+id/eyeExerciseFinishFragment"
         android:name="com.teamnexters.eyelong.ui.exercise.fragment.EyeExerciseFinishFragment"
         android:label="fragment_eye_exercise_finish"
-        tools:layout="@layout/fragment_eye_exercise_finish">
-        <action
-            android:id="@+id/action_eyeExerciseFinishFragment_to_mainActivity"
-            app:destination="@id/mainActivity" />
-    </fragment>
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.teamnexters.eyelong.ui.main.activity.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
+        tools:layout="@layout/fragment_eye_exercise_finish"/>
 </navigation>

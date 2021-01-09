@@ -11,8 +11,8 @@ import com.teamnexters.eyelong.wrapper.usecase.ActivityUseCase
 import com.teamnexters.eyelong.wrapper.usecase.RoomDatabaseUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class HabitCheckoutViewModel(
     private val activityUseCase: ActivityUseCase,
@@ -67,14 +67,13 @@ class HabitCheckoutViewModel(
                     items.filter { it.achieved }
                         .map {
                             HabitHistory(
-                                userId = userDao().getUserByUserName("master")[0].id,
                                 habitId = it.id,
                                 createDate = DateUtil.now()
                             )
                         }.forEach {
                             habitHistoryDao().insertHistory(it)
                         }.run {
-                            async(Dispatchers.Main) {
+                            withContext(Dispatchers.Main) {
                                 activityUseCase.showInfoToast(resourceProvider.getString(R.string.habit_checkout_succeed))
                             }
                         }

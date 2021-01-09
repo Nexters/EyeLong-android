@@ -13,11 +13,18 @@ import com.teamnexters.eyelong.ui.habit.activity.HabitActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitAnalyticsActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitCheckoutActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitEditActivity
+import com.teamnexters.eyelong.ui.main.activity.MainActivity
 import com.teamnexters.eyelong.ui.main.custom.KCustomToast
 import com.teamnexters.eyelong.ui.settings.activity.AlarmSettingsActivity
 import kotlinx.android.synthetic.main.layout_dialog_time_picker.view.*
 
 class ActivityUseCase(private val activity: Activity) {
+
+    fun startMainActivity() {
+        Intent(activity, MainActivity::class.java)
+            .apply { flags = Intent.FLAG_ACTIVITY_CLEAR_TOP }
+            .let { activity.startActivity(it) }
+    }
 
     fun startEyeExerciseActivity() {
         activity.startActivity(Intent(activity, EyeExerciseActivity::class.java))

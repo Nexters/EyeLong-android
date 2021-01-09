@@ -1,14 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context="com.teamnexters.eyelong.ui.exercise.fragment.EyeExerciseLottieFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+        <variable
+            name="exercise"
+            type="com.teamnexters.eyelong.db.entity.Exercise" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/colorWhite">
 
-</FrameLayout>
+        <FrameLayout
+            android:id="@+id/layout_lottie"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/lottie_progress_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottie_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageButton
+                android:id="@+id/btn_exercise_cancel"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="37dp"
+                android:layout_marginEnd="40dp"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/ic_cancel_btn" />
+
+            <TextView
+                android:id="@+id/tv_exercise_count"
+                android:layout_width="63dp"
+                android:layout_height="34dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="36.5dp"
+                android:layout_marginEnd="88dp"
+                android:background="@drawable/bg_text_round_box_yellow"
+                android:fontFamily="@font/notosanscjkkrmedium"
+                android:includeFontPadding="false"
+                android:textColor="@color/colorBlack_600"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:id="@+id/btn_exercise_pause"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_gravity="right|bottom"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="36dp"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/ic_pause_btn" />
+        </FrameLayout>
+
+        <View
+            android:id="@+id/lottie_progress_view"
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

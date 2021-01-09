@@ -35,11 +35,11 @@
             android:id="@+id/action_eyeExerciseLottieFragment_to_eyeExerciseFinishFragment2"
             app:destination="@id/eyeExerciseFinishFragment" />
         <action
-            android:id="@+id/action_eyeExerciseLottieFragment_to_eyeExerciseActivity"
-            app:destination="@id/eyeExerciseActivity" />
-        <action
             android:id="@+id/action_eyeExerciseLottieFragment_to_eyeExerciseGuideFragment"
             app:destination="@id/eyeExerciseGuideFragment" />
+        <argument
+            android:name="dataArg"
+            app:argType="com.teamnexters.eyelong.db.entity.Exercise" />
     </fragment>
     <fragment
         android:id="@+id/eyeExerciseFinishFragment"
@@ -55,9 +55,4 @@
         android:name="com.teamnexters.eyelong.ui.main.activity.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
-    <activity
-        android:id="@+id/eyeExerciseActivity"
-        android:name="com.teamnexters.eyelong.ui.exercise.activity.EyeExerciseActivity"
-        android:label="activity_eye_exercise"
-        tools:layout="@layout/activity_eye_exercise" />
 </navigation>

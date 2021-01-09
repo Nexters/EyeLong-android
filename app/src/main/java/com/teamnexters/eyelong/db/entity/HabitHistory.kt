@@ -32,7 +32,6 @@ data class HabitHistory(
     @ColumnInfo(name = "habit_id")
     val habitId: Int,
 
-    // TODO create_date type check
     @ColumnInfo(name = "create_date")
     val createDate: String
 )

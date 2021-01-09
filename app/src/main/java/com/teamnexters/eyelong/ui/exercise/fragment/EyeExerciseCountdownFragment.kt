@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
@@ -22,6 +23,12 @@ class EyeExerciseCountdownFragment : Fragment() {
 
         override fun onFinish() {
             binding.apply { toastExerciseStart.visibility = View.VISIBLE }
+
+            view?.run {
+                val action = EyeExerciseCountdownFragmentDirections
+                    .actionEyeExerciseCountdownFragmentToEyeExerciseLottieFragment(args.dataArg)
+                findNavController().navigate(action)
+            }
         }
     }
 

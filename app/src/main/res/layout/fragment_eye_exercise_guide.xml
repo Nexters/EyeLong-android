@@ -8,7 +8,7 @@
 
         <import type="android.text.Html" />
 
-        <import type="com.teamnexters.eyelong.application.ConstKt" />
+        <import type="com.teamnexters.eyelong.application.ResourceKt" />
 
         <variable
             name="exercise"
@@ -81,7 +81,7 @@
                     android:layout_height="0dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="212dp"
-                    app:icon="@{ConstKt.getGuideImagePath(exercise.id)}"
+                    app:icon="@{ResourceKt.getGuideImagePath(exercise.id)}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_exercise_guide_message" />
 

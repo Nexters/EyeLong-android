@@ -7,8 +7,8 @@
     <data>
 
         <variable
-            name="exercise"
-            type="com.teamnexters.eyelong.db.entity.Exercise" />
+            name="viewModel"
+            type="com.teamnexters.eyelong.ui.exercise.viewmodel.EyeExerciseLottieViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,6 +38,7 @@
                 android:layout_marginTop="37dp"
                 android:layout_marginEnd="40dp"
                 android:background="@android:color/transparent"
+                android:onClick="@{()->viewModel.onCancelButtonClick()}"
                 app:srcCompat="@drawable/ic_cancel_btn" />
 
             <TextView
@@ -62,6 +63,7 @@
                 android:layout_marginEnd="40dp"
                 android:layout_marginBottom="36dp"
                 android:background="@android:color/transparent"
+                android:onClick="@{()->viewModel.onPauseButtonClick()}"
                 app:srcCompat="@drawable/ic_pause_btn" />
         </FrameLayout>
 

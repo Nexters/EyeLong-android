@@ -1,6 +1,6 @@
 package com.teamnexters.eyelong.application
 
-enum class ImageDrawable(
+enum class ImageResource(
     val id: Int,
     val iconImagePath: String?,
     val lottieImagePath: String?,
@@ -53,8 +53,8 @@ enum class ImageDrawable(
     )
 }
 
-fun getImageDrawable(id: Int) = enumValues<ImageDrawable>().find { it.id == id }
-fun getIconImagePath(id: Int) = getImageDrawable(id)?.iconImagePath
-fun getLottieImagePath(id: Int) = getImageDrawable(id)?.lottieImagePath
-fun getTipImagePath(id: Int) = getImageDrawable(id)?.tipImagePath
-fun getGuideImagePath(id: Int) = getImageDrawable(id)?.guideImagePath
+fun getImageResource(id: Int) = enumValues<ImageResource>().find { it.id == id }
+fun getIconImagePath(id: Int) = getImageResource(id)?.iconImagePath
+fun getLottieImagePath(id: Int) = getImageResource(id)?.lottieImagePath
+fun getTipImagePath(id: Int) = getImageResource(id)?.tipImagePath
+fun getGuideImagePath(id: Int) = getImageResource(id)?.guideImagePath

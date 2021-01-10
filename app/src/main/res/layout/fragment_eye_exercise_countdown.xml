@@ -6,7 +6,7 @@
 
     <data>
 
-        <import type="com.teamnexters.eyelong.application.ConstKt" />
+        <import type="com.teamnexters.eyelong.application.ResourceKt" />
 
         <variable
             name="step"
@@ -79,7 +79,7 @@
                         android:maxWidth="120dp"
                         android:maxHeight="295dp"
                         android:scaleType="fitXY"
-                        app:icon="@{ConstKt.getIconImagePath(exercise.id)}" />
+                        app:icon="@{ResourceKt.getIconImagePath(exercise.id)}" />
                 </FrameLayout>
 
                 <TextView

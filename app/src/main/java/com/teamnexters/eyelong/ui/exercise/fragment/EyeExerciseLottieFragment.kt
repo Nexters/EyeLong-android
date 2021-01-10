@@ -10,15 +10,20 @@ import androidx.activity.OnBackPressedCallback
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.databinding.FragmentEyeExerciseLottieBinding
+import com.teamnexters.eyelong.ui.exercise.viewmodel.EyeExerciseLottieViewModel
+import com.teamnexters.eyelong.wrapper.usecase.ActivityUseCase
 
 class EyeExerciseLottieFragment : Fragment() {
     private lateinit var onBackPressedCallback: OnBackPressedCallback
+    private lateinit var viewModel: EyeExerciseLottieViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        activity?.let { viewModel = EyeExerciseLottieViewModel(ActivityUseCase(it)) }
         activity?.apply { requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE }
     }
 
@@ -33,7 +38,7 @@ class EyeExerciseLottieFragment : Fragment() {
             container,
             false
         )
-
+        binding.setVariable(BR.viewModel, viewModel)
         return binding.root
     }
 

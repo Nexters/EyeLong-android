@@ -4,7 +4,7 @@
 
     <data>
 
-        <import type="com.teamnexters.eyelong.application.ConstKt" />
+        <import type="com.teamnexters.eyelong.application.ResourceKt" />
 
         <variable
             name="exercise"
@@ -45,7 +45,7 @@
                 android:layout_height="28dp"
                 android:layout_gravity="center"
                 android:scaleType="fitCenter"
-                app:icon="@{ConstKt.getIconImagePath(exercise.id)}" />
+                app:icon="@{ResourceKt.getIconImagePath(exercise.id)}" />
         </FrameLayout>
 
         <TextView

@@ -3,7 +3,7 @@ package com.teamnexters.eyelong.wrapper.provider
 import android.content.Context
 import java.io.Serializable
 
-class DataStorageProviderImpl(context: Context) : DataStorageProvider {
+class PreferencesProviderImpl(context: Context) : PreferencesProvider {
     private val sharedPref = context.getSharedPreferences("preferences", Context.MODE_PRIVATE)
 
     override fun getStringData(key: String): String? {

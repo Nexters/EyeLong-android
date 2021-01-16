@@ -7,6 +7,9 @@
     <!-- api -->
     <string name="server_base_url">http://54.180.169.231:8081/</string>
 
+    <!-- shared preferences key -->
+    <string name="shared_pref_key_stage">step</string>
+
     <!-- main ui -->
     <string name="main_ci">사막같은\n눈을 위해\n오아시스로 출발!</string>
     <string name="main_start_exercise">눈 운동 시작하기</string>
@@ -84,8 +87,6 @@
     <string name="text_effect">효과</string>
     <string name="text_quantity">개</string>
 
-    <!--blue light-->
+    <!-- blue light -->
     <string name="block_blue_light">잠깐! 블루라이트 차단 모드를 켜주세요!</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

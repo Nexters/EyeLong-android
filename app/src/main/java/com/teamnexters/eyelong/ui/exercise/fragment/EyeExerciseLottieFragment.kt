@@ -9,12 +9,11 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.databinding.FragmentEyeExerciseLottieBinding
 import com.teamnexters.eyelong.ui.exercise.viewmodel.EyeExerciseLottieViewModel
-import com.teamnexters.eyelong.wrapper.provider.DataStorageProviderImpl
+import com.teamnexters.eyelong.wrapper.provider.PreferencesProviderImpl
 import com.teamnexters.eyelong.wrapper.usecase.ActivityUseCase
 
 class EyeExerciseLottieFragment : Fragment() {
@@ -27,7 +26,7 @@ class EyeExerciseLottieFragment : Fragment() {
         activity?.let {
             viewModel = EyeExerciseLottieViewModel(
                 ActivityUseCase(it),
-                DataStorageProviderImpl(it.applicationContext)
+                PreferencesProviderImpl(it.applicationContext)
             )
         }
         activity?.apply { requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE }

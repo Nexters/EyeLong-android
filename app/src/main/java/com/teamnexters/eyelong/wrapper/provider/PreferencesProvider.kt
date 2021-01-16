@@ -2,7 +2,7 @@ package com.teamnexters.eyelong.wrapper.provider
 
 import java.io.*
 
-interface DataStorageProvider {
+interface PreferencesProvider {
     fun getStringData(key: String): String?
     fun setStringData(key: String, data: String)
     fun getSerializableData(key: String): Serializable?

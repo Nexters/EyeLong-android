@@ -37,9 +37,7 @@ class ActivityUseCase(private val activity: Activity) {
     }
 
     fun startEyeExerciseGroundActivity() {
-        Intent(activity, EyeExerciseGroundActivity::class.java)
-            .apply { flags = Intent.FLAG_ACTIVITY_SINGLE_TOP }
-            .let { activity.startActivity(it) }
+        activity.startActivity(Intent(activity, EyeExerciseGroundActivity::class.java))
     }
 
     fun startHabitActivity() {

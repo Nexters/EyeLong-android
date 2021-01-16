@@ -14,6 +14,7 @@ import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.databinding.FragmentEyeExerciseLottieBinding
 import com.teamnexters.eyelong.ui.exercise.viewmodel.EyeExerciseLottieViewModel
+import com.teamnexters.eyelong.wrapper.provider.DataStorageProviderImpl
 import com.teamnexters.eyelong.wrapper.usecase.ActivityUseCase
 
 class EyeExerciseLottieFragment : Fragment() {
@@ -23,7 +24,12 @@ class EyeExerciseLottieFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        activity?.let { viewModel = EyeExerciseLottieViewModel(ActivityUseCase(it)) }
+        activity?.let {
+            viewModel = EyeExerciseLottieViewModel(
+                ActivityUseCase(it),
+                DataStorageProviderImpl(it.applicationContext)
+            )
+        }
         activity?.apply { requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE }
     }
 

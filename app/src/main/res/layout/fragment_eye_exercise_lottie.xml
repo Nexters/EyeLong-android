@@ -28,7 +28,8 @@
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/lottie_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                app:lottie_fileName="@{viewModel.lottieImagePath}" />
 
             <ImageButton
                 android:id="@+id/btn_exercise_cancel"

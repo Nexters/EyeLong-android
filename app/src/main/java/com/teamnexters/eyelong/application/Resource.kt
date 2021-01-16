@@ -3,15 +3,15 @@ package com.teamnexters.eyelong.application
 enum class ImageResource(
     val id: Int,
     val iconImagePath: String?,
-    val lottieImagePath: String?,
-    val tipImagePath: String?,
+    val lottieImagePath: List<String>?,
+    val tipImagePath: List<String>?,
     val guideImagePath: String?
 ) {
     EIGHT(
         id = 1,
         iconImagePath = "img_exercise_eight",
         lottieImagePath = null,
-        tipImagePath = "img_exercise_tip_eight",
+        tipImagePath = listOf("img_exercise_tip_eight"),
         guideImagePath = "img_exercise_guide_eight"
     ),
 
@@ -26,13 +26,30 @@ enum class ImageResource(
     STRETCHING(
         id = 3,
         iconImagePath = "img_exercise_stretching",
-        lottieImagePath = null,
-        tipImagePath = "img_exercise_tip_stretching_2_1" +
-                ",img_exercise_tip_stretching_3_1" +
-                ",img_exercise_tip_stretching_4_1" +
-                ",img_exercise_tip_stretching_5_1" +
-                ",img_exercise_tip_stretching_6_1" +
-                ",img_exercise_tip_stretching_7_1",
+        lottieImagePath = listOf(
+            "lottie_eye_stretching_1_1.json",
+            "lottie_eye_stretching_2_1.json",
+            "lottie_eye_stretching_2_2.json",
+            "lottie_eye_stretching_3_1.json",
+            "lottie_eye_stretching_3_2.json",
+            "lottie_eye_stretching_4_1.json",
+            "lottie_eye_stretching_4_2.json",
+            "lottie_eye_stretching_5_1.json",
+            "lottie_eye_stretching_5_2.json",
+            "lottie_eye_stretching_6_1.json",
+            "lottie_eye_stretching_6_2.json",
+            "lottie_eye_stretching_7_1.json",
+            "lottie_eye_stretching_7_2.json"
+        ),
+        tipImagePath = listOf(
+            "img_exercise_tip_stretching_1_1",
+            "img_exercise_tip_stretching_2_1",
+            ",img_exercise_tip_stretching_3_1",
+            ",img_exercise_tip_stretching_4_1",
+            ",img_exercise_tip_stretching_5_1",
+            ",img_exercise_tip_stretching_6_1",
+            ",img_exercise_tip_stretching_7_1"
+        ),
         guideImagePath = "img_exercise_guide_stretching"
     ),
 

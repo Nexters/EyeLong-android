@@ -5,9 +5,11 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.lottie.LottieAnimationView
 
 @BindingAdapter("icon")
 fun bindIcon(view: ImageView, imagePath: String?) {
@@ -42,6 +44,16 @@ fun bindDivider(view: RecyclerView, drawable: Drawable) {
             setDrawable(drawable)
         }.also {
             view.addItemDecoration(it)
+        }
+    }
+}
+
+@BindingAdapter("app:lottie_fileName")
+fun bindLottieImage(view: LottieAnimationView, lottieImagePath: ObservableField<String>) {
+    view.apply {
+        lottieImagePath.get()?.let {
+            setAnimation(it)
+            playAnimation()
         }
     }
 }

@@ -16,7 +16,7 @@ import kotlinx.coroutines.withContext
 
 class EyeExerciseGroundActivity : AppCompatActivity() {
     private lateinit var roomDatabaseUseCase: RoomDatabaseUseCase
-    private lateinit var preferences: PreferencesProvider
+    private lateinit var preferencesProvider: PreferencesProvider
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,25 +24,25 @@ class EyeExerciseGroundActivity : AppCompatActivity() {
         Log.i(this::class.qualifiedName, "::onCreate")
 
         roomDatabaseUseCase = RoomDatabaseUseCase(applicationContext)
-        preferences = PreferencesProviderImpl(applicationContext)
+        preferencesProvider = PreferencesProviderImpl(applicationContext)
 
         savedInstanceState?.let {} ?: run {
             GlobalScope.launch(Dispatchers.IO) {
                 roomDatabaseUseCase.getAppDatabase()?.run {
-                    exerciseDao().getExerciseAll().run {
-                        filter { it.getRegistered() }.let {
-                            withContext(Dispatchers.Main) {
-                                val stage =
-                                    preferences.getIntData(getString(R.string.shared_pref_key_stage))
-                                val bundle = Bundle().apply { putParcelable("data", it[stage]) }
+                    exerciseDao().getExerciseAll()
+                        .filter { it.getRegistered() }
+                        .let {
+                            val key = getString(R.string.shared_pref_key_stage)
+                            val stage = preferencesProvider.getIntData(key)
 
+                            withContext(Dispatchers.Main) {
+                                val bundle = Bundle().apply { putParcelable("data", it[stage]) }
                                 val navHostFragment =
                                     supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
                                 val navController = navHostFragment.navController
                                 navController.setGraph(R.navigation.nav_graph, bundle)
                             }
                         }
-                    }
                 }
             }
         }

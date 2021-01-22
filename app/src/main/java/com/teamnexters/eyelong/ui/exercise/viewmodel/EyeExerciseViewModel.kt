@@ -1,5 +1,6 @@
 package com.teamnexters.eyelong.ui.exercise.viewmodel
 
+import android.os.Bundle
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableField
 import com.teamnexters.eyelong.R
@@ -26,7 +27,8 @@ class EyeExerciseViewModel(
     val totalElapsedTime = ObservableField<Int>()
     val observer = object : EyeExerciseRecyclerViewAdapter.Observer {
         override fun onItemClick(exercise: Exercise) {
-            activityUseCase.startEyeExerciseDetailActivity(exercise)
+            val bundle = Bundle().apply { putParcelable("data", exercise) }
+            activityUseCase.startEyeExerciseDetailActivity(bundle)
         }
 
         override fun onItemAdded(exercise: Exercise) {

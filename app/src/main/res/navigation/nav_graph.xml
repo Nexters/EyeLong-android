@@ -31,15 +31,12 @@
         android:name="com.teamnexters.eyelong.ui.exercise.fragment.EyeExerciseLottieFragment"
         android:label="fragment_eye_exercise_lottie"
         tools:layout="@layout/fragment_eye_exercise_lottie">
-        <action
-            android:id="@+id/action_eyeExerciseLottieFragment_to_eyeExerciseFinishFragment2"
-            app:destination="@id/eyeExerciseFinishFragment" />
-        <action
-            android:id="@+id/action_eyeExerciseLottieFragment_to_eyeExerciseGuideFragment"
-            app:destination="@id/eyeExerciseGuideFragment" />
         <argument
             android:name="dataArg"
             app:argType="com.teamnexters.eyelong.db.entity.Exercise" />
+        <action
+            android:id="@+id/action_eyeExerciseLottieFragment_to_eyeExerciseFinishFragment"
+            app:destination="@id/eyeExerciseFinishFragment" />
     </fragment>
     <fragment
         android:id="@+id/eyeExerciseFinishFragment"

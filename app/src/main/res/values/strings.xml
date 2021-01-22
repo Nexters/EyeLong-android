@@ -8,7 +8,7 @@
     <string name="server_base_url">http://54.180.169.231:8081/</string>
 
     <!-- shared preferences key -->
-    <string name="shared_pref_key_stage">step</string>
+    <string name="shared_pref_key_stage">stage</string>
 
     <!-- main ui -->
     <string name="main_ci">사막같은\n눈을 위해\n오아시스로 출발!</string>
@@ -77,6 +77,8 @@
     <string name="exercise_notice_title">참고해주세요!</string>
     <string name="exercise_notice_content">눈이 아프면 운동을 멈춰주세요.\n그리고 눈 운동의 효과는 사람마다 다를 수 있습니다.</string>
     <string name="exercise_guide_message">이렇게 해보세요</string>
+    <string name="exercise_finish">운동 끝내기</string>
+    <string name="exercise_finish_message">오늘의 눈 운동을 모두 마쳤어요!\n피로한 눈은 이제 안녕~</string>
 
     <!--text-->
     <string name="text_add">추가하기</string>

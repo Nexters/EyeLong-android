@@ -1,7 +1,9 @@
 package com.teamnexters.eyelong.ui.binding
 
+import android.animation.Animator
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
+import android.os.Handler
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
@@ -48,12 +50,22 @@ fun bindDivider(view: RecyclerView, drawable: Drawable) {
     }
 }
 
-@BindingAdapter("app:lottie_fileName")
-fun bindLottieImage(view: LottieAnimationView, lottieImagePath: ObservableField<String>) {
+@BindingAdapter(value = ["lottie_fileName", "lottie_listener"], requireAll = false)
+fun bindLottieImage(
+    view: LottieAnimationView,
+    lottieImagePath: ObservableField<String>,
+    listener: Animator.AnimatorListener?
+) {
     view.apply {
         lottieImagePath.get()?.let {
+            pauseAnimation()
             setAnimation(it)
-            playAnimation()
+
+            Handler().postDelayed({
+                playAnimation()
+            }, 500)
         }
+
+        listener?.let { addAnimatorListener(it) }
     }
 }

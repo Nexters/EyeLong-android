@@ -9,16 +9,21 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.teamnexters.eyelong.BR
 import com.teamnexters.eyelong.R
 import com.teamnexters.eyelong.databinding.FragmentEyeExerciseLottieBinding
 import com.teamnexters.eyelong.ui.exercise.viewmodel.EyeExerciseLottieViewModel
 import com.teamnexters.eyelong.wrapper.provider.PreferencesProviderImpl
+import com.teamnexters.eyelong.wrapper.provider.ResourceProviderImpl
 import com.teamnexters.eyelong.wrapper.usecase.ActivityUseCase
+import com.teamnexters.eyelong.wrapper.usecase.NavigationComponentUseCase
 
 class EyeExerciseLottieFragment : Fragment() {
     private lateinit var onBackPressedCallback: OnBackPressedCallback
     private lateinit var viewModel: EyeExerciseLottieViewModel
+    private val args: EyeExerciseLottieFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +31,8 @@ class EyeExerciseLottieFragment : Fragment() {
         activity?.let {
             viewModel = EyeExerciseLottieViewModel(
                 ActivityUseCase(it),
+                NavigationComponentUseCase(findNavController()),
+                ResourceProviderImpl(it.applicationContext),
                 PreferencesProviderImpl(it.applicationContext)
             )
         }
@@ -45,6 +52,12 @@ class EyeExerciseLottieFragment : Fragment() {
         )
         binding.setVariable(BR.viewModel, viewModel)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.initLottie(args.dataArg.id)
     }
 
     override fun onAttach(context: Context) {

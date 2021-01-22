@@ -3,15 +3,12 @@ package com.teamnexters.eyelong.wrapper.usecase
 import android.app.Activity
 import android.content.DialogInterface
 import android.content.Intent
+import android.os.Bundle
 import android.view.Gravity
 import androidx.appcompat.app.AlertDialog
 import com.teamnexters.eyelong.R
-import com.teamnexters.eyelong.db.entity.Exercise
 import com.teamnexters.eyelong.dialog.CustomDialog
-import com.teamnexters.eyelong.ui.exercise.activity.EyeExerciseActivity
-import com.teamnexters.eyelong.ui.exercise.activity.EyeExerciseDetailActivity
-import com.teamnexters.eyelong.ui.exercise.activity.EyeExerciseEditActivity
-import com.teamnexters.eyelong.ui.exercise.activity.EyeExerciseGroundActivity
+import com.teamnexters.eyelong.ui.exercise.activity.*
 import com.teamnexters.eyelong.ui.habit.activity.HabitActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitAnalyticsActivity
 import com.teamnexters.eyelong.ui.habit.activity.HabitCheckoutActivity
@@ -26,9 +23,9 @@ class ActivityUseCase(private val activity: Activity) {
         activity.startActivity(Intent(activity, EyeExerciseActivity::class.java))
     }
 
-    fun startEyeExerciseDetailActivity(exercise: Exercise) {
+    fun startEyeExerciseDetailActivity(bundle: Bundle?) {
         Intent(activity, EyeExerciseDetailActivity::class.java)
-            .apply { putExtra("data", exercise) }
+            .apply { bundle?.let { putExtras(it) } }
             .let { activity.startActivity(it) }
     }
 
@@ -38,6 +35,10 @@ class ActivityUseCase(private val activity: Activity) {
 
     fun startEyeExerciseGroundActivity() {
         activity.startActivity(Intent(activity, EyeExerciseGroundActivity::class.java))
+    }
+
+    fun startEyeExerciseFinishActivity() {
+        activity.startActivity(Intent(activity, EyeExerciseFinishActivity::class.java))
     }
 
     fun startHabitActivity() {

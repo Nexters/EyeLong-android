@@ -10,7 +10,14 @@ enum class ImageResource(
     EIGHT(
         id = 1,
         iconImagePath = "img_exercise_eight",
-        lottieImagePath = null,
+        lottieImagePath = listOf(
+            "lottie_eye_eight_1.json",
+            "lottie_eye_eight_2.json",
+            "lottie_eye_eight_3.json",
+            "lottie_eye_eight_4.json",
+            "lottie_eye_eight_5.json",
+            "lottie_eye_eight_6.json"
+        ),
         tipImagePath = listOf("img_exercise_tip_eight"),
         guideImagePath = "img_exercise_guide_eight"
     ),
@@ -18,7 +25,17 @@ enum class ImageResource(
     BLINK(
         id = 2,
         iconImagePath = "img_exercise_blink",
-        lottieImagePath = null,
+        lottieImagePath = listOf(
+            "lottie_eye_blink_1_1.json",
+            "lottie_eye_blink_1_2.json",
+            "lottie_eye_blink_1_3.json",
+            "lottie_eye_blink_2_1.json",
+            "lottie_eye_blink_2_2.json",
+            "lottie_eye_blink_2_3.json",
+            "lottie_eye_blink_3_1.json",
+            "lottie_eye_blink_3_2.json",
+            "lottie_eye_blink_3_3.json"
+        ),
         tipImagePath = null,
         guideImagePath = "img_exercise_guide_blink"
     ),
@@ -44,11 +61,11 @@ enum class ImageResource(
         tipImagePath = listOf(
             "img_exercise_tip_stretching_1_1",
             "img_exercise_tip_stretching_2_1",
-            ",img_exercise_tip_stretching_3_1",
-            ",img_exercise_tip_stretching_4_1",
-            ",img_exercise_tip_stretching_5_1",
-            ",img_exercise_tip_stretching_6_1",
-            ",img_exercise_tip_stretching_7_1"
+            "img_exercise_tip_stretching_3_1",
+            "img_exercise_tip_stretching_4_1",
+            "img_exercise_tip_stretching_5_1",
+            "img_exercise_tip_stretching_6_1",
+            "img_exercise_tip_stretching_7_1"
         ),
         guideImagePath = "img_exercise_guide_stretching"
     ),
@@ -56,7 +73,11 @@ enum class ImageResource(
     NOSE(
         id = 4,
         iconImagePath = "img_exercise_nose",
-        lottieImagePath = null,
+        lottieImagePath = listOf(
+            "lottie_nose_massage_1.json",
+            "lottie_nose_massage_2.json",
+            "lottie_nose_massage_3.json"
+        ),
         tipImagePath = null,
         guideImagePath = "img_exercise_guide_nose"
     ),
@@ -64,7 +85,12 @@ enum class ImageResource(
     X(
         id = 5,
         iconImagePath = "img_exercise_x",
-        lottieImagePath = null,
+        lottieImagePath = listOf(
+            "lottie_eye_x_1.json",
+            "lottie_eye_x_2.json",
+            "lottie_eye_x_3.json",
+            "lottie_eye_x_4.json"
+        ),
         tipImagePath = null,
         guideImagePath = "img_exercise_guide_x"
     )
